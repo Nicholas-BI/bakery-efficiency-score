@@ -41,33 +41,42 @@ And so this dashboard was born.
 ## 📦 What’s in the Repo
 
 - `README.md` – This friendly overview  
-- `/docs` – Notes on the data model, DAX structure, visuals, and logic  
-- `/power_query` – M code and data shaping logic  
-- `/images` – Screenshots and diagrams  
-- `dax_measures.xlsx` – Every measure used in the model  
-- `LICENSE` – Creative Commons (non-commercial, with attribution)
+- [`/docs`](./docs/) – Documentation for the data model, visuals, and how the DAX logic works under the hood  
+  - [Measures Overview](./docs/measures_description.md) – Breakdown of the scoring logic  
+  - [Visuals Walkthrough](./docs/visuals_description.md) – Explanation of what you’re looking at  
+- [`/power_query`](./power_query/) – M code and query logic  
+- [`/images`](./images/) – Screenshots and diagrams  
+- [`dax_measures.xlsx`](./docs/dax_measures.xlsx) – Every measure used in the model  
+- [`LICENSE`](./LICENSE) – Creative Commons (non-commercial, with attribution)
+
 
 ---
 
 ## 🧠 How the Logic Works
 
-Each recipe has four attributes:
+Each recipe has four key attributes:
 
-| Attribute | Meaning |
-|----------|---------|
-| **Profit** | Total revenue minus cost  
-| **Cook Time** | Minutes required to prepare  
-| **Servings** | Number of portions it produces (delays payout)  
-| **XP** | Experience gained on completion  
+| Attribute     | Meaning                                |
+|--------------|----------------------------------------|
+| **Profit**    | Total revenue minus cost               |
+| **Cook Time** | Minutes required to prepare            |
+| **Servings**  | Number of portions it produces (delays payout) |
+| **XP**        | Experience gained on completion        |
 
-You choose how important each one is using sliders. These weights are used as **exponents** (so stronger weights have stronger effects), and the score is calculated like this:
+You use sliders to tell the report how much each one matters to you.
 
-- If you like a metric → it goes in the **numerator**  
-- If you dislike a metric → it goes in the **denominator**
+The score for each recipe is calculated using a custom formula:
 
-So a high score means that recipe fits your priorities well.
+- The values are **normalized as ratios**, so they’re comparable  
+- Each metric is raised to the **power of its selected weight**  
+- Positive weights go in the **numerator**, negative ones in the **denominator**  
+- This creates a scoring system that dynamically shifts based on your goals
 
-Behind the scenes, all values are **normalized as ratios** so they’re comparable, no matter the scale.
+> It’s like letting DAX play matchmaker between you and your perfect bake.
+
+Curious about the actual math?  
+→ Check out the [Measures Overview](./docs/measures_description.md) to see how it’s built.
+
 
 ---
 
