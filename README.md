@@ -1,146 +1,117 @@
-# Power BI: Bakery Story Efficiency Score
+# 🍰 Bakery Story: Recipe Efficiency Dashboard (Power BI)
 
-This Power BI project models product efficiency in the mobile game *Bakery Story*. Users can rank recipes based on customizable criteria such as profit, cooking time, servings, and experience (XP) gained. Weight sliders let players express their playstyle priorities—whether chasing fast cash, XP, or passive income—and dynamically re-rank recipes in real time.
+This is a Power BI dashboard for *Bakery Story* players who want to make smarter decisions about what to cook — whether you're after fast cash, big XP, or low-maintenance bakes. It ranks recipes based on **what *you* care about**, using a custom scoring system that reacts to sliders for **Profit**, **Cook Time**, **Servings**, and **XP**.
 
----
-
-## Note
-
-This dashboard is shared for portfolio purposes only. It is not affiliated with Storm8 or intended for commercial use.
+> It’s a mix of math, game logic, and a dash of obsessive nerding-out.
 
 ---
 
-## Repository Contents
+## 👋 Why I Made This
 
-- `README.md` – Project overview and screenshots  
-- [`/docs`](./docs/) – Supporting documentation for model, DAX, and visuals  
-  - [Data Model Description](./docs/data_model_description.md)  
-  - [Measures Overview](./docs/measures_description.md)  
-  - [Visuals Walkthrough](./docs/visuals_description.md)  
-- [`/power_query`](./power_query/) – Power Query M code and ETL logic  
-- [`/images`](./images/) – Report screenshots and diagrams  
-- [DAX Measures File](./docs/dax_measures.xlsx) – Full export of all measures
+This started with a friendly disagreement between me and my partner, Stephanie.
 
----
+She saw big-serving dishes as a good thing — fewer check-ins, more chill.  
+I saw them as a delay — you don’t get paid until the *last* serving is eaten, and I wanted profit *fast*.
 
-## Project Overview
+We were both right. It just depended on what you’re optimizing for.
 
-This report helps *Bakery Story* players optimize their gameplay by comparing recipe efficiency under different playstyle preferences. Users assign weights to key metrics—Profit, Cook Time, Servings, XP—and instantly see a ranked list of recipes based on their priorities. All calculations are normalized and dynamic.
+That was the lightbulb moment:  
+> What if the report didn't decide what was "best"?  
+> What if it let **you** decide what's important, and then adjusted the rankings *dynamically*?
+
+And so this dashboard was born.
 
 ---
 
-## Key Features
+## 🧭 What It Does
 
-- Fully dynamic weighting system via slicers  
-- Bookmark presets for different playstyles (e.g. Quick Cash, XP Farm)  
-- Real-time recipe ranking by user preferences  
-- Interactive tooltips and supporting visuals  
-- Exponent-based scaling for greater differentiation  
-- Ratio-based normalization to preserve relative performance
-
----
-
-## Data Model Overview
-
-The model is based on a single fact table with supporting What-If parameter tables:
-
-- **Fact Tables:**  
-  - `Fact_Bakery` – One row per recipe with attributes for profit, XP, servings, and time  
-
-- **Weight Tables:**  
-  - `ProfitWeight`, `CookTimeWeight`, `ServingsWeight`, `XPWeight` – Disconnected What-If tables for user-selected weights  
-
-- **Utility Tables:**  
-  - `TimePeriods` (for filtering scenarios or presets)  
-  - `Calendar` (basic date table, if time logic is used)  
-
-> See [📄 Data Model Description](./docs/data_model_description.md)
+- 📊 **Ranks every recipe** based on your personal goals  
+- 🎚️ **Slider controls** let you weigh Profit, Cook Time, Servings, and XP  
+- 🔁 **Presets** like “Quick Cash” and “XP Farm” make it easy to start  
+- 🔍 Tooltips break down exactly *why* each recipe got its score  
+- 🧮 Under the hood: ratio-based normalization, exponent weighting, and real-time DAX logic
 
 ---
 
-## Report Pages
+## 📦 What’s in the Repo
 
-The report includes a single interactive dashboard with weight sliders, bookmark buttons, and a ranked bar chart of recipes.
-
-- **Main Page**  
-  - Weight sliders for Profit, Cook Time, Servings, XP  
-  - Preset buttons for common playstyles  
-  - Recipe table and bar chart ranked by dynamic Efficiency Score  
-  - Tooltips showing breakdowns and normalized scores  
-
-> See [📄 Visuals Walkthrough](./docs/visuals_description.md)
+- `README.md` – This friendly overview  
+- `/docs` – Notes on the data model, DAX structure, visuals, and logic  
+- `/power_query` – M code and data shaping logic  
+- `/images` – Screenshots and diagrams  
+- `dax_measures.xlsx` – Every measure used in the model  
+- `LICENSE` – Creative Commons (non-commercial, with attribution)
 
 ---
 
-## DAX Strategy
+## 🧠 How the Logic Works
 
-This report uses a **modular DAX architecture** built around user-adjustable logic. Instead of hardcoded priorities, the ranking logic is driven by relative importance via exponent-weighted scores.
+Each recipe has four attributes:
 
-### Measure Structure:
+| Attribute | Meaning |
+|----------|---------|
+| **Profit** | Total revenue minus cost  
+| **Cook Time** | Minutes required to prepare  
+| **Servings** | Number of portions it produces (delays payout)  
+| **XP** | Experience gained on completion  
 
-- **Base Measures**  
-  - `Total Profit`, `Total XP`, `Total Cook Minutes`, `Total Servings`
+You choose how important each one is using sliders. These weights are used as **exponents** (so stronger weights have stronger effects), and the score is calculated like this:
 
-- **Normalized Measures**  
-  - Ratio-based calculations (e.g., `Normalized Profit = Profit / Max Profit`)  
+- If you like a metric → it goes in the **numerator**  
+- If you dislike a metric → it goes in the **denominator**
 
-- **Exponent Scaled**  
-  - Each normalized value is raised to the user-defined weight power  
-  - Positive weights emphasize high values  
-  - Negative weights penalize high values (flip to denominator)
+So a high score means that recipe fits your priorities well.
 
-- **Efficiency Score**  
-  - Score = (Product of all positively-weighted terms) ÷ (Product of negatively-weighted terms)  
-
-> See [📄 Measures Overview](./docs/measures_description.md)  
-> Browse the full list in [📊 dax_measures.xlsx](./docs/dax_measures.xlsx)
+Behind the scenes, all values are **normalized as ratios** so they’re comparable, no matter the scale.
 
 ---
 
-## Power Query & ETL
+## 🎯 Example Playstyles (Presets)
 
-Recipe data is derived from in-game values (profit, XP, servings, time), entered manually for modeling purposes. Power Query is used for basic cleanup, typing, and shaping into a single fact table.
-
-> See [📄 ETL Overview](./power_query/README.md)  
-> [📷 Query Dependencies](./images/power_query/query_dependencies.png)
-
----
-
-## Data Privacy
-
-All recipe data is sourced from publicly available in-game information. No sensitive or proprietary data is included.
+| Strategy     | Profit | Cook Time | Servings | XP | Description |
+|--------------|--------|-----------|----------|----|-------------|
+| Quick Cash   | 4      | –4        | –2       | 1  | Big money, fast, small batches  
+| XP Farm      | 1      | –2        | –2       | 4  | Level up quickly, no long bakes  
+| Party Host   | 1      | –2        | 4        | 0  | Feed a crowd, slow and steady  
+| Balanced     | 2      | –2        | 1        | 1  | Well-rounded without extremes  
 
 ---
 
-## Technologies Used
+## 🖼️ Screenshots
 
-- Power BI Desktop  
-- DAX (Data Analysis Expressions)  
-- Power Query (M)  
-- Excel (for initial entry)  
-- GitHub for documentation  
+| Main View | Weight Sliders | Presets |
+|-----------|----------------|---------|
+| ![Main View](./images/pages/ranked_recipes.png) | ![Sliders](./images/pages/sliders_and_bookmarks.png) | ![Presets](./images/pages/bookmarks.png) |
 
 ---
 
-## Report Screenshots
+## 📂 How to Use
 
-| Recipe Ranking | Weight Sliders |
-|----------------|----------------|
-| ![Recipe Ranking](./images/pages/ranked_recipes.png) | ![Sliders](./images/pages/sliders_and_bookmarks.png) |
+1. Open the `.pbix` file in **Power BI Desktop** (free from Microsoft)
+2. Adjust the weight sliders based on what matters to you
+3. Watch the recipe rankings update instantly
+4. Hover over any recipe to see its breakdown
 
-| Bookmark Presets | Tooltip Breakdown |
-|------------------|-------------------|
-| ![Presets](./images/pages/bookmarks.png) | ![Tooltip](./images/pages/tooltip.png) |
+> Note: Some people on Reddit might ask “how do I open this?” — it’s a Power BI file! Just download [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ---
 
-## Purpose
+## 🔐 License
 
-This report is part of a personal portfolio to demonstrate:
+This project is shared under [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 
-- A fully interactive, player-guided efficiency model  
-- Use of What-If slicers to parameterize logic  
-- Ratio-based normalization and exponent scaling  
-- Dynamic DAX for non-business use cases  
-- Clear, communicative reporting for a casual audience
+> Go wild with it—remix it, improve it, share it.  
+> Just don’t sell it or use it for profit without talking to me first.
 
+---
+
+## 🤝 Why This Exists
+
+I’ve always loved fan-made tools and mods — from Fallout save editors to Factorio calculator builds. This is my version of that. I hope it’s useful, inspiring, and maybe even fun to mess with.
+
+And if you’re the kind of person who loves digging into sliders and systems to chase optimal outcomes?  
+You’ll fit right in.
+
+---
+
+Let me know if you use it or if you want help building your own variant. I’d love to see it evolve 🧁
