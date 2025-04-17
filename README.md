@@ -101,12 +101,16 @@ Behind the scenes, all values are **normalized as ratios** so they’re comparab
 
 ---
 
+---
+
 ## 🔐 License
 
-This project is shared under [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](./LICENSE).
 
-> Go wild with it—remix it, improve it, share it.  
-> Just don’t sell it or use it for profit without talking to me first.
+You’re welcome to share it, remix it, adapt it, or use it for your own personal playstyle exploration — just don’t sell it or use it commercially without reaching out first.
+
+> TL;DR: Go wild. Just don’t try to turn this into a bakery optimization SaaS without giving me a cut. 🧁
+
 
 ---
 
