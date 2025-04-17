@@ -44,7 +44,7 @@ Here’s why that matters:
 The way the score works, every metric either ends up in the **numerator** (good) or the **denominator** (bad).  
 So if you wanted to “turn off” a metric — say, you didn’t care about XP at all — you’d set the slider to zero and expect it to be skipped.
 
-But if zero wasn’t *really* zero? It might sneak into the formula anyway, and suddenly your XP score is subtly messing with the rankings even though you said not to include it.
+But if zero wasn’t *really* zero? It would sneak into the formula anyway, and suddenly your XP score is subtly messing with the rankings even though you said not to include it.
 
 So I scrapped the default what-if method and built these tables by hand using `DATATABLE()`, which gave me full control over the values and formatting. That fixed the problem, kept logic clean, and made the sliders feel truly responsive.
 
