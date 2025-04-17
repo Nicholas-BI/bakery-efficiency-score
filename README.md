@@ -125,7 +125,7 @@ You’re welcome to share it, remix it, adapt it, or use it for your own persona
 
 ## 🤝 Why This Exists
 
-I’ve always loved fan-made tools and mods — from Fallout save editors to Factorio calculator builds. This is my version of that. I hope it’s useful, inspiring, and maybe even fun to mess with.
+I’ve always loved fan-made tools and mods — from Fallout 2 save editors to Factorio calculator builds. This is my version of that. I hope it’s useful, inspiring, and maybe even fun to mess with.
 
 And if you’re the kind of person who loves digging into sliders and systems to chase optimal outcomes?  
 You’ll fit right in.
