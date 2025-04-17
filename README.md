@@ -26,10 +26,15 @@ And so this dashboard was born.
 ## 🧭 What It Does
 
 - 📊 **Ranks every recipe** based on your personal goals  
-- 🎚️ **Slider controls** let you weigh Profit, Cook Time, Servings, and XP  
-- 🔁 **Presets** like “Quick Cash” and “XP Farm” make it easy to start  
-- 🔍 Tooltips break down exactly *why* each recipe got its score  
-- 🧮 Under the hood: ratio-based normalization, exponent weighting, and real-time DAX logic
+- 🎚️ **Slider controls** let you weigh Profit, Cook Time, Servings, and XP — the score updates in real time  
+- 🧮 **Exponent-based logic** means higher weights have more impact (it's not just linear)  
+- 🍳 **Filter by appliance** — see only what you can cook on your ovens, grills, or drink machines  
+- ⏲️ **Filter by cook time** — want to prep something while you’re gone for 4 hours? Just pick that time range and see your best options  
+- 🔁 **Preset buttons** let you switch between playstyles like “Quick Cash” and “XP Farm”  
+- 🔍 Hover over any recipe to see a detailed **tooltip breakdown** showing how the score was calculated  
+- 🧠 Built with **normalized ratios**, so all values are scaled fairly no matter the units
+
+> Whether you’re a min-maxer or just want to get the best results from the time you have, this report has you covered.
 
 ---
 
