@@ -38,9 +38,16 @@ These tables act like what-if parameters, but they aren’t created using Power 
 
 ### Why not use standard What-If Parameters?
 
-Because rounding errors near zero made them unreliable. You could select 0 and still get a tiny decimal that broke your logic. That made the whole idea of “turn this metric off” kinda useless.
+Because rounding errors near zero made them unreliable. You could select 0 and still get a tiny decimal like `1.11022e-16`, and that was enough to break the logic.
 
-Instead, each weight table here is built manually using `DATATABLE`, which gives you full control over the values and formatting.
+Here’s why that matters:  
+The way the score works, every metric either ends up in the **numerator** (good) or the **denominator** (bad).  
+So if you wanted to “turn off” a metric — say, you didn’t care about XP at all — you’d set the slider to zero and expect it to be skipped.
+
+But if zero wasn’t *really* zero? It might sneak into the formula anyway, and suddenly your XP score is subtly messing with the rankings even though you said not to include it.
+
+So I scrapped the default what-if method and built these tables by hand using `DATATABLE()`, which gave me full control over the values and formatting. That fixed the problem, kept logic clean, and made the sliders feel truly responsive.
+
 
 ### Example – `ProfitWeight`
 
