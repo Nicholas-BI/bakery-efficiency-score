@@ -106,7 +106,7 @@ Curious about the actual math?
 3. Watch the recipe rankings update instantly
 4. Hover over any recipe to see its breakdown
 
-> Note: Some people on Reddit might ask “how do I open this?” — it’s a Power BI file! Just download [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
+> Note: Some people from Reddit might ask “how do I open this?” — it’s a Power BI file! Just download [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ---
 
