@@ -105,7 +105,7 @@ Behind the scenes, all values are **normalized as ratios** so they’re comparab
 
 ## 🔐 License
 
-This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](./LICENSE).
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](./LICENSE.md).
 
 You’re welcome to share it, remix it, adapt it, or use it for your own personal playstyle exploration — just don’t sell it or use it commercially without reaching out first.
 
