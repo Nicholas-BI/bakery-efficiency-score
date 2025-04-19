@@ -21,11 +21,11 @@ This dashboard does exactly that.
 
 ---
 
-## 🔽 Download the Report
+## 🔽 Download the Dashboard
 
 Curious to try it out?
 
-> 👉 [**Click here to download the Power BI file (.pbix)**](https://github.com/yourusername/BakeryStory-Efficiency/raw/main/BakeryStory_Efficiency.pbix)
+> 👉 [**Click here to download the Power BI file (.pbix)**](https://github.com/Nicholas-BI/bakery-efficiency-score/raw/main/docs/Bakery%20Story.pbix)
 
 Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the sliders, and see the rankings update live based on what *you* care about.
 
