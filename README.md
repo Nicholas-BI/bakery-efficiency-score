@@ -72,10 +72,10 @@ Each recipe receives a dynamic efficiency score based on your weight settings:
 
 | Strategy     | Profit | Cook Time | Servings | XP | Description                          |
 |--------------|--------|-----------|----------|----|--------------------------------------|
-| Quick Cash   | 10     | –10       | –5       | 3  | Maximize revenue, minimize wait time |
-| XP Farm      | 2      | –5        | –5       | 10 | Level up quickly with short bakes    |
-| Party Host   | 2      | –5        | 10       | 0  | Maximize servings for events         |
-| Balanced     | 5      | –5        | 3        | 3  | A general-purpose optimization        |
+| Quick Cash   | 20     | -20       | –5       | 1  | Maximize revenue, minimize wait time |
+| XP Farm      | 5      | –20        | –5       | 20 | Level up quickly with short bakes    |
+| Party Host   | 5      | –10        | 20       | 1  | Maximize servings for events         |
+| Balanced     | 1      | –1        | -1        | 1  | A general-purpose optimization        |
 
 ---
 
