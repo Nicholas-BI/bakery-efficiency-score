@@ -22,7 +22,7 @@ This folder contains all supporting documentation and reference files for the **
   Breakdown of core DAX: normalization, exponent weighting, dynamic numerator/denominator logic, and final score.
 
 - [DAX Measures File](./dax_measures.xlsx)
--- 👉 **[Click here to download the DAX measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/dax_measures.xlsx)**  
+- - 👉 **[Click here to download the DAX measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/dax_measures.xlsx)**  
   Full export of all DAX measures—from base metrics to display helpers.
 
 - [Visuals Walkthrough](./visuals_description.md)  
