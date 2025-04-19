@@ -1,6 +1,16 @@
-# Bakery Story: Recipe Efficiency Dashboard (Power BI)
+#  Bakery Story: Recipe Efficiency Dashboard (Power BI)
 
 A Power BI dashboard that ranks *Bakery Story* recipes based on what *you* care about — Profit, Cook Time, Servings, and XP — using dynamic sliders and an exponent‑based scoring model built on ratio-normalized metrics.
+
+---
+
+## What Is Bakery Story?
+
+*Bakery Story* is a casual mobile game where players run a virtual bakery — cooking recipes, serving customers, earning coins, and leveling up. Every recipe is different: some earn more profit, some cook faster, some serve more customers, and some give better XP.
+
+But here's the catch: you can't cook them all.
+
+So… which recipe is *best*?
 
 ---
 
@@ -27,6 +37,7 @@ Want to explore it live?
 
 👉 **[Click here to download the .pbix file](./BakeryStory_Efficiency.pbix)**  
 Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the sliders, and watch the rankings adapt in real time to your strategy.
+
 
 
 ---
