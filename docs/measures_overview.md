@@ -102,16 +102,6 @@ This is the core of the ranking engine—**a balanced ratio** of weighted priori
 
 ---
 
-## 🥇 Step 5: Ranking Logic
-
-After computing a score per recipe, we rank and return the best one for the current slicer settings.
-
-- Remove recipes with no score
-- Compare all remaining scores
-- Return the highest one—unless there's a tie or too little data, in which case show a message
-
----
-
 ## ✅ Summary of the Flow
 
 1. **Aggregate raw metrics** from the fact table  
