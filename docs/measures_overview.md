@@ -1,3 +1,4 @@
+
 # 📊 Measures Overview
 
 This document details all DAX measures powering the **Bakery Story Efficiency Score** dashboard. You’ll find base aggregations, normalized ratios, weight handling, scoring logic, and ranking formulas.
@@ -176,13 +177,3 @@ Best Recipe (By Efficiency) =
             "Adjust weights or deselect recipe",
             TopRecipe
         )
-"""
-
-# Define output file path
-output_path = Path("/mnt/data/measures_overview.txt")
-
-# Write the content to the file
-output_path.write_text(dax_measures_content)
-
-# Return the file path for download
-output_path.name
