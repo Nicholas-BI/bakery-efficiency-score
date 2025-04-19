@@ -16,12 +16,6 @@ We begin by calculating **base metrics** for each recipe:
 
 These are simple `SUM` aggregations on the fact table (`Fact_Bakery`), grouped by recipe.
 
-```DAX
--- Example: Total Profit
-Total Profit =
-    [Total Income] - [Total Cost]
-```
-
 ---
 
 ## ⚖️ Step 2: Normalize Metrics (into [1 → 2] range)
@@ -35,20 +29,14 @@ Convert every metric to a **unitless, comparable number between 1 and 2**, using
 Normalized Value = 1 + (This Recipe's Total / Max Total in Context)
 ```
 
-- If a specific **appliance** is selected, we normalize within that group.
-- If not, we normalize against the global maximum.
+If a specific **appliance** is selected, we normalize within that group.  
+If not, we normalize against the global maximum.
 
-```DAX
-Normalized Profit =
-    VAR ThisTotal = [Total Profit]
-    VAR MaxAll = MAXX(ALL(Dim_Recipe[Recipe]), [Total Profit])
-    VAR MaxAppliance = MAXX(ALL(Dim_Appliance[Appliance]), [Total Profit])
-    VAR Denominator =
-        IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxAppliance, MaxAll)
-    RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
-```
-
-This gives us four normalized inputs: `[Normalized Profit]`, `[Normalized Cook Minutes]`, `[Normalized Servings]`, and `[Normalized XP]`.
+This results in:
+- `[Normalized Profit]`
+- `[Normalized Cook Minutes]`
+- `[Normalized Servings]`
+- `[Normalized XP]`
 
 ---
 
@@ -59,78 +47,68 @@ Each metric is assigned a **player-defined weight** (via slicers), ranging from 
 ### What the weight means:
 - **Positive Weight:** "I want *more* of this" → Goes in the **numerator**
 - **Negative Weight:** "I want *less* of this" → Goes in the **denominator**
-- **Zero Weight:** "I don’t care" → Neutralized (becomes 1)
+- **Zero Weight:** "I don’t care" → Treated as 1 (neutral)
 
-### Algebraically:
+This turns a multi-objective optimization problem into a **multiplicative scoring model**:
+
 ```
-Score = (P^p) * (C^c) * (S^s) * (X^x)
+Score = (P^p * C^c * S^s * X^x) / (P^-p * C^-c * S^-s * X^-x)
 ```
+
 Where:
 - `P` = Normalized Profit  
 - `p` = profit weight  
 - `C`, `S`, `X` = other normalized metrics  
-- Negative exponents push metrics into the denominator.
-
-```DAX
--- Contribution for a single metric
-Contribution =
-    VAR w = [Selected Weight (Exponent)]
-    VAR v = [Normalized Value]
-    RETURN
-        SWITCH(
-            TRUE(),
-            w = 0, 1,
-            POWER(v, ABS(w))
-        )
-```
+- Negative exponents shift the metric into the denominator
 
 ---
 
-## 🧮 Step 4: Score Calculation
+## 🚀 Step 4: Efficiency Score Formula
 
-Using all four metrics and their weights, we build a final formula:
-
-```DAX
-Efficiency Score =
-    (P^p * C^c * S^s * X^x) / (P^-p * C^-c * S^-s * X^-x)
-```
-
-This is implemented in DAX as a numerator and denominator, where each metric is conditionally included based on the sign of its weight:
+Here’s the complete DAX implementation of the Efficiency Score logic:
 
 ```DAX
--- Conceptual structure
-Numerator =
-    IF(p > 0, P^p, 1) *
-    IF(c > 0, C^c, 1) *
-    ...
+Efficiency Score (Filtered) = 
+VAR PW = SELECTEDVALUE( ProfitWeight[Profit Weight],      0 )
+VAR CW = SELECTEDVALUE( CookTimeWeight[Cook Time Weight], 0 )
+VAR SW = SELECTEDVALUE( ServingsWeight[Servings Weight],  0 )
+VAR XW = SELECTEDVALUE( XPWeight[XP Weight],              0 )
 
-Denominator =
-    IF(p < 0, P^-p, 1) *
-    IF(c < 0, C^-c, 1) *
-    ...
+VAR ProfitBase = [Normalized Profit]
+VAR CookBase   = [Normalized Cook Minutes]
+VAR ServeBase  = [Normalized Servings]
+VAR XPBase     = [Normalized XP]
+
+VAR Numerator =
+    IF( PW > 0, POWER( ProfitBase, PW ), 1 ) *
+    IF( CW > 0, POWER( CookBase,   CW ), 1 ) *
+    IF( SW > 0, POWER( ServeBase,  SW ), 1 ) *
+    IF( XW > 0, POWER( XPBase,     XW ), 1 )
+
+VAR Denominator =
+    IF( PW < 0, POWER( ProfitBase,  -PW ), 1 ) *
+    IF( CW < 0, POWER( CookBase,    -CW ), 1 ) *
+    IF( SW < 0, POWER( ServeBase,   -SW ), 1 ) *
+    IF( XW < 0, POWER( XPBase,      -XW ), 1 )
+
+VAR BaseResult = DIVIDE( Numerator, Denominator, 0 )
+
+VAR HasRows = COUNTROWS( Fact_Bakery )
+RETURN
+    IF( HasRows = 0, BLANK(), BaseResult )
 ```
 
-If the denominator is 1, all weights are positive (maximize all).
-If the numerator is 1, all weights are negative (minimize all).
-Zero weights are treated as neutral and do not affect the outcome.
+This is the core of the ranking engine—**a balanced ratio** of weighted priorities, dynamically computed per recipe and context.
 
 ---
 
-## 🥇 Step 5: Rank & Display
+## 🥇 Step 5: Ranking Logic
 
-Once each recipe has a calculated **Efficiency Score**, we identify the best option in the current filter context.
+After computing a score per recipe, we rank and return the best one for the current slicer settings.
 
-- Filter out recipes with no valid score
-- Rank them descending
-- Show the top result
-- If there's a tie or not enough data, display a fallback message
-
-```DAX
-Best Recipe =
-    VAR Candidates = FILTER(VALUES(...), NOT ISBLANK([Efficiency Score]))
-    ...
-    RETURN IF(TooFewOptions || NoScoreDifference, "Adjust weights", TopRecipe)
-```
+- Remove recipes with no score
+- Compare all remaining scores
+- Return the highest one—unless there's a tie or too little data, in which case show a message
 
 ---
 
