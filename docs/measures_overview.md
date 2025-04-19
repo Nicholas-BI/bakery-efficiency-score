@@ -1,122 +1,78 @@
-# 📊 Measures Overview
+# 📊 Efficiency Scoring System – Conceptual Overview
 
-This document details all DAX measures powering the **Bakery Story Efficiency Score** dashboard. You’ll find base aggregations, normalized ratios, weight handling, scoring logic, and ranking formulas.
+This document walks through the **mathematical logic** and **Power BI implementation** behind the **Bakery Story Efficiency Score** model. It’s designed to rank in-game recipes based on player preferences—Profit, Cook Time, Servings, and XP—through a dynamic, weighted scoring system.
+
+Rather than listing every measure, this guide explains how they work together conceptually, using algebra, DAX, and plain English.
 
 ---
 
-## 🧮 Base Aggregations
+## 🧮 Step 1: Raw Totals
 
-Core sum and arithmetic measures that feed into the normalization logic.
+We begin by calculating **base metrics** for each recipe:  
+- `Profit = Income - Cost`  
+- `Cook Time = Minutes required`  
+- `Servings = How many customers can consume it`  
+- `XP = Experience gained`
+
+These are simple `SUM` aggregations on the fact table (`Fact_Bakery`), grouped by recipe.
 
 ```DAX
--- Total Cook Minutes
-Total Cook Minutes =
-    SUM(Fact_Bakery[Minutes])
-
--- Total Servings
-Total Servings =
-    SUM(Fact_Bakery[Servings])
-
--- Total Income
-Total Income =
-    SUM(Fact_Bakery[Income])
-
--- Total Cost
-Total Cost =
-    CALCULATE(SUM(Fact_Bakery[Cost]))
-
--- Total Profit
+-- Example: Total Profit
 Total Profit =
     [Total Income] - [Total Cost]
-
--- Total XP
-Total XP =
-    SUM(Fact_Bakery[XP])
 ```
 
 ---
 
-## ⚖️ Normalized Metrics
+## ⚖️ Step 2: Normalize Metrics (into [1 → 2] range)
 
-Each metric is scaled into the range [1 → 2], context‑aware by appliance or global maxima.
+To fairly compare metrics that live on different scales (e.g., profit might be in the 1000s, XP in the 10s), we normalize each into a consistent range.
+
+### 🎯 Goal:
+Convert every metric to a **unitless, comparable number between 1 and 2**, using:
+
+```
+Normalized Value = 1 + (This Recipe's Total / Max Total in Context)
+```
+
+- If a specific **appliance** is selected, we normalize within that group.
+- If not, we normalize against the global maximum.
 
 ```DAX
--- Normalized Profit
 Normalized Profit =
     VAR ThisTotal = [Total Profit]
-    VAR MaxTotalAll = MAXX(ALL(Dim_Recipe[Recipe]), [Total Profit])
-    VAR MaxTotalAppl = MAXX(ALL(Dim_Appliance[Appliance]), [Total Profit])
+    VAR MaxAll = MAXX(ALL(Dim_Recipe[Recipe]), [Total Profit])
+    VAR MaxAppliance = MAXX(ALL(Dim_Appliance[Appliance]), [Total Profit])
     VAR Denominator =
-        IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxTotalAppl, MaxTotalAll)
-    RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
-
--- Normalized XP
-Normalized XP =
-    VAR ThisTotal = [Total XP]
-    VAR MaxTotalAll = MAXX(ALL(Dim_Recipe[Recipe]), [Total XP])
-    VAR MaxTotalAppl = MAXX(ALL(Dim_Appliance[Appliance]), [Total XP])
-    VAR Denominator =
-        IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxTotalAppl, MaxTotalAll)
-    RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
-
--- Normalized Cook Minutes
-Normalized Cook Minutes =
-    VAR ThisTotal = [Total Cook Minutes]
-    VAR MaxTotalAll = MAXX(ALL(Dim_Recipe[Recipe]), [Total Cook Minutes])
-    VAR MaxTotalAppl = MAXX(ALL(Dim_Appliance[Appliance]), [Total Cook Minutes])
-    VAR Denominator =
-        IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxTotalAppl, MaxTotalAll)
-    RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
-
--- Normalized Servings
-Normalized Servings =
-    VAR ThisTotal = [Total Servings]
-    VAR MaxTotalAll = MAXX(ALL(Dim_Recipe[Recipe]), [Total Servings])
-    VAR MaxTotalAppl = MAXX(ALL(Dim_Appliance[Appliance]), [Total Servings])
-    VAR Denominator =
-        IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxTotalAppl, MaxTotalAll)
+        IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxAppliance, MaxAll)
     RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
 ```
 
+This gives us four normalized inputs: `[Normalized Profit]`, `[Normalized Cook Minutes]`, `[Normalized Servings]`, and `[Normalized XP]`.
+
 ---
 
-## 🎚️ Parameter & Selector Measures
+## 🎛️ Step 3: Player-Controlled Weighting (via Exponents)
+
+Each metric is assigned a **player-defined weight** (via slicers), ranging from -2 to 2.
+
+### What the weight means:
+- **Positive Weight:** "I want *more* of this" → Goes in the **numerator**
+- **Negative Weight:** "I want *less* of this" → Goes in the **denominator**
+- **Zero Weight:** "I don’t care" → Neutralized (becomes 1)
+
+### Algebraically:
+```
+Score = (P^p) * (C^c) * (S^s) * (X^x)
+```
+Where:
+- `P` = Normalized Profit  
+- `p` = profit weight  
+- `C`, `S`, `X` = other normalized metrics  
+- Negative exponents push metrics into the denominator.
 
 ```DAX
--- Normalized Value
-Normalized Value =
-    SWITCH(
-        SELECTEDVALUE(Metrics[Metric]),
-        "Profit", [Normalized Profit],
-        "Cook Time", [Normalized Cook Minutes],
-        "Servings", [Normalized Servings],
-        "XP", [Normalized XP],
-        BLANK()
-    )
-
--- Selected Weight (Exponent)
-Selected Weight (Exponent) =
-    SWITCH(
-        SELECTEDVALUE(Metrics[Metric]),
-        "Profit", SELECTEDVALUE(ProfitWeight[Profit Weight], 0),
-        "Cook Time", SELECTEDVALUE(CookTimeWeight[Cook Time Weight], 0),
-        "Servings", SELECTEDVALUE(ServingsWeight[Servings Weight], 0),
-        "XP", SELECTEDVALUE(XPWeight[XP Weight], 0),
-        0
-    )
-
--- Placement
-Placement =
-    VAR w = [Selected Weight (Exponent)]
-    RETURN
-        SWITCH(
-            TRUE(),
-            w > 0, "Numerator",
-            w < 0, "Denominator",
-            "Ignored"
-        )
-
--- Contribution
+-- Contribution for a single metric
 Contribution =
     VAR w = [Selected Weight (Exponent)]
     VAR v = [Normalized Value]
@@ -130,57 +86,75 @@ Contribution =
 
 ---
 
-## 🚀 Scoring Logic
+## 🧮 Step 4: Score Calculation
+
+Using all four metrics and their weights, we build a final formula:
 
 ```DAX
--- Efficiency Score (Filtered)
-Efficiency Score (Filtered) =
-    VAR PW = SELECTEDVALUE(ProfitWeight[Profit Weight], 0)
-    VAR CW = SELECTEDVALUE(CookTimeWeight[Cook Time Weight], 0)
-    VAR SW = SELECTEDVALUE(ServingsWeight[Servings Weight], 0)
-    VAR XW = SELECTEDVALUE(XPWeight[XP Weight], 0)
-    VAR ProfitBase = [Normalized Profit]
-    VAR CookBase = [Normalized Cook Minutes]
-    VAR ServeBase = [Normalized Servings]
-    VAR XPBase = [Normalized XP]
-    VAR Numerator =
-        IF(PW > 0, POWER(ProfitBase, PW), 1) *
-        IF(CW > 0, POWER(CookBase, CW), 1) *
-        IF(SW > 0, POWER(ServeBase, SW), 1) *
-        IF(XW > 0, POWER(XPBase, XW), 1)
-    VAR Denominator =
-        IF(PW < 0, POWER(ProfitBase, -PW), 1) *
-        IF(CW < 0, POWER(CookBase, -CW), 1) *
-        IF(SW < 0, POWER(ServeBase, -SW), 1) *
-        IF(XW < 0, POWER(XPBase, -XW), 1)
-    VAR BaseResult = DIVIDE(Numerator, Denominator, 0)
-    VAR HasRows = COUNTROWS(Fact_Bakery)
-    RETURN IF(HasRows = 0, BLANK(), BaseResult)
-
--- Best Recipe (By Efficiency)
-Best Recipe (By Efficiency) =
-    VAR Candidates =
-        FILTER(
-            VALUES(Dim_Recipe[Recipe]),
-            NOT ISBLANK([Efficiency Score (Filtered)])
-        )
-    VAR CountCand = COUNTROWS(Candidates)
-    VAR ScoresTable =
-        ADDCOLUMNS(
-            Candidates,
-            "Score", [Efficiency Score (Filtered)]
-        )
-    VAR MinScore = MINX(ScoresTable, [Score])
-    VAR MaxScore = MAXX(ScoresTable, [Score])
-    VAR TopRecipe =
-        MAXX(
-            TOPN(1, ScoresTable, [Score], DESC),
-            Dim_Recipe[Recipe]
-        )
-    RETURN
-        IF(
-            CountCand < 2 || MinScore = MaxScore,
-            "Adjust weights or deselect recipe",
-            TopRecipe
-        )
+Efficiency Score =
+    (P^p * C^c * S^s * X^x) / (P^-p * C^-c * S^-s * X^-x)
 ```
+
+This is implemented in DAX as a numerator and denominator, where each metric is conditionally included based on the sign of its weight:
+
+```DAX
+-- Conceptual structure
+Numerator =
+    IF(p > 0, P^p, 1) *
+    IF(c > 0, C^c, 1) *
+    ...
+
+Denominator =
+    IF(p < 0, P^-p, 1) *
+    IF(c < 0, C^-c, 1) *
+    ...
+```
+
+If the denominator is 1, all weights are positive (maximize all).
+If the numerator is 1, all weights are negative (minimize all).
+Zero weights are treated as neutral and do not affect the outcome.
+
+---
+
+## 🥇 Step 5: Rank & Display
+
+Once each recipe has a calculated **Efficiency Score**, we identify the best option in the current filter context.
+
+- Filter out recipes with no valid score
+- Rank them descending
+- Show the top result
+- If there's a tie or not enough data, display a fallback message
+
+```DAX
+Best Recipe =
+    VAR Candidates = FILTER(VALUES(...), NOT ISBLANK([Efficiency Score]))
+    ...
+    RETURN IF(TooFewOptions || NoScoreDifference, "Adjust weights", TopRecipe)
+```
+
+---
+
+## ✅ Summary of the Flow
+
+1. **Aggregate raw metrics** from the fact table  
+2. **Normalize** each to [1 → 2] using max-based scaling  
+3. **Apply player weights** using exponent math  
+4. **Calculate a combined score** (numerator / denominator)  
+5. **Identify the best recipe** in context
+
+This model allows flexible, personalized optimization—whether you value XP grinding, bulk batches, rapid turnaround, or raw profit.
+
+---
+
+## 🛠️ Future Improvements
+
+- Multi-appliance optimization logic  
+- Visual sensitivity analysis (e.g., tornado charts)  
+- Prebuilt bookmarks for common profiles like "XP Farmer" or "Passive Player"  
+- Appliance utilization costs (opportunity cost modeling)
+
+---
+
+Want to try it yourself?  
+👉 **[Click here to download the .pbix file](./BakeryStory_Efficiency.pbix)**  
+👉 **[Click here to download the DAX measures](./docs/dax_measures.xlsx)**
