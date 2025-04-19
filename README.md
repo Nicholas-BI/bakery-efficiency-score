@@ -35,7 +35,7 @@ This dashboard does exactly that.
 
 Want to explore it live?
 
-👉 **[Click here to download the .pbix file](./BakeryStory_Efficiency.pbix)**  
+👉 **[Click here to download the .pbix file](./BakeryStory.pbix)**  
 Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the sliders, and watch the rankings adapt in real time to your strategy.
 
 
