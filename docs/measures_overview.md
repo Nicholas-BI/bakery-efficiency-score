@@ -169,5 +169,5 @@ All fully dynamic, filter-aware, and powered by DAX.
 ---
 
 Want to try it yourself?  
-👉 **[Click here to download the .pbix file](./BakeryStory_Efficiency.pbix)**  
-👉 **[Click here to download the DAX measures](./docs/dax_measures.xlsx)**
+👉 **[Click here to download the .pbix file](./bakery_story.pbix)**  
+👉 **[Click here to download the DAX measures](./dax_measures.xlsx)**
