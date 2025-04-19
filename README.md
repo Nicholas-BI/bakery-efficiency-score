@@ -53,7 +53,7 @@ Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the
 - [`/power_query`](./power_query/) – M code, query structure, and ETL logic  
   - [Power Query Overview](./power_query/README.md)
   - [Query Dependencies Diagram](./images/power_query/query_dependencies.png)
-  - - `docs/bakery_story_source.xlsx` – Source data export file  
+  - `docs/bakery_story_source.xlsx` – Source data export file  
   👉 **[Click here to download the source data file](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/bakery_story_source.xlsx)**
 
 - [`/images`](./images/) – Report screenshots and diagrams  
