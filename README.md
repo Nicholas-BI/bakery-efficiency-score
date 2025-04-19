@@ -147,24 +147,14 @@ Open the `.pbix` file in [Power BI Desktop](https://powerbi.microsoft.com/deskto
 
 ## 📁 Repository Contents
 
-All key sections and files in this project:
-
-- [🍰 Introduction](#-bakery-story-recipe-efficiency-report-power-bi)  
-- [What Is Bakery Story?](#what-is-bakery-story)  
-- [Why I Made This](#why-i-made-this)  
-- [What This Report Does](#what-this-report-does)  
-- [How It Works (Under the Hood)](#how-it-works-under-the-hood)  
-- [Scoring Logic](#scoring-logic)  
-- [Preset Strategies](#preset-strategies)  
-- [Data Model Overview](#data-model-overview)  
-- [Power Query & ETL](#power-query--etl)  
-- [Report Design](#report-design)  
-- [📥 Try It Yourself](#-try-it-yourself)  
-- [▶️ Getting Started](#️-getting-started)  
-- [📁 Repository Contents](#-repository-contents)  
-- [Screenshots](#screenshots)  
-- [Contributing](#contributing)  
-- [License](#license)
+- [`bakery_story.pbix`](./docs/bakery_story.pbix) — Main Power BI report  
+- [`dax_measures.xlsx`](./docs/dax_measures.xlsx) — Full export of all DAX measures  
+- [`bakery_story_source.xlsx`](./docs/bakery_story_source.xlsx) — Source data snapshot  
+- [`measures_overview.md`](./docs/measures_overview.md) — Conceptual scoring breakdown  
+- [`data_model_description.md`](./docs/data_model_description.md) — Schema and table logic  
+- [`power_query.md`](./docs/power_query.md) — ETL transformation details  
+- [`visuals_description.md`](./docs/visuals_description.md) — Report layout and interaction notes  
+- [`LICENSE`](./LICENSE) — Creative Commons BY-NC 4.0
 
 ---
 
