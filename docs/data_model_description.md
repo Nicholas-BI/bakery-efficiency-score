@@ -88,7 +88,7 @@ This model is intentionally lean and interactive:
 
 - **No bi-directional filters** → Everything is clean and predictable  
 - **Disconnected slicers** → Let you control logic without messing with relationships  
-- **All logic in measures** → No calculated columns, no hidden cruft  
+- **All logic in measures** → Virtually no calculated columns, no hidden cruft  
 - **Custom-built sliders** → Gives you perfect control over weight values
 
 > If you want to see how those weight values actually drive the score, head over to [Measures Overview](./measures_overview.md).
