@@ -1,6 +1,6 @@
 # Bakery Story: Recipe Efficiency Dashboard (Power BI)
 
-A Power BI dashboard for *Bakery Story* players that ranks recipes based on your personal goals—Profit, Cook Time, Servings, and XP—using dynamic sliders and exponent‑based scoring.
+A Power BI dashboard for *Bakery Story* players that ranks recipes based on your personal goals—Profit, Cook Time, Servings, and XP—using dynamic sliders and exponent‑based scoring of ratio-normalized metrics.
 
 ---
 
