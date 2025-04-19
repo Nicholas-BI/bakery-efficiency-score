@@ -46,19 +46,32 @@ Optimize for fast revenue, XP farming, large events, or a balanced approach—di
 
 ## 📊 Data Model Overview
 
-A clean star schema for performant analysis:
+This report uses a clean star schema tailored for responsive filtering and flexible metric calculation:
 
-- **Fact Tables**  
-  - `fact_sales` – Revenue & XP transactions per bake  
-  - `fact_production` – Cook time & appliance usage  
+- **Fact Table:**  
+  - `Fact_Bakery` – Central fact table with one row per bake event, including recipe, appliance, and calculated metrics
 
-- **Dimension Tables**  
-  - `dim_recipe`, `dim_ingredient`, `dim_customer`, `dim_oven`, `dim_shop`  
+- **Dimension Tables:**  
+  - `Dim_Recipe` – Recipe attributes (e.g., name, base values)  
+  - `Dim_Appliance` – Oven type or cooking device used  
 
-- **Supporting Tables**  
-  - Calendar, presets, disconnected slicers  
+- **Weight Tables (Disconnected for User Input):**  
+  - `ProfitWeight` – User-specified weight for profit  
+  - `CookTimeWeight` – User-specified weight for cook time  
+  - `ServingsWeight` – User-specified weight for servings  
+  - `XPWeight` – User-specified weight for XP  
+
+- **Slicer & UI Support Tables:**  
+  - `Axis Field Selector` – Controls dynamic axis behavior in visuals  
+  - `Metrics` – Controls ordering and labeling of metric visuals  
+  - `Measure Table` – Hosts DAX measures for simplified reference and layout consistency  
 
 > See [Data Model Description](./docs/data_model_description.md)
+
+---
+
+![Data Model Diagram](./images/data_model/bakery_data_model.png)
+
 
 ---
 
