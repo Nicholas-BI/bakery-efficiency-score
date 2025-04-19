@@ -148,10 +148,13 @@ Everything lives in the [`/docs`](./docs/) folder:
 
 ## ▶️ Getting Started
 
-1. Clone this repo  
-2. Open `bakery_story.pbix` in Power BI Desktop  
+1. **Clone the repo**  
+   `git clone https://github.com/Nicholas-BI/bakery-efficiency-score.git`  
+   *(or just download the files you want from GitHub or using the links above)*
+
+2. Open `bakery_story.pbix` in [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
 3. Use the sliders to reflect your strategy  
-4. Check tooltips and bookmarks to explore tradeoffs
+4. Explore rankings, tooltips, and bookmarks
 
 📥 [Download Power BI Desktop](https://powerbi.microsoft.com/desktop)
 
