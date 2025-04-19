@@ -1,10 +1,10 @@
-# 📊 Bakery Story: Recipe Efficiency Dashboard (Power BI)
+# Bakery Story: Recipe Efficiency Dashboard (Power BI)
 
 A Power BI dashboard for *Bakery Story* players that ranks recipes based on your personal goals—Profit, Cook Time, Servings, and XP—using dynamic sliders and exponent‑based scoring.
 
+---
 
-
-## 📁 Repository Contents
+## Repository Contents
 
 - `README.md` – Project overview and screenshots  
 - [`/docs`](./docs/) – Supporting documentation  
@@ -21,93 +21,84 @@ A Power BI dashboard for *Bakery Story* players that ranks recipes based on your
 - [DAX Measures File](./docs/dax_measures.xlsx) – Full export of all DAX measures  
 - `LICENSE` – Creative Commons BY‑NC 4.0
 
-
 ---
 
-## 📝 Project Overview
+## Project Overview
 
 A dynamic recipe‑ranking tool that lets **you** decide which metrics matter, then instantly updates recommended bakes.  
 Optimize for fast revenue, XP farming, large events, or a balanced approach—directly in Power BI.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-- **📊 Dynamic Ranking** – Real‑time reorder based on slider weights  
-- **🎛️ Slider Controls** – Adjust Profit, Cook Time, Servings, and XP  
-- **⚖️ Exponent‑Based Scoring** – Non‑linear weighting for greater impact  
-- **🔎 Advanced Filtering** – By appliance (oven, fryer, drink machine) and cook‑time window  
-- **🔘 Preset Strategies** – Quick Cash, XP Farm, Party Host, Balanced  
-- **📈 Interactive Tooltips** – Display full score breakdown  
-- **🔢 Fair Normalization** – Consistent ratios across all units
+- Dynamic ranking that updates in real-time based on slider weights  
+- Slider controls for Profit, Cook Time, Servings, and XP  
+- Exponent‑based scoring for non‑linear influence  
+- Filter by appliance or cook-time window  
+- Preset strategy bookmarks (Quick Cash, XP Farm, Party Host, Balanced)  
+- Interactive tooltips with full score breakdown  
+- Ratio-based normalization for fair metric scaling
 
 ---
 
-## 📊 Data Model Overview
+## Data Model Overview
 
 This report uses a clean star schema tailored for responsive filtering and flexible metric calculation:
 
 - **Fact Table:**  
-  - `Fact_Bakery` – Central fact table with one row per bake event, including recipe, appliance, and calculated metrics
+  - `Fact_Bakery` – One row per recipe instance, with calculated metrics
 
 - **Dimension Tables:**  
   - `Dim_Recipe` – Recipe attributes (e.g., name, base values)  
-  - `Dim_Appliance` – Oven type or cooking device used  
+  - `Dim_Appliance` – Type of cooking device used  
 
-- **Weight Tables (Disconnected for User Input):**  
-  - `ProfitWeight` – User-specified weight for profit  
-  - `CookTimeWeight` – User-specified weight for cook time  
-  - `ServingsWeight` – User-specified weight for servings  
-  - `XPWeight` – User-specified weight for XP  
+- **Weight Tables (Disconnected):**  
+  - `ProfitWeight`, `CookTimeWeight`, `ServingsWeight`, `XPWeight` — Each stores a list of weight values for slicers
 
 - **Slicer & UI Support Tables:**  
-  - `Axis Field Selector` – Controls dynamic axis behavior in visuals  
-  - `Metrics` – Controls ordering and labeling of metric visuals  
-  - `Measure Table` – Hosts DAX measures for simplified reference and layout consistency  
+  - `Axis Field Selector`, `Metrics`, `Measure Table` — Help drive layout and interactivity
 
 > See [Data Model Description](./docs/data_model_description.md)
 
----
-
 ![Data Model Diagram](./images/data_model/bakery_data_model.png)
 
+---
+
+## Scoring Logic (DAX Strategy)
+
+1. Normalize each metric relative to max values  
+2. Raise each to the power of its selected weight  
+3. Multiply numerator values, divide by denominator values  
+4. Rank based on the resulting efficiency score  
+
+> See [Measures Overview](./docs/measures_description.md)  
+> Browse the measure list: [dax_measures.xlsx](./docs/dax_measures.xlsx)
 
 ---
 
-## 🔍 Scoring Logic (DAX Strategy)
+## ETL & Power Query
 
-1. **Normalize** each metric as a ratio  
-2. **Raise** to the power of its slider weight  
-3. **Combine** – multiply positives, divide negatives  
-4. **Rank** by resulting score  
+The Power Query layer organizes transformations by stage and purpose:
 
-> Full formulas in [Measures Overview](./docs/measures_description.md)  
-> Browse measure list: [dax_measures.xlsx](./docs/dax_measures.xlsx)
+- Source → Base → Fact/Dimension  
+- Clean step naming, explicit types, modular logic
 
----
-
-## 🔄 ETL & Power Query
-
-Modular Power Query (M) workflows transform source data into facts & dimensions:
-
-- **Layers:** Source → Base → Fact → Dimension  
-- **Conventions:** Early type casting, descriptive steps, key normalization  
-
-> ETL details: [Power Query Overview](./power_query/README.md)  
-> Dependency graph:  
+> ETL Overview: [Power Query Overview](./power_query/README.md)  
+> Dependencies diagram:  
 > ![Query Dependencies](./images/power_query/query_dependencies.png)
 
 ---
 
-## 🖼️ Visuals Walkthrough
+## Visuals Walkthrough
 
-In-depth look at page layouts, slicers, and bookmarks:
+Detailed notes on report layout, slicer design, bookmarks, and the drillthrough + tooltip experience.
 
 > See [Visuals Walkthrough](./docs/visuals_description.md)
 
 ---
 
-## 🎯 Preset Strategies
+## Preset Strategies
 
 | Strategy     | Profit | Cook Time | Servings | XP | Description                       |
 |--------------|--------|-----------|----------|----|-----------------------------------|
@@ -118,33 +109,8 @@ In-depth look at page layouts, slicers, and bookmarks:
 
 ---
 
-## 📷 Screenshots
+## Screenshots
 
 | Main View                                          | Slider & Preset Panel                          |
 |----------------------------------------------------|-------------------------------------------------|
-| ![Ranked Recipes](./images/pages/ranked_recipes.png)  | ![Controls](./images/pages/sliders_and_bookmarks.png) |
-
----
-
-## 🚀 Getting Started
-
-1. **Clone** this repository  
-2. **Open** `BakeryStory_Efficiency.pbix` in Power BI Desktop  
-3. **Adjust** sliders to your preferred weights  
-4. **Explore** ranked recipes and hover for details  
-
-> Download Power BI Desktop: https://powerbi.microsoft.com/desktop/
-
----
-
-## 🔐 License
-
-Licensed under [CC BY‑NC 4.0](./LICENSE).  
-Use, adapt, and share for non‑commercial purposes with attribution.
-
----
-
-## 📣 Contributing
-
-Feedback, custom presets, or collaboration inquiries?  
-Open an issue or submit a pull request!
+| ![Ranked Recipes](./images/pages/ranked_recipes.png)  | ![Controls](./_
