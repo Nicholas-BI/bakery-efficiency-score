@@ -33,6 +33,7 @@ This folder contains all supporting documentation and reference files for the **
 ## Getting Started
 
 1. **Open** `bakery_story.pbix` in Power BI Desktop.  
+- 👉 **[Click here to download the Power BI report (.pbix)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/bakery_story.pbix)**  
 2. **Review** the data model in the Model view.  
 3. **Inspect** Power Query M scripts via [Power Query Overview](./power_query.md).  
 4. **Examine** DAX in [Measures Overview](./measures_description.md) or the exported `[dax_measures.xlsx](./dax_measures.xlsx)`.  
