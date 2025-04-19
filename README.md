@@ -147,16 +147,24 @@ Open the `.pbix` file in [Power BI Desktop](https://powerbi.microsoft.com/deskto
 
 ## 📁 Repository Contents
 
-All project files are stored in the [`/docs`](./docs/) folder:
+All key sections and files in this project:
 
-- `bakery_story.pbix` — Main Power BI report  
-- `dax_measures.xlsx` — Full export of all DAX measures  
-- `bakery_story_source.xlsx` — Source data snapshot  
-- `measures_overview.md` — Conceptual scoring breakdown  
-- `data_model_description.md` — Schema and table logic  
-- `power_query.md` — ETL transformation details  
-- `visuals_description.md` — Report layout and interaction notes  
-- `LICENSE` — Creative Commons BY-NC 4.0
+- [🍰 Introduction](#-bakery-story-recipe-efficiency-report-power-bi)  
+- [What Is Bakery Story?](#what-is-bakery-story)  
+- [Why I Made This](#why-i-made-this)  
+- [What This Report Does](#what-this-report-does)  
+- [How It Works (Under the Hood)](#how-it-works-under-the-hood)  
+- [Scoring Logic](#scoring-logic)  
+- [Preset Strategies](#preset-strategies)  
+- [Data Model Overview](#data-model-overview)  
+- [Power Query & ETL](#power-query--etl)  
+- [Report Design](#report-design)  
+- [📥 Try It Yourself](#-try-it-yourself)  
+- [▶️ Getting Started](#️-getting-started)  
+- [📁 Repository Contents](#-repository-contents)  
+- [Screenshots](#screenshots)  
+- [Contributing](#contributing)  
+- [License](#license)
 
 ---
 
