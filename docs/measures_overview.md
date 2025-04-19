@@ -1,71 +1,88 @@
 # 📊 Efficiency Scoring System – Conceptual Overview
 
-This document walks through the **mathematical logic** and **Power BI implementation** behind the **Bakery Story Efficiency Score** model. It’s designed to rank in-game recipes based on player preferences—Profit, Cook Time, Servings, and XP—through a dynamic, weighted scoring system.
+This document explains how the **Bakery Story Efficiency Score** works from concept to implementation. The dashboard ranks bakery recipes based on what *you* care about—Profit, Cook Time, Servings, and XP—by letting you assign custom weights. The scoring logic is flexible, explainable, and built entirely in DAX.
 
-Rather than listing every measure, this guide explains how they work together conceptually, using algebra, DAX, and plain English.
-
----
-
-## 🧮 Step 1: Raw Totals
-
-We begin by calculating **base metrics** for each recipe:  
-- `Profit = Income - Cost`  
-- `Cook Time = Minutes required`  
-- `Servings = How many customers can consume it`  
-- `XP = Experience gained`
-
-These are simple `SUM` aggregations on the fact table (`Fact_Bakery`), grouped by recipe.
+We’ll focus on **how it works**, not just what the measures are.
 
 ---
 
-## ⚖️ Step 2: Normalize Metrics (into [1 → 2] range)
+## 🧮 Step 1: Start With Raw Totals
 
-To fairly compare metrics that live on different scales (e.g., profit might be in the 1000s, XP in the 10s), we normalize each into a consistent range.
+Each recipe starts with a handful of simple totals:
+- How long it takes to cook (`Total Cook Minutes`)
+- How many servings it makes (`Total Servings`)
+- How much money it brings in (`Total Profit`)
+- How much XP it gives (`Total XP`)
 
-### 🎯 Goal:
-Convert every metric to a **unitless, comparable number between 1 and 2**, using:
+These are calculated with basic `SUM` logic over the fact table. Example:
 
+```DAX
+Total Profit =
+    [Total Income] - [Total Cost]
 ```
-Normalized Value = 1 + (This Recipe's Total / Max Total in Context)
+
+---
+
+## ⚖️ Step 2: Normalize Everything
+
+Each metric has wildly different units and scales—minutes, dollars, servings, XP. To make them comparable, we normalize each one into a range between 1 and 2.
+
+The basic idea is:
+> Take this recipe’s value and divide it by the maximum value (either for the whole game or just within the selected appliance). Then shift it up by 1 so the range becomes [1 → 2].
+
+Here's the logic in DAX for normalized profit:
+
+```DAX
+Normalized Profit =
+    VAR ThisTotal = [Total Profit]
+    VAR MaxTotalAll = MAXX(ALL(Dim_Recipe[Recipe]), [Total Profit])
+    VAR MaxTotalAppl = MAXX(ALL(Dim_Appliance[Appliance]), [Total Profit])
+    VAR Denominator =
+        IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxTotalAppl, MaxTotalAll)
+    RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
 ```
 
-If a specific **appliance** is selected, we normalize within that group.  
-If not, we normalize against the global maximum.
-
-This results in:
+This gives us four normalized values:
 - `[Normalized Profit]`
 - `[Normalized Cook Minutes]`
 - `[Normalized Servings]`
 - `[Normalized XP]`
 
----
-
-## 🎛️ Step 3: Player-Controlled Weighting (via Exponents)
-
-Each metric is assigned a **player-defined weight** (via slicers), ranging from -2 to 2.
-
-### What the weight means:
-- **Positive Weight:** "I want *more* of this" → Goes in the **numerator**
-- **Negative Weight:** "I want *less* of this" → Goes in the **denominator**
-- **Zero Weight:** "I don’t care" → Treated as 1 (neutral)
-
-This turns a multi-objective optimization problem into a **multiplicative scoring model**:
-
-```
-Score = (P^p * C^c * S^s * X^x) / (P^-p * C^-c * S^-s * X^-x)
-```
-
-Where:
-- `P` = Normalized Profit  
-- `p` = profit weight  
-- `C`, `S`, `X` = other normalized metrics  
-- Negative exponents shift the metric into the denominator
+Each one tells us: “how good is this recipe *relative to others*?”
 
 ---
 
-## 🚀 Step 4: Efficiency Score Formula
+## 🎚️ Step 3: Apply Player Weights
 
-Here’s the complete DAX implementation of the Efficiency Score logic:
+You choose what you care about. Maybe you're a profit-maximizer. Maybe you want quick batches. Maybe you're grinding XP. The model lets you assign weights between -2 and +2 for each of the four metrics.
+
+These weights are read from slicers:
+
+```DAX
+Selected Weight (Exponent) =
+    SWITCH(
+        SELECTEDVALUE(Metrics[Metric]),
+        "Profit", SELECTEDVALUE(ProfitWeight[Profit Weight], 0),
+        "Cook Time", SELECTEDVALUE(CookTimeWeight[Cook Time Weight], 0),
+        "Servings", SELECTEDVALUE(ServingsWeight[Servings Weight], 0),
+        "XP", SELECTEDVALUE(XPWeight[XP Weight], 0),
+        0
+    )
+```
+
+- **Positive weights** mean you want more of something. It boosts the score.
+- **Negative weights** mean you want less of something. It lowers the score.
+- **Zero weights** mean you don't care. It has no effect.
+
+---
+
+## 🚀 Step 4: Build the Score
+
+We take the normalized values and raise them to the power of their weights. Positive weights go into the **numerator**. Negative weights go into the **denominator**.
+
+> The more a metric aligns with your preferences, the more it pulls the score in that direction.
+
+Here’s the **full DAX formula** that brings it all together:
 
 ```DAX
 Efficiency Score (Filtered) = 
@@ -92,34 +109,62 @@ VAR Denominator =
     IF( XW < 0, POWER( XPBase,      -XW ), 1 )
 
 VAR BaseResult = DIVIDE( Numerator, Denominator, 0 )
+VAR HasRows = COUNTROWS(Fact_Bakery)
 
-VAR HasRows = COUNTROWS( Fact_Bakery )
-RETURN
-    IF( HasRows = 0, BLANK(), BaseResult )
+RETURN IF(HasRows = 0, BLANK(), BaseResult)
 ```
 
-This is the core of the ranking engine—**a balanced ratio** of weighted priorities, dynamically computed per recipe and context.
+This lets you generate a personalized score for every recipe in the game, according to your current strategy.
 
 ---
 
-## ✅ Summary of the Flow
+## 🥇 Step 5: Find the Best Recipe
 
-1. **Aggregate raw metrics** from the fact table  
-2. **Normalize** each to [1 → 2] using max-based scaling  
-3. **Apply player weights** using exponent math  
-4. **Calculate a combined score** (numerator / denominator)  
-5. **Identify the best recipe** in context
+Now that every recipe has a score, we sort them and return the top result in context.
 
-This model allows flexible, personalized optimization—whether you value XP grinding, bulk batches, rapid turnaround, or raw profit.
+```DAX
+Best Recipe (By Efficiency) =
+    VAR Candidates =
+        FILTER(
+            VALUES(Dim_Recipe[Recipe]),
+            NOT ISBLANK([Efficiency Score (Filtered)])
+        )
+    VAR ScoresTable =
+        ADDCOLUMNS(Candidates, "Score", [Efficiency Score (Filtered)])
+    VAR MinScore = MINX(ScoresTable, [Score])
+    VAR MaxScore = MAXX(ScoresTable, [Score])
+    VAR TopRecipe =
+        MAXX(TOPN(1, ScoresTable, [Score], DESC), Dim_Recipe[Recipe])
+
+    RETURN IF(
+        COUNTROWS(Candidates) < 2 || MinScore = MaxScore,
+        "Adjust weights or deselect recipe",
+        TopRecipe
+    )
+```
+
+This handles ties, blanks, and unhelpful filter situations with a friendly message.
 
 ---
 
-## 🛠️ Future Improvements
+## ✅ Summary of the Logic
 
-- Multi-appliance optimization logic  
-- Visual sensitivity analysis (e.g., tornado charts)  
-- Prebuilt bookmarks for common profiles like "XP Farmer" or "Passive Player"  
-- Appliance utilization costs (opportunity cost modeling)
+1. **Total up basic recipe stats** (profit, XP, etc.)
+2. **Normalize** everything to a 1–2 range
+3. **Apply weights** to emphasize or de-emphasize traits
+4. **Raise values to those weights** and combine
+5. **Pick the best recipe** using that final score
+
+All fully dynamic, filter-aware, and powered by DAX.
+
+---
+
+## 🛠️ Future Features
+
+- Add cost of using an appliance (opportunity cost modeling)
+- Bookmarks for common player types (e.g. “Speedrunner” or “Bulk Crafter”)
+- Tornado charts to visualize which weights influence the score most
+- Appliance-aware optimal combos
 
 ---
 
