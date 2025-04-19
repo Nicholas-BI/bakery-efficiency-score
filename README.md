@@ -2,13 +2,7 @@
 
 A Power BI dashboard for *Bakery Story* players that ranks recipes based on your personal goals—Profit, Cook Time, Servings, and XP—using dynamic sliders and exponent‑based scoring.
 
----
 
-## ⚠️ Note
-
-This content is shared for portfolio purposes only. Not licensed for reuse or redistribution.
-
----
 
 ## 📁 Repository Contents
 
