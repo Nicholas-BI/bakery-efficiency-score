@@ -91,4 +91,4 @@ This model is intentionally lean and interactive:
 - **All logic in measures** → No calculated columns, no hidden cruft  
 - **Custom-built sliders** → Gives you perfect control over weight values
 
-> If you want to see how those weight values actually drive the score, head over to [Measures Overview](./measures_description.md).
+> If you want to see how those weight values actually drive the score, head over to [Measures Overview](./measures_overview.md).
