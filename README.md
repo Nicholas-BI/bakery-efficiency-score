@@ -1,6 +1,6 @@
 # Bakery Story: Recipe Efficiency Dashboard (Power BI)
 
-A Power BI dashboard for *Bakery Story* players that ranks recipes based on your personal goals—Profit, Cook Time, Servings, and XP—using dynamic sliders and exponent‑based scoring of ratio-normalized metrics.
+A Power BI dashboard that ranks *Bakery Story* recipes based on what *you* care about — Profit, Cook Time, Servings, and XP — using dynamic sliders and an exponent‑based scoring model built on ratio-normalized metrics.
 
 ---
 
@@ -8,26 +8,26 @@ A Power BI dashboard for *Bakery Story* players that ranks recipes based on your
 
 This project started with a conversation between me and my partner, Stephanie.
 
-She liked recipes with huge batch sizes — fewer check-ins, less hassle. I saw them as a delay — you don’t get paid until the *last* serving is eaten, and customers enter at a fixed pace. I wanted fast cash, she wanted low maintenance.
+She liked big-batch recipes — fewer check-ins, less hassle. I saw them as a delay — you don’t get paid until the *last* serving is eaten, and customers arrive at a fixed pace. I wanted fast cash; she wanted low maintenance.
 
-The realization was: neither of us was wrong — we just had different values.
+The realization was: neither of us was wrong — we just had different goals.
 
 That’s when the idea clicked:
 
 > What if a report didn’t tell you what the best recipe is?  
-> What if it let **you decide what “best” means**—and shaped itself around that?
+> What if it let you define “best” — and adapted to match?
 
 This dashboard does exactly that.
 
 ---
 
-## 🔽 Download the Dashboard
+## 🔽 Try It Yourself
 
-Curious to try it out?
+Want to explore it live?
 
-> 👉 [**Click here to download the Power BI file (.pbix)**](https://github.com/Nicholas-BI/bakery-efficiency-score/raw/main/docs/Bakery%20Story.pbix)
+👉 **[Click here to download the .pbix file](./BakeryStory_Efficiency.pbix)**  
+Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the sliders, and watch the rankings adapt in real time to your strategy.
 
-Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the sliders, and see the rankings update live based on what *you* care about.
 
 ---
 
