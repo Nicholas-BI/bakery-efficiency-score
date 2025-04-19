@@ -11,7 +11,6 @@ A Power BI dashboard for *Bakery Story* players that ranks recipes based on your
   - [Data Model Description](./docs/data_model_description.md)  
   - [Measures Overview](./docs/measures_description.md)  
   - [Visuals Walkthrough](./docs/visuals_description.md)  
-  - [SQL Snippets](./docs/sql.txt) *(placeholder)*  
 - [`/power_query`](./power_query/) – M code, query structure, and ETL logic  
   - [Power Query Overview](./power_query/README.md)  
   - [Query Dependencies Diagram](./images/power_query/query_dependencies.png)  
