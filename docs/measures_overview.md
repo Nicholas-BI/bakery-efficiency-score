@@ -1,4 +1,3 @@
-
 # 📊 Measures Overview
 
 This document details all DAX measures powering the **Bakery Story Efficiency Score** dashboard. You’ll find base aggregations, normalized ratios, weight handling, scoring logic, and ranking formulas.
@@ -9,6 +8,7 @@ This document details all DAX measures powering the **Bakery Story Efficiency Sc
 
 Core sum and arithmetic measures that feed into the normalization logic.
 
+```DAX
 -- Total Cook Minutes
 Total Cook Minutes =
     SUM(Fact_Bakery[Minutes])
@@ -32,6 +32,7 @@ Total Profit =
 -- Total XP
 Total XP =
     SUM(Fact_Bakery[XP])
+```
 
 ---
 
@@ -39,6 +40,7 @@ Total XP =
 
 Each metric is scaled into the range [1 → 2], context‑aware by appliance or global maxima.
 
+```DAX
 -- Normalized Profit
 Normalized Profit =
     VAR ThisTotal = [Total Profit]
@@ -74,11 +76,13 @@ Normalized Servings =
     VAR Denominator =
         IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxTotalAppl, MaxTotalAll)
     RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
+```
 
 ---
 
 ## 🎚️ Parameter & Selector Measures
 
+```DAX
 -- Normalized Value
 Normalized Value =
     SWITCH(
@@ -122,11 +126,13 @@ Contribution =
             w = 0, 1,
             POWER(v, ABS(w))
         )
+```
 
 ---
 
 ## 🚀 Scoring Logic
 
+```DAX
 -- Efficiency Score (Filtered)
 Efficiency Score (Filtered) =
     VAR PW = SELECTEDVALUE(ProfitWeight[Profit Weight], 0)
@@ -177,3 +183,4 @@ Best Recipe (By Efficiency) =
             "Adjust weights or deselect recipe",
             TopRecipe
         )
+```
