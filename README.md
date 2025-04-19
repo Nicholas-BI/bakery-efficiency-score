@@ -21,7 +21,7 @@ This dashboard does exactly that.
 
 ---
 
-## 🔽 Download the Dashboard
+## 🔽 Download the Report
 
 Curious to try it out?
 
