@@ -57,7 +57,7 @@ Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the
   - `/images/pages/` – Dashboard screenshots  
   - `/images/power_query/` – ETL dependency charts  
 - `BakeryStory_Efficiency.pbix` – Power BI Desktop file *(placeholder name)*  
-- [DAX Measures File]([https://github.com/Nicholas-BI/bakery-efficiency-score/blob/main/docs/dax_measures.xlsx?raw=true](https://github.com/Nicholas-BI/bakery-efficiency-score/blob/main/docs/dax_measures.xlsx)) – Full export of all DAX measures
+- [DAX Measures File](https://github.com/Nicholas-BI/bakery-efficiency-score/blob/main/docs/dax_measures.xlsx) – Full export of all DAX measures
 - `LICENSE` – Creative Commons BY‑NC 4.0
 
 ---
