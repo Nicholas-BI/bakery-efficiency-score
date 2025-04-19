@@ -4,6 +4,23 @@ A Power BI dashboard for *Bakery Story* players that ranks recipes based on your
 
 ---
 
+## Why I Made This
+
+This project started with a conversation between me and my partner, Stephanie.
+
+She liked recipes with huge batch sizes — fewer check-ins, less hassle. I saw them as a delay — you don’t get paid until the *last* serving is eaten, and customers enter at a fixed pace. I wanted fast cash, she wanted low maintenance.
+
+The realization was: neither of us was wrong — we just had different values.
+
+That’s when the idea clicked:
+
+> What if a report didn’t tell you what the best recipe is?  
+> What if it let **you decide what “best” means**—and shaped itself around that?
+
+This dashboard does exactly that.
+
+---
+
 ## Repository Contents
 
 - `README.md` – Project overview and screenshots  
@@ -102,10 +119,10 @@ Detailed notes on report layout, slicer design, bookmarks, and the drillthrough 
 
 | Strategy     | Profit | Cook Time | Servings | XP | Description                       |
 |--------------|--------|-----------|----------|----|-----------------------------------|
-| Quick Cash   | 4      | –4        | –2       | 1  | Maximize revenue, minimize waits  |
-| XP Farm      | 1      | –2        | –2       | 4  | Fast leveling, avoid long bakes   |
-| Party Host   | 1      | –2        | 4        | 0  | Serve large crowds                |
-| Balanced     | 2      | –2        | 1        | 1  | Even trade‑off across metrics     |
+| Quick Cash   | 10     | –10       | –5       | 3  | Maximize revenue, minimize waits  |
+| XP Farm      | 2      | –5        | –5       | 10 | Fast leveling, avoid long bakes   |
+| Party Host   | 2      | –5        | 10       | 0  | Serve large crowds                |
+| Balanced     | 5      | –5        | 3        | 3  | Even trade‑off across metrics     |
 
 ---
 
@@ -113,4 +130,29 @@ Detailed notes on report layout, slicer design, bookmarks, and the drillthrough 
 
 | Main View                                          | Slider & Preset Panel                          |
 |----------------------------------------------------|-------------------------------------------------|
-| ![Ranked Recipes](./images/pages/ranked_recipes.png)  | ![Controls](./_
+| ![Ranked Recipes](./images/pages/ranked_recipes.png)  | ![Controls](./images/pages/sliders_and_bookmarks.png) |
+
+---
+
+## Getting Started
+
+1. Clone this repository  
+2. Open `BakeryStory_Efficiency.pbix` in Power BI Desktop  
+3. Adjust sliders to reflect your priorities  
+4. Explore and hover to inspect top-ranked recipes  
+
+> Power BI Desktop: https://powerbi.microsoft.com/desktop/
+
+---
+
+## License
+
+Licensed under [CC BY‑NC 4.0](./LICENSE).  
+Free to use, adapt, and share for non‑commercial purposes with attribution.
+
+---
+
+## Contributing
+
+Got feedback, ideas, or tweaks?  
+Open an issue or submit a pull request.
