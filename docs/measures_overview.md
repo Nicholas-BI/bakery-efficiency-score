@@ -17,6 +17,12 @@ Each recipe starts with a handful of simple totals:
 These are calculated with basic `SUM` logic over the fact table. Example:
 
 ```DAX
+Total Income =
+    sum(Fact_Bakery[Income])
+
+Total Cost = 
+    CALCULATE(SUM(Fact_Bakery[Cost]))
+
 Total Profit =
     [Total Income] - [Total Cost]
 ```
