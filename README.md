@@ -6,6 +6,18 @@ Whether you want fast XP, quick cash, or low-maintenance bakes, this report adap
 
 ---
 
+## 🧮 How It Works (Under the Hood)
+
+This dashboard isn’t just a slicer toy—it’s built on a custom scoring model using:
+
+- **Ratio-normalized metrics** (shifted +1 to stay in [1–2] range)
+- **Exponentiation** to apply nonlinear influence based on user-defined weights
+- **Dynamic DAX logic** that reacts to slicers, filters, and context in real time
+
+The result? A model that balances mathematical rigor with intuitive control—perfect for tuning strategies on the fly.
+
+---
+
 ## 📱 What Is Bakery Story?
 
 *Bakery Story* is a mobile game where you run a virtual bakery — cooking recipes, serving customers, earning coins, and leveling up. Every recipe is different: some cook faster, some serve more customers, some offer higher profits, and some are great for XP.
