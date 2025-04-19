@@ -1,30 +1,50 @@
 # Documentation Overview
 
-This folder contains all supporting documentation for the **Bakery Story Efficiency Score** Power BI dashboard. If you're curious about how the recipe rankings work, what DAX magic is running under the hood, or how the report visuals are structured — this is the place to dig in.
+This folder contains all supporting documentation and reference files for the **Bakery Story Efficiency Score** Power BI dashboard. Whether you want to inspect the PBIX, review source data, dive into data modeling, or dissect DAX, everything is here.
 
 ---
 
 ## Contents
 
+- [`bakery_story.pbix`](./bakery_story.pbix)  
+  The main Power BI Desktop file with all queries, data model, DAX measures, and visuals.
+
+- [`bakery_story_source.xlsx`](./bakery_story_source.xlsx)  
+  Raw source export of Bakery Story data used to build the model.
+
 - [Data Model Description](./data_model_description.md)  
-  Overview of the single fact table (`Fact_Bakery`) and its supporting What-If parameter tables for weighting logic. Includes notes on key fields like income, cost, servings, cook time, and XP.
+  Overview of the single fact table (`Fact_Bakery`), parameter tables, relationships, and key fields.
+
+- [Power Query Overview](./power_query.md)  
+  Explanation of the modular M code: source, base, fact, and dimension queries, plus dependency diagrams.
 
 - [Measures Overview](./measures_description.md)  
-  Breakdown of the core DAX logic, including normalization, exponent scaling, dynamic numerator/denominator flipping, and the final efficiency score calculation.
-
-- [Visuals Walkthrough](./visuals_description.md)  
-  A guided tour through the layout, sliders, bookmark presets, tooltips, and how each visual contributes to gameplay decision-making.
+  Breakdown of core DAX: normalization, exponent weighting, dynamic numerator/denominator logic, and final score.
 
 - [DAX Measures File](./dax_measures.xlsx)  
-  Full export of all DAX measures used in the model — from base metrics to scoring logic and display helpers.
+  Full export of all DAX measures—from base metrics to display helpers.
+
+- [Visuals Walkthrough](./visuals_description.md)  
+  A guided tour of the report pages: slider controls, presets, tooltips, and interaction patterns.
+
+---
+
+## Getting Started
+
+1. **Open** `bakery_story.pbix` in Power BI Desktop.  
+2. **Review** the data model in the Model view.  
+3. **Inspect** Power Query M scripts via [Power Query Overview](./power_query.md).  
+4. **Examine** DAX in [Measures Overview](./measures_description.md) or the exported `[dax_measures.xlsx](./dax_measures.xlsx)`.  
+5. **Explore** report pages with guidance from [Visuals Walkthrough](./visuals_description.md).
 
 ---
 
 ## Purpose
 
-This folder exists to help you understand how the report works behind the scenes. Whether you’re reviewing this for fun, trying to recreate something similar, or just want to geek out about DAX tricks, everything is laid out here for clarity and reuse.
+This documentation is designed to:
 
-If you're just getting started, we recommend jumping into:
+- Make it easy to understand how the dashboard is structured.  
+- Provide reusable examples of ETL, data modeling, and DAX patterns.  
+- Help developers and analysts recreate or extend this solution.
 
-- [Visuals Walkthrough](./visuals_description.md) to get a feel for how players interact with the report  
-- [Measures Overview](./measures_description.md) to see how scoring is actually calculated  
+Feel free to clone this folder and adapt any piece to your own Power BI projects.  
