@@ -162,7 +162,6 @@ All fully dynamic, filter-aware, and powered by DAX.
 ## 🛠️ Future Features
 
 - Add cost of using an appliance (opportunity cost modeling)
-- Bookmarks for common player types (e.g. “Speedrunner” or “Bulk Crafter”)
 - Tornado charts to visualize which weights influence the score most
 - Appliance-aware optimal combos
 
