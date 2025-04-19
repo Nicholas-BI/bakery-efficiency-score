@@ -18,7 +18,7 @@ This folder contains all supporting documentation and reference files for the **
 - [Power Query Overview](./power_query.md)  
   Explanation of the modular M code: source, base, fact, and dimension queries, plus dependency diagrams.
 
-- [Measures Overview](./measures_description.md)  
+- [Measures Overview](./measures_overview.md)  
   Breakdown of core DAX: normalization, exponent weighting, dynamic numerator/denominator logic, and final score.
 
 - [DAX Measures File](./dax_measures.xlsx)  
