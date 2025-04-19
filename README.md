@@ -12,21 +12,22 @@ This content is shared for portfolio purposes only. Not licensed for reuse or re
 
 ## 📁 Repository Contents
 
-- `README.md` – This overview with navigation  
-- `/docs/` – Detailed documentation  
+- `README.md` – Project overview and screenshots  
+- [`/docs`](./docs/) – Supporting documentation  
   - [Data Model Description](./docs/data_model_description.md)  
   - [Measures Overview](./docs/measures_description.md)  
   - [Visuals Walkthrough](./docs/visuals_description.md)  
-  - [SQL Snippets](./docs/sql.txt)  
-- `/power_query/` – Power Query (M) code for data prep  
-  - [ETL Overview](./power_query/README.md)  
+  - [SQL Snippets](./docs/sql.txt) *(placeholder)*  
+- [`/power_query`](./power_query/) – M code, query structure, and ETL logic  
+  - [Power Query Overview](./power_query/README.md)  
   - [Query Dependencies Diagram](./images/power_query/query_dependencies.png)  
-- `/images/` – Screenshots and diagrams  
+- [`/images`](./images/) – Report screenshots and diagrams  
   - `/images/pages/` – Dashboard screenshots  
   - `/images/power_query/` – ETL dependency charts  
-- `BakeryStory_Efficiency.pbix` – Power BI Desktop file  
-- `dax_measures.xlsx` – Full export of all DAX measures  
+- `BakeryStory_Efficiency.pbix` – Power BI Desktop file *(placeholder name)*  
+- [DAX Measures File](./docs/dax_measures.xlsx) – Full export of all DAX measures  
 - `LICENSE` – Creative Commons BY‑NC 4.0
+
 
 ---
 
