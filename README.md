@@ -54,7 +54,7 @@ Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the
   - [Power Query Overview](./power_query/README.md)
   - [Query Dependencies Diagram](./images/power_query/query_dependencies.png)
   - `docs/bakery_story_source.xlsx` – Source data export file  
-  👉 **[Click here to download the source data file](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/bakery_story_source.xlsx)**
+ 👉 **[Click here to download the source data file](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/bakery_story_source.xlsx)**
 
 - [`/images`](./images/) – Report screenshots and diagrams  
   - `/images/pages/` – Dashboard screenshots  
