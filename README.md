@@ -1,4 +1,4 @@
-# Bakery Story: Recipe Efficiency Dashboard (Power BI)
+# 🍰 Bakery Story: Recipe Efficiency Dashboard (Power BI)
 
 A Power BI dashboard that ranks *Bakery Story* recipes based on what *you* care about — Profit, Cook Time, Servings, and XP — using dynamic sliders and an exponent-based scoring model built on ratio-normalized metrics.
 
@@ -41,13 +41,13 @@ This dashboard does exactly that.
 
 ---
 
-## Try It Yourself
+## 📥 Try It Yourself
 
-- [Download the Power BI report (.pbix)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/bakery_story.pbix)  
-- [Download the DAX measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/dax_measures.xlsx)  
-- [Download the source data (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/bakery_story_source.xlsx)
+- 📥 [Download the Power BI report (.pbix)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/bakery_story.pbix)  
+- 📥 [Download the DAX measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/dax_measures.xlsx)  
+- 📥 [Download the source data (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/bakery_story_source.xlsx)
 
-Open the `.pbix` file in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the sliders, and see the rankings respond instantly.
+Open the `.pbix` file in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust the sliders, and watch the rankings adapt.
 
 ---
 
@@ -55,19 +55,18 @@ Open the `.pbix` file in [Power BI Desktop](https://powerbi.microsoft.com/deskto
 
 This is a fully dynamic recipe-ranking tool that adapts to your priorities. Whether you're focused on profit, speed, volume, or XP, the scoring model recalculates and ranks recipes based on your input.
 
-Key features include:
-
+**Key features:**
 - Slider-based control over Profit, Cook Time, Servings, and XP  
 - Preset strategies like *Quick Cash*, *XP Farm*, and *Balanced*  
 - Appliance-level filtering and cook-time constraints  
 - Real-time ranking updates  
-- Score breakdown tooltips and measure exports for deeper analysis
+- Score breakdown tooltips and exported DAX measures for transparency
 
 ---
 
 ## Data Model Overview
 
-The report follows a clean star schema for fast, reliable filtering and DAX execution:
+The report follows a clean star schema for efficient filtering and high-performance DAX:
 
 **Fact Table**  
 - `Fact_Bakery` — Recipe-level metrics and computed values
@@ -82,7 +81,7 @@ The report follows a clean star schema for fast, reliable filtering and DAX exec
 **Helper Tables**  
 - `Metrics`, `Axis Field Selector`, `Measure Table` — Support layout and interactivity
 
-See: [Data Model Description](./docs/data_model_description.md)
+📄 See: [Data Model Description](./docs/data_model_description.md)
 
 ---
 
@@ -90,4 +89,93 @@ See: [Data Model Description](./docs/data_model_description.md)
 
 Each recipe receives a dynamic efficiency score based on your weight settings:
 
-1. Normalize each metric
+1. Normalize each metric to a [1–2] range  
+2. Raise each to its selected exponent (positive = favor; negative = penalize)  
+3. Multiply the numerators, divide by the denominators  
+4. Rank recipes by final score in current filter context
+
+📄 See: [Measures Overview](./docs/measures_overview.md)  
+📥 Download: [dax_measures.xlsx](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/dax_measures.xlsx)
+
+---
+
+## Power Query & ETL
+
+All transformations are handled in Power Query using a modular, transparent approach:
+
+- Source → Base → Output  
+- Explicit typing and descriptive step names  
+- Designed for reusability and clarity
+
+📄 See: [Power Query Overview](./docs/power_query.md)
+
+---
+
+## Report Design
+
+- One-page interactive layout with slicers and filters  
+- Tooltip overlays for full score transparency  
+- Bookmark toggles for preset strategies  
+- Theming and visuals inspired by the game’s design
+
+📄 See: [Visuals Walkthrough](./docs/visuals_description.md)
+
+---
+
+## Preset Strategies
+
+| Strategy     | Profit | Cook Time | Servings | XP | Description                          |
+|--------------|--------|-----------|----------|----|--------------------------------------|
+| Quick Cash   | 10     | –10       | –5       | 3  | Maximize revenue, minimize wait time |
+| XP Farm      | 2      | –5        | –5       | 10 | Level up quickly with short bakes    |
+| Party Host   | 2      | –5        | 10       | 0  | Maximize servings for events         |
+| Balanced     | 5      | –5        | 3        | 3  | A general-purpose optimization        |
+
+---
+
+## 📁 Repository Contents
+
+All project files are stored in the [`/docs`](./docs/) folder:
+
+- `bakery_story.pbix` — Main Power BI report  
+- `dax_measures.xlsx` — Full export of all DAX measures  
+- `bakery_story_source.xlsx` — Source data snapshot  
+- `measures_overview.md` — Conceptual scoring breakdown  
+- `data_model_description.md` — Schema and table logic  
+- `power_query.md` — ETL transformation details  
+- `visuals_description.md` — Report layout and interaction notes  
+- `LICENSE` — Creative Commons BY-NC 4.0
+
+---
+
+## Screenshots
+
+| Ranked Recipes View                             | Control Panel (Sliders & Bookmarks)           |
+|--------------------------------------------------|------------------------------------------------|
+| *(Add image here if needed)*                     | *(Add image here if needed)*                  |
+
+---
+
+## ▶️ Getting Started
+
+1. **Clone the repository**  
+   `git clone https://github.com/Nicholas-BI/bakery-efficiency-score.git`  
+   *(Or download individual files using the links above)*
+
+2. Open `bakery_story.pbix` in [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
+3. Adjust the sliders to reflect your strategy  
+4. Explore the rankings, tooltips, and strategy bookmarks
+
+---
+
+## License
+
+Licensed under [Creative Commons BY-NC 4.0](./LICENSE)  
+Free to use, modify, and share for non-commercial purposes with attribution.
+
+---
+
+## Contributing
+
+Have feedback or ideas for improvement?  
+Feel free to open an issue or submit a pull request.
