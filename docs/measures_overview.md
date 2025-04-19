@@ -48,7 +48,7 @@ Normalized Profit =
     RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
 ```
 
-This gives us four normalized values:
+This gives us four context-aware, normalized values:
 - `[Normalized Profit]`
 - `[Normalized Cook Minutes]`
 - `[Normalized Servings]`
