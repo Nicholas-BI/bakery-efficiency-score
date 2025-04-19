@@ -32,58 +32,36 @@ If you’re curious about how the score gets calculated or how the sliders conne
 
 ---
 
-## Weight Tables (Custom Slider Inputs)
+## Weight Tables (What-If Parameters)
 
-These tables act like what-if parameters, but they aren’t created using Power BI’s built-in **Modeling > New Parameter** feature.
+Each slider in the report is backed by a What-If Parameter table created using `GENERATESERIES`, allowing users to assign weights to Profit, Cook Time, Servings, and XP on a scale from –20 to 20 in steps of 1.
 
-### Why not use standard What-If Parameters?
+These weights influence how each metric contributes to the overall efficiency score:
+- **Positive weights** favor a metric (push it into the numerator)
+- **Negative weights** penalize a metric (push it into the denominator)
+- **Zero** effectively disables that metric's influence
 
-Because rounding errors near zero made them unreliable. You could select 0 and still get a tiny decimal like `1.11022e-16`, and that was enough to break the logic.
-
-Here’s why that matters:  
-The way the score works, every metric either ends up in the **numerator** (good) or the **denominator** (bad).  
-So if you wanted to “turn off” a metric — say, you didn’t care about XP at all — you’d set the slider to zero and expect it to be skipped.
-
-But if zero wasn’t *really* zero? It would sneak into the formula anyway, and suddenly a recipe's XP score is subtly messing with the rankings even though you said not to include it.
-
-So I scrapped the default what-if method and built these tables by hand using `DATATABLE()`, which gave me full control over the values and formatting. That fixed the problem, kept logic clean, and made the sliders feel truly responsive.
-
-
-### Example – `ProfitWeight`
-
-```DAX
-ProfitWeight = 
-DATATABLE(
-    "Profit Weight", DOUBLE,
-    {
-        {-4.0}, {-3.9}, {-3.8}, {-3.7}, {-3.6},
-        {-3.5}, {-3.4}, {-3.3}, {-3.2}, {-3.1},
-        {-3.0}, {-2.9}, {-2.8}, {-2.7}, {-2.6},
-        {-2.5}, {-2.4}, {-2.3}, {-2.2}, {-2.1},
-        {-2.0}, {-1.9}, {-1.8}, {-1.7}, {-1.6},
-        {-1.5}, {-1.4}, {-1.3}, {-1.2}, {-1.1},
-        {-1.0}, {-0.9}, {-0.8}, {-0.7}, {-0.6},
-        {-0.5}, {-0.4}, {-0.3}, {-0.2}, {-0.1},
-        { 0.0},
-        { 0.1}, { 0.2}, { 0.3}, { 0.4}, { 0.5},
-        { 0.6}, { 0.7}, { 0.8}, { 0.9}, { 1.0},
-        { 1.1}, { 1.2}, { 1.3}, { 1.4}, { 1.5},
-        { 1.6}, { 1.7}, { 1.8}, { 1.9}, { 2.0},
-        { 2.1}, { 2.2}, { 2.3}, { 2.4}, { 2.5},
-        { 2.6}, { 2.7}, { 2.8}, { 2.9}, { 3.0},
-        { 3.1}, { 3.2}, { 3.3}, { 3.4}, { 3.5},
-        { 3.6}, { 3.7}, { 3.8}, { 3.9}, { 4.0}
-    }
-)
-```
-
-This gives you perfect precision at 0, full control over the range, and no floating-point headaches.
-
-The other weight tables — `CookTimeWeight`, `ServingsWeight`, and `XPWeight` — follow the same pattern.
-
-Each one is disconnected from the model and accessed using `SELECTEDVALUE()` in DAX to feed into the score formula.
+This setup gives players complete control over what “best” means to them.
 
 ---
+
+### Example — `ProfitWeight`
+
+```DAX
+ProfitWeight = GENERATESERIES(-20, 20, 1)
+```
+
+This structure:
+- Ensures clean, whole-number increments
+- Guarantees true zero (no floating-point noise)
+- Keeps the slider behavior intuitive and responsive
+
+The same pattern is used for:
+- `CookTimeWeight`
+- `ServingsWeight`
+- `XPWeight`
+
+Each table is disconnected from the data model and accessed via `SELECTEDVALUE()` in DAX to feed directly into the scoring formula.
 
 ## Measure Table
 
