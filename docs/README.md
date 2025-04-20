@@ -4,29 +4,22 @@ This folder contains all supporting documentation and reference files for the **
 
 ---
 
-## Contents
+## 📂 Contents
 
-- [`bakery_story.pbix`](./files/bakery_story.pbix)
-  The main Power BI Desktop file with all queries, data model, DAX measures, and visuals.
+### 🔧 Files (in `/docs/files`)
+- [`bakery_story.pbix`](./files/bakery_story.pbix) — Full Power BI report with all queries, model, DAX, and visuals  
+- [`bakery_story_source.xlsx`](./files/bakery_story_source.xlsx) — Raw source data used to build the model  
+- [`dax_measures.xlsx`](./files/dax_measures.xlsx) — Export of all DAX measures *(👉 [Download here](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx))*
 
-- [`bakery_story_source.xlsx`](./files/bakery_story_source.xlsx)  
-  Raw source export of Bakery Story data used to build the model.
+### 📝 Documentation (in `/docs`)
+- [`data_model_overview.md`](./data_model_overview.md) — Fact table, dimension links, and schema design  
+- [`power_query.md`](./power_query.md) — ETL design using modular M code and layered queries  
+- [`measures_overview.md`](./measures_overview.md) — DAX logic for normalization, weights, and scoring  
+- [`visuals_overview.md`](./visuals_overview.md) — Page layouts, sliders, presets, and tooltips  
 
-- [Data Model Description](./data_model_description.md)  
-  Overview of the single fact table (`Fact_Bakery`), parameter tables, relationships, and key fields.
-
-- [Power Query Overview](./power_query.md)  
-  Explanation of the modular M code: source, base, fact, and dimension queries, plus dependency diagrams.
-
-- [Measures Overview](./measures_overview.md)  
-  Breakdown of core DAX: normalization, exponent weighting, dynamic numerator/denominator logic, and final score.
-
-- [DAX Measures File](./files/dax_measures.xlsx)  
-  - 👉 **[Click here to download the DAX measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx)**  
-    Full export of all DAX measures—from base metrics to display helpers.
-
-- [Visuals Walkthrough](./visuals_description.md)  
-  A guided tour of the report pages: slider controls, presets, tooltips, and interaction patterns.
+### 🖼️ Images (in `/docs/images`)
+- `bakery_story.png` — Report screenshot  
+- `query_dependencies.png` — Power Query dependency diagram  
 
 ---
 
