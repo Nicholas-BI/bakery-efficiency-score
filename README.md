@@ -57,7 +57,7 @@ A responsive scoring model using:
 
 ## Preset Strategies
 
-- > Click through these preset bookmarks to quickly switch between strategy profiles.
+Click through these preset bookmarks to quickly switch between strategy profiles.
 
 | Strategy     | Profit | Cook Time | Servings | XP | Description                    |
 |--------------|--------|-----------|----------|----|--------------------------------|
