@@ -174,7 +174,7 @@ This handles ties, blanks, and unhelpful filter situations with a friendly messa
 
 ## Summary of the Logic
 
-1. **Total up basic recipe stats** (profit, XP, etc.)
+1. **Total up raw recipe stats** (profit, XP, etc.)
 2. **Normalize** everything to a 1–2 range
 3. **Apply weights** to emphasize or de-emphasize traits
 4. **Raise values to those weights** and combine
