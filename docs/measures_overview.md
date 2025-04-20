@@ -39,13 +39,35 @@ The basic idea is:
 Here's the logic in DAX for normalized profit:
 
 ```DAX
-Normalized Profit =
-    VAR ThisTotal = [Total Profit]
-    VAR MaxTotalAll = MAXX(ALL(Dim_Recipe[Recipe]), [Total Profit])
-    VAR MaxTotalAppl = MAXX(ALL(Dim_Appliance[Appliance]), [Total Profit])
-    VAR Denominator =
-        IF(HASONEVALUE(Dim_Appliance[Appliance]), MaxTotalAppl, MaxTotalAll)
-    RETURN 1 + DIVIDE(ThisTotal, Denominator, 0)
+Normalized Profit = 
+VAR ThisTotal    = [Total Profit]
+
+// 1) Top total profit across all recipes
+VAR MaxTotalAll  =
+    MAXX(
+        ALL( Dim_Recipe[Recipe] ),
+        [Total Profit]
+    )
+
+// 2) Top total profit across all appliances
+VAR MaxTotalAppl =
+    MAXX(
+        ALL( Dim_Appliance[Appliance] ),
+        [Total Profit]
+    )
+
+// 3) Pick denominator by appliance‑filter context
+VAR Denominator =
+    IF(
+        HASONEVALUE( Dim_Appliance[Appliance] ),
+        MaxTotalAppl,   // you're looking at an Appliance
+        MaxTotalAll     // otherwise (Recipe), global max
+    )
+
+// 4) Normalize into [1 → 2]
+RETURN
+    1 + DIVIDE( ThisTotal, Denominator, 0 )
+
 ```
 
 This gives us four context-aware, normalized values:
