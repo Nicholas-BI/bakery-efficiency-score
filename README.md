@@ -95,7 +95,7 @@ Modular ETL in Power Query:
 - Source → Base → Output  
 - Clear step names, reusable logic
 
-📄 [Power Query Overview](./docs/power_query.md)
+📄 [Power Query Overview](./docs/power_query_overview.md)
 
 ---
 
