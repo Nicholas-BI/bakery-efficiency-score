@@ -123,7 +123,7 @@ Open the `.pbix` in [Power BI Desktop](https://powerbi.microsoft.com/desktop), a
 
 1. Clone:  
    `git clone https://github.com/Nicholas-BI/bakery-efficiency-score.git`  
-2. Open `bakery_story.pbix`  
+2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)   
 3. Tweak sliders and explore strategies  
 4. Review tooltips and scoring logic
 
