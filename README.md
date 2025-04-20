@@ -85,6 +85,7 @@ Star schema with one fact table and supporting dimensions.
 - **Dims**: `Dim_Recipe`, `Dim_Appliance`  
 - **Weights** *(disconnected)*: `ProfitWeight`, `CookTimeWeight`, `ServingsWeight`, `XPWeight`  
 - **Helpers**: `Metrics`, `Axis Field Selector`, `Measure Table`
+
 📄 [Data Model Overview](./docs/data_model_overview.md)
 
 ---
