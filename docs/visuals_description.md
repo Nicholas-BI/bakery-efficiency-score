@@ -90,7 +90,7 @@ It’s a sandbox to explore why your pick works—and how it compares across the
 
 - Heart-shaped buttons for bookmarks  
 - All weights handled via exponents, not just sliders  
-- Tooltips and drillthrough make this *feel* like a game  
+- Tooltips and customizability make this *feel* like a game  
 - Normalized metrics = fair comparisons at any scale  
 - One layout, infinite playstyles
 
