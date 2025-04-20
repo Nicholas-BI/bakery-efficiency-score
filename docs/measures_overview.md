@@ -109,7 +109,6 @@ VAR CW = SELECTEDVALUE( CookTimeWeight[Cook Time Weight], 0 )
 VAR SW = SELECTEDVALUE( ServingsWeight[Servings Weight],  0 )
 VAR XW = SELECTEDVALUE( XPWeight[XP Weight],              0 )
 
-//–– build the raw score for each recipe
 VAR ProfitBase = [Normalized Profit]
 VAR CookBase   = [Normalized Cook Minutes]
 VAR ServeBase  = [Normalized Servings]
@@ -129,13 +128,11 @@ VAR Denominator =
 
 VAR RawScore = DIVIDE( Numerator, Denominator, 0 )
 
-//–– detect if this recipe has no Fact_Bakery rows in the current filter (e.g. outside the selected appliance)
 VAR HasData = COUNTROWS( Fact_Bakery ) > 0
 
 VAR RecipeScore =
     IF( HasData, RawScore, BLANK() )
 
-//–– final switch: per‐recipe vs. per‐appliance
 RETURN
 IF(
     ISINSCOPE( Dim_Recipe[Recipe] ),
