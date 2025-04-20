@@ -8,15 +8,16 @@ This single-page Power BI report helps *Bakery Story* players bake smarter, not 
 
 The heart of the report. This is where recipes rise or fall based on what *you* value.
 
-### Layout Map
+### 🗺️ Layout Map (Updated)
 
-| Region         | Contents |
-|----------------|----------|
-| **Top Left**   | Best Recipe card or context message |
-| **Top Center** | Appliance dropdown (multi-select) |
-| **Top Right**  | Sliders + strategy bookmarks |
-| **Middle**     | Column chart: Efficiency Score by Recipe |
-| **Right Panel**| Slicers for cook time, profit, XP, etc. |
+| Region          | Contents |
+|-----------------|----------|
+| **Top Left**    | **Axis Field Selector** — toggles between `Appliance Name` and `Recipe Name` for chart axis |
+| **Top Center**  | **Best Recipe** card — shows top result or context-sensitive message |
+| **Top Right**   | **Appliance Selector** (multi-select dropdown) and **Cook Time in Minutes** range slicer |
+| **Left Panel**  | **Preset Buttons** — heart-shaped bookmarks: Reset, Quick Cash, XP Farm, Party Host, Balanced *(CTRL+Click required)* |
+| **Center**      | **Efficiency Score Chart** — bar chart ranking recipes by current weight settings |
+| **Right Panel** | **Weight Sliders** — Profit, Cook Time, Servings, XP (used as exponents from –4 to +4) |
 
 ### Key Visuals
 
