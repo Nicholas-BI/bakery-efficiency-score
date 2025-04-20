@@ -129,15 +129,18 @@ Open the `.pbix` in [Power BI Desktop](https://powerbi.microsoft.com/desktop), a
 
 ## 📁 Repo Contents
 
-- `bakery_story.pbix` — Main report  
-- `dax_measures.xlsx` — All DAX formulas  
-- `bakery_story_source.xlsx` — Sample data  
-- Docs:  
-  - `measures_overview.md`  
-  - `data_model_description.md`  
-  - `power_query.md`  
-  - `visuals_description.md`  
-- `LICENSE` — CC BY-NC 4.0
+- [`docs/files/bakery_story.pbix`](./docs/files/bakery_story.pbix) — Main Power BI report  
+- [`docs/files/dax_measures.xlsx`](./docs/files/dax_measures.xlsx) — All DAX formulas  
+- [`docs/files/bakery_story_source.xlsx`](./docs/files/bakery_story_source.xlsx) — Sample source data  
+
+### 📄 Documentation
+- [`docs/measures_overview.md`](./docs/measures_overview.md) — DAX logic breakdown  
+- [`docs/data_model_overview.md`](./docs/data_model_overview.md) — Table structure and relationships  
+- [`docs/power_query.md`](./docs/power_query.md) — ETL / M code design  
+- [`docs/visuals_overview.md`](./docs/visuals_overview.md) — Report pages and interaction patterns  
+
+- [`LICENSE`](./LICENSE) — CC BY-NC 4.0
+
 
 ---
 
