@@ -88,7 +88,7 @@ It’s a sandbox to explore why your pick works—and how it compares across the
 
 ## Design Touches
 
-- Heart-shaped buttons for bookmarks (because: bakery ❤️)  
+- Heart-shaped buttons for bookmarks  
 - All weights handled via exponents, not just sliders  
 - Tooltips and drillthrough make this *feel* like a game  
 - Normalized metrics = fair comparisons at any scale  
