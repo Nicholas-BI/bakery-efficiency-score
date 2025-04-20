@@ -109,6 +109,7 @@ VAR CW = SELECTEDVALUE( CookTimeWeight[Cook Time Weight], 0 )
 VAR SW = SELECTEDVALUE( ServingsWeight[Servings Weight],  0 )
 VAR XW = SELECTEDVALUE( XPWeight[XP Weight],              0 )
 
+//–– build the raw score for each recipe
 VAR ProfitBase = [Normalized Profit]
 VAR CookBase   = [Normalized Cook Minutes]
 VAR ServeBase  = [Normalized Servings]
@@ -126,11 +127,25 @@ VAR Denominator =
     IF( SW < 0, POWER( ServeBase,   -SW ), 1 ) *
     IF( XW < 0, POWER( XPBase,      -XW ), 1 )
 
-VAR BaseResult = DIVIDE( Numerator, Denominator, 0 )
+VAR RawScore = DIVIDE( Numerator, Denominator, 0 )
 
-VAR HasRows = COUNTROWS( Base_BakeryData )
+//–– detect if this recipe has no Fact_Bakery rows in the current filter (e.g. outside the selected appliance)
+VAR HasData = COUNTROWS( Fact_Bakery ) > 0
+
+VAR RecipeScore =
+    IF( HasData, RawScore, BLANK() )
+
+//–– final switch: per‐recipe vs. per‐appliance
 RETURN
-    IF( HasRows = 0, BLANK(), BaseResult )
+IF(
+    ISINSCOPE( Dim_Recipe[Recipe] ),
+    RecipeScore,
+    MAXX(
+        VALUES( Dim_Recipe[Recipe] ),
+        RecipeScore
+    )
+)
+
 ```
 
 This lets you generate a personalized score for every recipe in the game, according to your current strategy.
