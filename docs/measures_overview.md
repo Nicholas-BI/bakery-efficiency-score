@@ -137,23 +137,36 @@ This lets you generate a personalized score for every recipe in the game, accord
 Now that every recipe has a score, we sort them and return the top result in context.
 
 ```DAX
-Best Recipe = 
+Best Recipe =
 VAR Recipes =
     FILTER(
-        VALUES( Dim_Recipe[Recipe] ),
-        NOT ISBLANK( [Efficiency Score (Filtered)] )
+        VALUES(Dim_Recipe[Recipe]),
+        NOT ISBLANK([Efficiency Score (Filtered)])
     )
+
+VAR ScoreMin =
+    MINX(Recipes, [Efficiency Score (Filtered)])
+
+VAR ScoreMax =
+    MAXX(Recipes, [Efficiency Score (Filtered)])
+
 RETURN
 IF(
     COUNTROWS(Recipes) < 2
-        || MINX(Recipes, [Efficiency Score (Filtered)]) = MAXX(Recipes, [Efficiency Score (Filtered)]),
+        || ScoreMin = ScoreMax,
     "Adjust weights or deselect recipe",
     CONCATENATEX(
-        TOPN(1, Recipes, [Efficiency Score (Filtered)], DESC),
+        TOPN(
+            1,
+            Recipes,
+            [Efficiency Score (Filtered)],
+            DESC
+        ),
         Dim_Recipe[Recipe],
         ", "
     )
 )
+
 ```
 
 This handles ties, blanks, and unhelpful filter situations with a friendly message.
