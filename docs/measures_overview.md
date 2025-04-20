@@ -9,14 +9,14 @@ We’ll focus on **how it works**, not just what the measures are.
 ## Step 1: Start With Raw Totals
 
 Each recipe starts with a handful of simple totals:
-- How long it takes to cook (Total Cook Minutes)
-- How many servings it makes (Total Servings)
-- How much money it brings in (Total Profit)
-- How much XP it gives (Total XP)
+- How long it takes to cook (`Total Cook Minutes`)
+- How many servings it makes (`Total Servings`)
+- How much money it brings in (`Total Profit`)
+- How much XP it gives (`Total XP`)
 
-These are calculated with basic SUM logic over the fact table. Example:
+These are calculated with basic `SUM` logic over the fact table. Example:
 
-DAX
+```DAX
 Total Income =
 SUM(Fact_Bakery[Income])
 
@@ -25,7 +25,7 @@ SUM(Fact_Bakery[Cost])
 
 Total Profit =
 [Total Income] - [Total Cost]
-
+```
 
 ---
 
@@ -38,7 +38,7 @@ The basic idea is:
 
 Here's the logic in DAX for normalized profit:
 
-DAX
+```DAX
 Normalized Profit = 
 IF(
     HASONEVALUE( Dim_Recipe[Recipe] ),
@@ -70,12 +70,13 @@ IF(
     )
 )
 
+```
 
 This gives us four context-aware, normalized values:
-- [Normalized Profit]
-- [Normalized Cook Minutes]
-- [Normalized Servings]
-- [Normalized XP]
+- `[Normalized Profit]`
+- `[Normalized Cook Minutes]`
+- `[Normalized Servings]`
+- `[Normalized XP]`
 
 Each one tells us: “how good is this recipe *relative to others*?”
 
@@ -101,7 +102,7 @@ We take the normalized values and raise them to the power of their weights. Posi
 
 Here’s the **full DAX formula** that brings it all together:
 
-DAX
+```DAX
 Efficiency Score = 
 VAR PW = SELECTEDVALUE( ProfitWeight[Profit Weight],      0 )
 VAR CW = SELECTEDVALUE( CookTimeWeight[Cook Time Weight], 0 )
@@ -142,6 +143,7 @@ IF(
     )
 )
 
+```
 
 This lets you generate a personalized score for every recipe in the game, according to your current strategy.
 
@@ -151,7 +153,7 @@ This lets you generate a personalized score for every recipe in the game, accord
 
 Now that every recipe has a score, we sort them and return the top result in context.
 
-DAX
+```DAX
 Best Recipe = 
 VAR Recipes =
     FILTER(
@@ -180,6 +182,7 @@ IF(
     )
 )
 
+```
 
 This handles ties, blanks, and unhelpful filter situations with a friendly message.
 
