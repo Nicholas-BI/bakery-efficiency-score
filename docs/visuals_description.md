@@ -72,7 +72,7 @@ Hover any bar in the chart to see *why* that recipe scored the way it did.
 
 ## Screenshot
 
-![Bakery Story Screenshot](./docs/images/bakery_story.png)
+![Bakery Story Screenshot](../docs/images/bakery_story.png)
 
 ---
 
