@@ -40,23 +40,28 @@ Here's the logic in DAX for normalized profit:
 
 ```DAX
 Normalized Profit = 
+
 VAR ThisTotal    = [Total Profit]
+
 VAR MaxTotalAll  =
     MAXX(
         ALL( Dim_Recipe[Recipe] ),
         [Total Profit]
     )
+
 VAR MaxTotalAppl =
     MAXX(
         ALL( Dim_Appliance[Appliance] ),
         [Total Profit]
     )
+
 VAR Denominator =
     IF(
         HASONEVALUE( Dim_Appliance[Appliance] ),
         MaxTotalAppl,  
         MaxTotalAll    
     )
+
 RETURN
     1 + DIVIDE( ThisTotal, Denominator, 0 )
 
