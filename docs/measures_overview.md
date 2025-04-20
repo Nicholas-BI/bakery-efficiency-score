@@ -99,7 +99,7 @@ We take the normalized values and raise them to the power of their weights. Posi
 Here’s the **full DAX formula** that brings it all together:
 
 ```DAX
-Efficiency Score (Filtered) = 
+Efficiency Score = 
 VAR PW = SELECTEDVALUE( ProfitWeight[Profit Weight],      0 )
 VAR CW = SELECTEDVALUE( CookTimeWeight[Cook Time Weight], 0 )
 VAR SW = SELECTEDVALUE( ServingsWeight[Servings Weight],  0 )
@@ -123,9 +123,10 @@ VAR Denominator =
     IF( XW < 0, POWER( XPBase,      -XW ), 1 )
 
 VAR BaseResult = DIVIDE( Numerator, Denominator, 0 )
-VAR HasRows = COUNTROWS(Fact_Bakery)
 
-RETURN IF(HasRows = 0, BLANK(), BaseResult)
+VAR HasRows = COUNTROWS( Base_BakeryData )
+RETURN
+    IF( HasRows = 0, BLANK(), BaseResult )
 ```
 
 This lets you generate a personalized score for every recipe in the game, according to your current strategy.
