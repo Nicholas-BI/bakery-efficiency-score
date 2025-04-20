@@ -136,7 +136,7 @@ Open the `.pbix` in [Power BI Desktop](https://powerbi.microsoft.com/desktop), a
 ### 📄 Documentation
 - [`docs/measures_overview.md`](./docs/measures_overview.md) — DAX logic breakdown  
 - [`docs/data_model_overview.md`](./docs/data_model_overview.md) — Table structure and relationships  
-- [`docs/power_query.md`](./docs/power_query.md) — ETL / M code design  
+- [`docs/power_query_overview.md`](./docs/power_query_overview.md) — ETL / M code design  
 - [`docs/visuals_overview.md`](./docs/visuals_overview.md) — Report pages and interaction patterns  
 
 - [`LICENSE`](./LICENSE) — CC BY-NC 4.0
