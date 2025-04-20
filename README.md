@@ -79,20 +79,12 @@ Click through these preset bookmarks to quickly switch between strategy profiles
 
 ## Data Model
 
-Follows a clean star schema for optimal performance.
+Star schema with one fact table and supporting dimensions.
 
-**Fact Table:**  
-- `Fact_Bakery` — Core metrics
-
-**Dimensions:**  
-- `Dim_Recipe`, `Dim_Appliance`
-
-**Weight Tables (disconnected):**  
-- `ProfitWeight`, `CookTimeWeight`, `ServingsWeight`, `XPWeight`
-
-**Helpers:**  
-- `Metrics`, `Axis Field Selector`, `Measure Table`
-
+- **Fact**: `Fact_Bakery` — Core metrics  
+- **Dims**: `Dim_Recipe`, `Dim_Appliance`  
+- **Weights** *(disconnected)*: `ProfitWeight`, `CookTimeWeight`, `ServingsWeight`, `XPWeight`  
+- **Helpers**: `Metrics`, `Axis Field Selector`, `Measure Table`
 📄 [Data Model Overview](./docs/data_model_overview.md)
 
 ---
