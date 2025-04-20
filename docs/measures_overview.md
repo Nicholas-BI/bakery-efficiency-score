@@ -168,7 +168,6 @@ IF(
     )
 )
 
-
 ```
 
 This handles ties, blanks, and unhelpful filter situations with a friendly message.
