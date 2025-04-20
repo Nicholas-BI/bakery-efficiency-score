@@ -60,8 +60,6 @@ Hover any bar in the chart to see *why* that recipe scored the way it did.
 | **Placement** | Numerator / Denominator / Ignored |
 | **Contribution** | Final value used in the formula |
 
-Think of it as a recipe résumé: here’s the logic behind the rank.
-
 ---
 
 ## Design Touches
