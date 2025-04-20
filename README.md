@@ -44,7 +44,7 @@ This is a fully dynamic recipe-ranking tool that adapts to your priorities. Whet
 
 ---
 
-![Bakery Story Report Screenshot](./docs/bakery_story.png)
+![Bakery Story Report Screenshot](./docs/images/bakery_story.png)
 
 ---
 
