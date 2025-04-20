@@ -72,9 +72,9 @@ Hover any bar in the chart to see *why* that recipe scored the way it did.
 
 ## Screenshots
 
-| Main View | Tooltip | Drillthrough (Planned) |
-|-----------|---------|-------------------------|
-| ![Main View](../images/pages/ranked_recipes.png) | ![Tooltip](../images/pages/tooltip_table.png) | *(Coming soon)* |
+| Main View |
+|-----------|
+| ![Main View](./docs/images/bakery_story.png) | ![Tooltip](../images/pages/tooltip_table.png) |
 
 ---
 
