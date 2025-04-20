@@ -41,7 +41,8 @@ Here's the logic in DAX for normalized profit:
 ```DAX
 Normalized Profit = 
 
-VAR ThisTotal    = [Total Profit]
+VAR ThisTotal    =
+[Total Profit]
 
 VAR MaxTotalAll  =
     MAXX(
