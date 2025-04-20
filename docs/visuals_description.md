@@ -70,11 +70,9 @@ Hover any bar in the chart to see *why* that recipe scored the way it did.
 
 ---
 
-## Screenshots
+## Screenshot
 
-| Main View |
-|-----------|
-| ![Main View](./docs/images/bakery_story.png) | ![Tooltip](../images/pages/tooltip_table.png) |
+![Bakery Story Screenshot](./docs/images/bakery_story.png)
 
 ---
 
