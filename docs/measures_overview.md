@@ -190,11 +190,11 @@ This handles ties, blanks, and unhelpful filter situations with a friendly messa
 
 ## Summary of the Logic
 
-1. **Total up raw recipe values** (profit, XP, etc.)
+1. **Total up raw values** (profit, XP, etc.)
 2. **Normalize** everything to a 1–2 range
 3. **Apply weights** to emphasize or de-emphasize traits
 4. **Raise values to those weights** and combine
-5. **Pick the best recipe** using that final score
+5. **Pick the best result** using that final score
 
 All fully dynamic, filter-aware, and powered by DAX.
 
