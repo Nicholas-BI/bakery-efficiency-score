@@ -1,16 +1,14 @@
 # 🍰 Bakery Story: Recipe Efficiency Report (Power BI)
 
-A Power BI report that ranks *Bakery Story* recipes based on what *you* care about — Profit, Cook Time, Servings, and XP — using dynamic sliders and an exponent-based scoring model built on ratio-normalized metrics.
+A Power BI report that ranks *Bakery Story* recipes based on what *you* care about—Profit, Cook Time, Servings, and XP—using dynamic sliders and an exponent-based scoring model built on ratio-normalized metrics.
 
-Whether you're optimizing for fast XP, quick cash, or low-maintenance bakes, this report adapts to your strategy in real time.
+Whether you're chasing fast XP, quick cash, or low-maintenance bakes, the report adapts to your strategy in real time.
 
 ---
 
 ## What Is Bakery Story?
 
-*Bakery Story* is a mobile game where you run a virtual bakery—cooking recipes, serving customers, earning coins, and leveling up. Each recipe is unique: some cook faster, some serve more customers, others yield more profit or XP.
-
-But appliances are limited, cook times vary, and customer arrival is fixed.
+A mobile game where you run a virtual bakery—cooking, serving, earning coins, and leveling up. Each recipe varies in cook time, profit, XP, and servings. Appliances are limited, and customers arrive at a fixed rate.
 
 So… which recipe is *best*?
 
@@ -18,31 +16,26 @@ So… which recipe is *best*?
 
 ## Why I Made This
 
-This project started with a debate between me and my partner, Stephanie.
+This started as a debate between me and my partner, Stephanie. She liked big batches—fewer check-ins. I wanted faster returns.
 
-She preferred big-batch recipes—less hassle, fewer check-ins. I wanted faster payouts—shorter bakes meant quicker returns. Neither of us was wrong. We just had different priorities.
+> What if a report didn’t tell you the best recipe, but let *you* define it?
 
-> What if a report didn’t tell you what the best recipe is?  
-> What if it let you define “best,” and adapted to match?
-
-This report does exactly that.
+That’s exactly what this does.
 
 ---
 
 ## What This Report Does
 
-This is a fully dynamic recipe-ranking tool that adapts to your priorities. Whether you're focused on profit, speed, volume, or XP, the scoring model recalculates and ranks recipes based on your input.
+A dynamic ranking tool that adapts to your priorities. Profit? Speed? XP? You decide—everything updates in real time.
 
 **Key features:**
-- Slider-based control over Profit, Cook Time, Servings, and XP  
-- Preset strategies like *Quick Cash*, *XP Farm*, and *Balanced*  
-- Appliance-level filtering and cook-time constraints  
-- Real-time ranking updates  
-- Score breakdown tooltips and exported DAX measures for transparency
+- Slider control over Profit, Cook Time, Servings, XP  
+- Preset strategies like *Quick Cash*, *XP Farm*, *Balanced*  
+- Appliance-level filters and cook-time limits  
+- Instant score recalculations  
+- Transparent scoring with tooltips and exported DAX
 
 ![Bakery Story Report Screenshot](./docs/images/bakery_story.png)
-
----
 
 ## How It Works (Under the Hood)
 
