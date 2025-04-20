@@ -17,7 +17,7 @@ The heart of the report. This is where recipes rise or fall based on what *you* 
 | **Top Right**   | **Appliance Selector** (multi-select vertical list) and **Cook Time in Minutes** range slicer |
 | **Left Panel**  | **Preset Buttons** — heart-shaped bookmarks: Reset, Quick Cash, XP Farm, Party Host, Balanced *(CTRL+Click required when not published)* |
 | **Center**      | **Efficiency Score Chart** — bar chart ranking recipes by current weight settings |
-| **Right Panel** | **Weight Sliders** — Profit, Cook Time, Servings, XP (used as exponents from –4 to +4) |
+| **Right Panel** | **Weight Sliders** — Profit, Cook Time, Servings, XP (used as exponents from –20 to +20) |
 
 ### Key Visuals
 
