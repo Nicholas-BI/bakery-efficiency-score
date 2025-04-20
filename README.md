@@ -115,7 +115,8 @@ Modular ETL in Power Query:
 
 - [`docs/files/bakery_story.pbix`](./docs/files/bakery_story.pbix) — Main Power BI report  
 - [`docs/files/dax_measures.xlsx`](./docs/files/dax_measures.xlsx) — All DAX formulas  
-- [`docs/files/bakery_story_source.xlsx`](./docs/files/bakery_story_source.xlsx) — Sample source data  
+- [`docs/files/bakery_story_source.xlsx`](./docs/files/bakery_story_source.xlsx) — Source data
+- [`docs/images`](./docs/images) — All images in this repository  
 
 ### 📄 Documentation
 - [`docs/measures_overview.md`](./docs/measures_overview.md) — DAX logic breakdown  
