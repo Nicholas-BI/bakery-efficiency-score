@@ -40,10 +40,6 @@ This is a fully dynamic recipe-ranking tool that adapts to your priorities. Whet
 - Real-time ranking updates  
 - Score breakdown tooltips and exported DAX measures for transparency
 
----
-
----
-
 ![Bakery Story Report Screenshot](./docs/images/bakery_story.png)
 
 ---
@@ -79,9 +75,9 @@ Each recipe receives a dynamic efficiency score based on your weight settings:
 | Strategy     | Profit | Cook Time | Servings | XP | Description                          |
 |--------------|--------|-----------|----------|----|--------------------------------------|
 | Quick Cash   | 20     | -20       | –5       | 1  | Maximize revenue, minimize wait time |
-| XP Farm      | 5      | –20        | –5       | 20 | Level up quickly with short bakes    |
-| Party Host   | 5      | –10        | 20       | 1  | Maximize servings for events         |
-| Balanced     | 1      | –1        | -1        | 1  | A general-purpose optimization        |
+| XP Farm      | 5      | –20       | –5       | 20 | Level up quickly with short bakes    |
+| Party Host   | 5      | –10       | 20       | 1  | Maximize servings for events         |
+| Balanced     | 1      | –1        | -1       | 1  | A general-purpose optimization       |
 
 ---
 
