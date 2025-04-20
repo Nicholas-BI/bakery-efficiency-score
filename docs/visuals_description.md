@@ -1,134 +1,114 @@
-# Visuals Description
+# 🎨 Visuals Overview
 
-The Bakery Story dashboard is a single-page Power BI report (with tooltip and drillthrough support) built to help players make smarter, faster baking decisions. Every visual on the page responds dynamically to your custom preferences, whether you're chasing fast cash, XP, or chill, low-maintenance batches.
+This single-page Power BI report helps *Bakery Story* players bake smarter, not harder. Every visual responds in real time to your slider settings, whether you're chasing fast XP, profit, or just want low-effort bakes.
 
-It’s clean, interactive, and a little nerdy — just how we like it.
+Clean, interactive, and a little nerdy — just how we like it.
 
 ---
 
 ## 🧁 Main View
 
-This is the heart of the report. It’s where you explore recipe efficiency based on what *you* care about.
+The heart of the report. This is where recipes rise or fall based on what *you* value.
 
-### Layout Overview
+### Layout Map
 
 | Region         | Contents |
 |----------------|----------|
-| **Top Left**   | Best Recipe display — or a message if weights need adjusting |
-| **Top Center** | Appliance selector (multi-select dropdown) |
-| **Top Right**  | Weight sliders and preset bookmark buttons |
+| **Top Left**   | Best Recipe card or context message |
+| **Top Center** | Appliance dropdown (multi-select) |
+| **Top Right**  | Sliders + strategy bookmarks |
 | **Middle**     | Column chart: Efficiency Score by Recipe |
 | **Right Panel**| Slicers for cook time, profit, XP, etc. |
 
-### Core Visuals
+### Key Visuals
 
-- **Bar Chart: Efficiency Score by Recipe**  
-  - Each bar is a recipe, sorted by score  
-  - Scores update in real time as you change weights  
-  - Hovering shows a tooltip breakdown (see below!)
+- **Efficiency Bar Chart**  
+  - Sorts recipes by real-time score  
+  - Hover to see full score breakdown (tooltip below)
 
 - **Best Recipe Card**  
-  - Shows the top-ranked recipe unless all weights are zero or a selection is active  
-  - Message updates dynamically based on report context
+  - Shows the top-ranked option unless filters or weights neutralize it  
+  - Automatically updates with every change
 
-- **Slider Panel (Disconnected Slicers)**  
-  - Profit, Cook Time, Servings, XP  
-  - Each slider adjusts how important the metric is (–4 to +4)  
-  - These weights are used as **exponents** in the scoring formula  
-  - 0 means “don’t care,” negative means “penalize”
+- **Sliders (Disconnected Slicers)**  
+  - Control weight of each metric (–4 to +4)  
+  - Act as **exponents** in the scoring formula  
+  - 0 = neutral, negatives = penalize
 
-- **Cook Time Range Selector**  
-  - A numeric range slicer to limit the recipe pool  
-  - Helps you say “just show me things that take around 4 hours,” etc.
+- **Cook Time Filter**  
+  - Limit recipes to a specific range (e.g., 1–4 hours)
 
 - **Appliance Filter**  
-  - Multi-select list of every appliance in the game  
-  - Only see what’s cookable with your current setup
+  - Pick what appliances you’re using—see only what’s cookable
 
-- **Bookmark Buttons (Hearts!)**  
-  - Quick toggle between playstyles:
-    - Balanced
-    - Quick Cash
-    - XP Farm
-    - Party Host
-    - Reset to neutral weights  
-  - CTRL+Click is required (Power BI behavior)
+- **Bookmark Buttons**  
+  - Quick toggle between presets:
+    - Balanced, Quick Cash, XP Farm, Party Host, Reset  
+  - (CTRL+Click required in Power BI)
 
 ---
 
-## 🪄 Tooltip Panel (Hover Preview)
+## 🪄 Tooltip (Hover Breakdown)
 
-When you hover over a bar in the main chart, you’ll see a pop-up showing the “why” behind that recipe’s score.
-
-This tooltip includes:
+Hover any bar in the chart to see *why* that recipe scored the way it did.
 
 | Field                | Description |
 |---------------------|-------------|
-| **Efficiency Score** | Final result after all weights applied |
-| **Total Profit**     | Raw profit before normalization |
-| **Normalized Profit**| Value scaled relative to other recipes |
-| **Total Cook Minutes** | How long it takes, end-to-end |
-| **Normalized Cook Time** | Scaled cook time |
-| **Total Servings**   | How many dishes it produces |
-| **Normalized Servings** | Scaled servings |
-| **Total XP**         | Experience gained |
-| **Normalized XP**    | Scaled XP value |
+| **Efficiency Score** | Final weighted score |
+| **Total / Normalized Profit** | Raw & scaled income |
+| **Total / Normalized Cook Time** | Duration in minutes |
+| **Total / Normalized Servings** | Plates produced |
+| **Total / Normalized XP** | Level-up points |
 
-The tooltip helps users understand what’s boosting or dragging each score — without leaving the chart. It’s especially useful when weights are extreme and the chart shifts dramatically.
-
-> Think of it like a recipe résumé: here’s why this one ranks how it does.
+Think of it as a recipe résumé: here’s the logic behind the rank.
 
 ---
 
-## 🔎 Drillthrough Page (Deep Dive)
+## 🔎 Drillthrough (Deep Dive)
 
-This is where you can **zoom in** on a single recipe after clicking it in the main chart.
+Click any recipe to open its profile.
 
-Once a recipe is selected, the drillthrough page shows:
+| Insight              | What It Shows                          |
+|----------------------|----------------------------------------|
+| **Profit per Minute**| Income speed                           |
+| **XP per Minute**    | Leveling speed                         |
+| **Servings per Minute** | How fast it clears out              |
+| **Profit per Serving** | Value per plate                      |
+| **XP per Serving**   | XP per customer                        |
+| **Total / Normalized Stats** | Raw and scaled metrics         |
 
-| Insight | Description |
-|--------|-------------|
-| **Profit per Minute** | Speed-to-income ratio — how fast does this earn? |
-| **XP per Minute** | How much leveling juice you get per hour |
-| **Servings per Minute** | Tells you how quickly a batch clears out |
-| **Profit per Serving** | What each plate is worth |
-| **XP per Serving** | Bonus points per customer served |
-| **Total Stats** | Raw numbers for profit, servings, XP, cook time |
-| **Normalized Stats** | The same values scaled between 0 and 1 for fair comparison |
+**Planned visuals:**
+- KPI cards for per-minute / per-serving values  
+- Radar chart to visualize trade-offs  
+- Fit score: how well this recipe matches your strategy
 
-Planned visuals:
-
-- Small KPI cards for each of the per-minute/per-serving ratios  
-- A radar chart showing relative strengths across Profit, Time, XP, and Servings  
-- A visual indicator of how close this recipe is to the “best fit” based on your weights
-
-> This page is all about context. You found a top recipe — now let’s explore *why* it works, and how it stacks up in every category.
+It’s a sandbox to explore why your pick works—and how it compares across the board.
 
 ---
 
-## ✨ Design Highlights
+## ✨ Design Touches
 
-- Heart-shaped buttons for bookmarks because... well, bakery ❤️  
-- Clean, consistent layout keeps the scoring logic front and center  
-- Tooltip and drillthrough make the report *feel* like a game — click, hover, explore  
-- Normalized metrics ensure apples-to-apples comparison, no matter the scale  
-- Weight sliders offer real control: it’s not just “turn up profit,” it’s *how much* you care about it
-
----
-
-## Screenshot Reference
-
-| Main View | Tooltip Panel | Drillthrough (Planned) |
-|-----------|----------------|-------------------------|
-| ![Main View](../images/pages/ranked_recipes.png) | ![Tooltip Panel](../images/pages/tooltip_table.png) | *(Coming soon)* |
+- Heart-shaped buttons for bookmarks (because: bakery ❤️)  
+- All weights handled via exponents, not just sliders  
+- Tooltips and drillthrough make this *feel* like a game  
+- Normalized metrics = fair comparisons at any scale  
+- One layout, infinite playstyles
 
 ---
 
-## Want to Learn More?
+## 🖼️ Screenshots
 
-Check out [measures_description.md](./measures_description.md) to see how the scoring logic actually works — all the DAX behind the curtain.
+| Main View | Tooltip | Drillthrough (Planned) |
+|-----------|---------|-------------------------|
+| ![Main View](../images/pages/ranked_recipes.png) | ![Tooltip](../images/pages/tooltip_table.png) | *(Coming soon)* |
 
 ---
 
-This isn’t just a dashboard. It’s a bakery simulator. A recipe optimizer. A choose-your-own-playstyle engine. And it all fits on one page.
+## More Info
 
+Curious about the logic behind the scores?  
+Check out [measures_description.md](./measures_description.md) for the full DAX breakdown.
+
+---
+
+This isn’t just a dashboard — it’s a recipe optimizer and strategy engine. All in one scrollable screen.
