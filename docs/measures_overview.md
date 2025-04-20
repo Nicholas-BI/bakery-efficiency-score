@@ -1,4 +1,4 @@
-# 📊 Efficiency Scoring System – Conceptual Overview
+# 📊 Measures Overview
 
 This document explains how the **Bakery Story Efficiency Score** works from concept to implementation. The dashboard ranks bakery recipes based on what *you* care about—Profit, Cook Time, Servings, and XP—by letting you assign custom weights. The scoring logic is flexible, explainable, and built entirely in DAX.
 
