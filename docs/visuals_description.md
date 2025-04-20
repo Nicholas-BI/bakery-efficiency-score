@@ -64,28 +64,6 @@ Think of it as a recipe résumé: here’s the logic behind the rank.
 
 ---
 
-## 🔎 Drillthrough (Deep Dive)
-
-Click any recipe to open its profile.
-
-| Insight              | What It Shows                          |
-|----------------------|----------------------------------------|
-| **Profit per Minute**| Income speed                           |
-| **XP per Minute**    | Leveling speed                         |
-| **Servings per Minute** | How fast it clears out              |
-| **Profit per Serving** | Value per plate                      |
-| **XP per Serving**   | XP per customer                        |
-| **Total / Normalized Stats** | Raw and scaled metrics         |
-
-**Planned visuals:**
-- KPI cards for per-minute / per-serving values  
-- Radar chart to visualize trade-offs  
-- Fit score: how well this recipe matches your strategy
-
-It’s a sandbox to explore why your pick works—and how it compares across the board.
-
----
-
 ## Design Touches
 
 - Heart-shaped buttons for bookmarks  
