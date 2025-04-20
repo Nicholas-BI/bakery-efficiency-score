@@ -105,7 +105,7 @@ Modular ETL in Power Query:
 - Tooltips for full score logic  
 - Game-inspired theming
 
-📄 [Visuals Walkthrough](./docs/visuals_description.md)
+📄 [Visuals Overview](./docs/visuals_overview.md)
 
 ---
 
