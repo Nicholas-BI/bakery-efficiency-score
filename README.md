@@ -51,7 +51,7 @@ A responsive scoring model using:
 4. Rank by resulting score in current context
 
 📄 [See Measures Overview](./docs/measures_overview.md)  
-📥 [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/dax_measures.xlsx)
+📥 [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx)
 
 ---
 
