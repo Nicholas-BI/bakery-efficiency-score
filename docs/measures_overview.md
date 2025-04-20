@@ -154,7 +154,7 @@ This lets you generate a personalized score for every recipe in the game, accord
 Now that every recipe has a score, we sort them and return the top result in context.
 
 ```DAX
-Best Recipe =
+Best Recipe = 
 VAR Recipes =
     FILTER(
         VALUES(Dim_Recipe[Recipe]),
@@ -181,7 +181,6 @@ IF(
         ", "
     )
 )
-
 
 ```
 
