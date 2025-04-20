@@ -6,7 +6,7 @@ This folder contains all supporting documentation and reference files for the **
 
 ## Contents
 
-- [`bakery_story.pbix`](./docs/files/bakery_story.pbix)
+- [`bakery_story.pbix`](./files/bakery_story.pbix)
   The main Power BI Desktop file with all queries, data model, DAX measures, and visuals.
 
 - [`bakery_story_source.xlsx`](./bakery_story_source.xlsx)  
