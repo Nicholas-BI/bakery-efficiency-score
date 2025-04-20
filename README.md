@@ -33,6 +33,15 @@ Ranks recipes based on your priorities with instant updates.
 
 ---
 
+## 📥 Try It
+
+1. Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
+2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)  
+3. Tweak sliders and explore strategies  
+4. Review tooltips and scoring logic
+
+---
+
 ## How It Works
 
 A responsive scoring model using:
