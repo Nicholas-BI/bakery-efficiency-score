@@ -42,6 +42,12 @@ This is a fully dynamic recipe-ranking tool that adapts to your priorities. Whet
 
 ---
 
+---
+
+![Bakery Story Report Screenshot](./docs/bakery_story.png)
+
+---
+
 ## How It Works (Under the Hood)
 
 This isn’t just a slicer toy—it’s built on a tailored scoring model using:
