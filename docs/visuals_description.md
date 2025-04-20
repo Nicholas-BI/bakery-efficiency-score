@@ -79,7 +79,7 @@ Hover any bar in the chart to see *why* that recipe scored the way it did.
 ## More Info
 
 Curious about the logic behind the scores?  
-Check out [measures_description.md](./measures_description.md) for the full DAX breakdown.
+Check out 📄[See Measures Overview](./docs/measures_overview.md)   for the full DAX breakdown.
 
 ---
 
