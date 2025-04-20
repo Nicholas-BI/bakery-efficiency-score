@@ -1,4 +1,4 @@
-# Documentation Overview
+# 📚 Documentation Overview
 
 This folder contains all supporting documentation and reference files for the **Bakery Story Efficiency Score** Power BI dashboard. Whether you want to inspect the PBIX, review source data, dive into data modeling, or dissect DAX, everything is here.
 
