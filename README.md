@@ -61,8 +61,8 @@ A responsive scoring model using:
 |--------------|--------|-----------|----------|----|--------------------------------|
 | Quick Cash   | 20     | -20       | –5       | 1  | Maximize profit, minimize time |
 | XP Farm      | 5      | –20       | –5       | 20 | Fast XP with short bakes       |
-| Party Host   | 5      | –10       | 20       | 1  | Max servings for events        |
-| Balanced     | 1      | –1        | -1       | 1  | Well-rounded optimization      |
+| Party Host   | 1      | –5       | 20       | 1  | Max servings for events        |
+| Balanced     | 2      | –1        | -1       | 2  | Well-rounded optimization      |
 
 ---
 
