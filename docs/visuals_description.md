@@ -43,7 +43,6 @@ The heart of the report. This is where recipes rise or fall based on what *you* 
 - **Bookmark Buttons**  
   - Quick toggle between presets:
     - Balanced, Quick Cash, XP Farm, Party Host, Reset  
-  - (CTRL+Click required in Power BI)
 
 ---
 
