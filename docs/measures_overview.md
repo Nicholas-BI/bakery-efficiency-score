@@ -54,8 +54,8 @@ VAR MaxTotalAppl =
 VAR Denominator =
     IF(
         HASONEVALUE( Dim_Appliance[Appliance] ),
-        MaxTotalAppl,   // you're looking at an Appliance
-        MaxTotalAll     // otherwise (Recipe), global max
+        MaxTotalAppl,  
+        MaxTotalAll    
     )
 RETURN
     1 + DIVIDE( ThisTotal, Denominator, 0 )
