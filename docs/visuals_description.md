@@ -6,7 +6,7 @@ Clean, interactive, and a little nerdy — just how we like it.
 
 ---
 
-## 🧁 Main View
+## Main View
 
 The heart of the report. This is where recipes rise or fall based on what *you* value.
 
@@ -86,7 +86,7 @@ It’s a sandbox to explore why your pick works—and how it compares across the
 
 ---
 
-## ✨ Design Touches
+## Design Touches
 
 - Heart-shaped buttons for bookmarks (because: bakery ❤️)  
 - All weights handled via exponents, not just sliders  
@@ -96,7 +96,7 @@ It’s a sandbox to explore why your pick works—and how it compares across the
 
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
 | Main View | Tooltip | Drillthrough (Planned) |
 |-----------|---------|-------------------------|
