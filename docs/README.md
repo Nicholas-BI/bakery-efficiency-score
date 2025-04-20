@@ -4,20 +4,20 @@ This folder contains all supporting documentation and reference files for the **
 
 ---
 
-## 📂 Contents
+## Contents
 
-### 🔧 Files (in `/docs/files`)
+### Files (in `/docs/files`)
 - [`bakery_story.pbix`](./files/bakery_story.pbix) — Full Power BI report with all queries, model, DAX, and visuals  
 - [`bakery_story_source.xlsx`](./files/bakery_story_source.xlsx) — Raw source data used to build the model  
 - [`dax_measures.xlsx`](./files/dax_measures.xlsx) — Export of all DAX measures *(👉 [Download here](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx))*
 
-### 📝 Documentation (in `/docs`)
+### Documentation (in `/docs`)
 - [`data_model_overview.md`](./data_model_overview.md) — Fact table, dimension links, and schema design  
 - [`power_query.md`](./power_query.md) — ETL design using modular M code and layered queries  
 - [`measures_overview.md`](./measures_overview.md) — DAX logic for normalization, weights, and scoring  
 - [`visuals_overview.md`](./visuals_overview.md) — Page layouts, sliders, presets, and tooltips  
 
-### 🖼️ Images (in `/docs/images`)
+### Images (in `/docs/images`)
 - `bakery_story.png` — Report screenshot  
 - `query_dependencies.png` — Power Query dependency diagram  
 
