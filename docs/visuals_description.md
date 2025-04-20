@@ -30,12 +30,12 @@ The heart of the report. This is where recipes rise or fall based on what *you* 
   - Automatically updates with every change
 
 - **Sliders (Disconnected Slicers)**  
-  - Control weight of each metric (–4 to +4)  
+  - Control weight of each metric (–20 to +20)  
   - Act as **exponents** in the scoring formula  
   - 0 = neutral, negatives = penalize
 
 - **Cook Time Filter**  
-  - Limit recipes to a specific range (e.g., 1–4 hours)
+  - Limit recipes to a specific range (e.g., 30–120 minutes)
 
 - **Appliance Filter**  
   - Pick what appliances you’re using—see only what’s cookable
