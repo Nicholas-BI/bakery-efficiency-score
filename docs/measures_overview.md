@@ -18,13 +18,13 @@ These are calculated with basic `SUM` logic over the fact table. Example:
 
 ```DAX
 Total Income =
-    SUM(Fact_Bakery[Income])
+SUM(Fact_Bakery[Income])
 
 Total Cost =
-    SUM(Fact_Bakery[Cost])
+SUM(Fact_Bakery[Cost])
 
 Total Profit =
-    [Total Income] - [Total Cost]
+[Total Income] - [Total Cost]
 ```
 
 ---
