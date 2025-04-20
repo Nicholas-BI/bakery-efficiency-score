@@ -43,6 +43,7 @@ Normalized Profit =
 VAR ThisTotal    = [Total Profit]
 
 // 1) Top total profit across all recipes
+
 VAR MaxTotalAll  =
     MAXX(
         ALL( Dim_Recipe[Recipe] ),
@@ -50,6 +51,7 @@ VAR MaxTotalAll  =
     )
 
 // 2) Top total profit across all appliances
+
 VAR MaxTotalAppl =
     MAXX(
         ALL( Dim_Appliance[Appliance] ),
@@ -57,6 +59,7 @@ VAR MaxTotalAppl =
     )
 
 // 3) Pick denominator by appliance‑filter context
+
 VAR Denominator =
     IF(
         HASONEVALUE( Dim_Appliance[Appliance] ),
@@ -65,6 +68,7 @@ VAR Denominator =
     )
 
 // 4) Normalize into [1 → 2]
+
 RETURN
     1 + DIVIDE( ThisTotal, Denominator, 0 )
 
