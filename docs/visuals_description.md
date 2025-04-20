@@ -54,11 +54,11 @@ Hover any bar in the chart to see *why* that recipe scored the way it did.
 
 | Field                | Description |
 |---------------------|-------------|
-| **Efficiency Score** | Final weighted score |
-| **Total / Normalized Profit** | Raw & scaled income |
-| **Total / Normalized Cook Time** | Duration in minutes |
-| **Total / Normalized Servings** | Plates produced |
-| **Total / Normalized XP** | Level-up points |
+| **Metric** | Value being weighed |
+| **Normalized Value** | [1,2] Range] |
+| **Weight Applied** | As an exponent to the normalized value |
+| **Placement** | Numerator / Denominator / Ignored |
+| **Contribution** | Final value used in the formula |
 
 Think of it as a recipe résumé: here’s the logic behind the rank.
 
