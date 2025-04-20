@@ -26,7 +26,7 @@ That’s exactly what this does.
 
 ## What This Report Does
 
-A dynamic ranking tool that adapts to your priorities. Profit? Speed? XP? You decide—everything updates in real time.
+Provides a dynamic ranking tool that adapts to your priorities. Profit? Speed? XP? You decide—everything updates in real time.
 
 **Key features:**
 - Slider control over Profit, Cook Time, Servings, XP  
