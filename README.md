@@ -111,21 +111,10 @@ Modular ETL in Power Query:
 
 ## 📥 Try It
 
-- [Download .pbix](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)  
-- [Download DAX Measures](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx)  
-- [Download Source Data](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story_source.xlsx)
-
-Open the `.pbix` in [Power BI Desktop](https://powerbi.microsoft.com/desktop), adjust sliders, and watch the rankings shift.
-
----
-
-## ▶️ Get Started
-
-1. Clone:  
-   `git clone https://github.com/Nicholas-BI/bakery-efficiency-score.git`  
-2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)   
-3. Tweak sliders and explore strategies  
-4. Review tooltips and scoring logic
+1.Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)
+2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix) 
+4. Tweak sliders and explore strategies  
+5. Review tooltips and scoring logic
 
 ---
 
