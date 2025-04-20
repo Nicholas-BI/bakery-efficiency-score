@@ -84,7 +84,7 @@ Follows a clean star schema for optimal performance.
 **Helpers:**  
 - `Metrics`, `Axis Field Selector`, `Measure Table`
 
-📄 [Data Model Overview](./docs/files/data_model_overview.md)
+📄 [Data Model Overview](./docs/data_model_overview.md)
 
 ---
 
