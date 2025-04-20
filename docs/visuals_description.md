@@ -2,8 +2,6 @@
 
 This single-page Power BI report helps *Bakery Story* players bake smarter, not harder. Every visual responds in real time to your slider settings, whether you're chasing fast XP, profit, or just want low-effort bakes.
 
-Clean, interactive, and a little nerdy — just how we like it.
-
 ---
 
 ## Main View
