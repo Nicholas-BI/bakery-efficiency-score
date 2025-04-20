@@ -39,31 +39,36 @@ The basic idea is:
 Here's the logic in DAX for normalized profit:
 
 ```DAX
-Normalized Profit =
-VAR ThisTotal =
-    [Total Profit]
-
-VAR MaxTotalAll =
-    MAXX(
-        ALL(Dim_Recipe[Recipe]),
-        [Total Profit]
+Normalized Profit = 
+IF(
+    HASONEVALUE( Dim_Recipe[Recipe] ),
+    1
+    + DIVIDE(
+        [Total Profit],
+        MAXX(
+            ALL( Dim_Recipe[Recipe] ),
+            [Total Profit]
+        ),
+        0
+    ),
+    1
+    + DIVIDE(
+        AVERAGEX(
+            VALUES( Dim_Recipe[Recipe] ),
+            [Total Profit]
+        ),
+        MAXX(
+            ALL( Dim_Appliance[Appliance] ),
+            CALCULATE(
+                AVERAGEX(
+                    VALUES( Dim_Recipe[Recipe] ),
+                    [Total Profit]
+                )
+            )
+        ),
+        0
     )
-
-VAR MaxTotalAppl =
-    MAXX(
-        ALL(Dim_Appliance[Appliance]),
-        [Total Profit]
-    )
-
-VAR Denominator =
-    IF(
-        HASONEVALUE(Dim_Appliance[Appliance]),
-        MaxTotalAppl,
-        MaxTotalAll
-    )
-
-RETURN
-    1 + DIVIDE(ThisTotal, Denominator, 0)
+)
 
 ```
 
