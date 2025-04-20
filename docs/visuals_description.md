@@ -8,7 +8,7 @@ This single-page Power BI report helps *Bakery Story* players bake smarter, not 
 
 The heart of the report. This is where recipes rise or fall based on what *you* value.
 
-### 🗺️ Layout Map (Updated)
+### Layout Map
 
 | Region          | Contents |
 |-----------------|----------|
