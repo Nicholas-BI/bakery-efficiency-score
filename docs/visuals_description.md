@@ -26,7 +26,7 @@ The heart of the report. This is where recipes rise or fall based on what *you* 
   - Hover to see full score breakdown (tooltip below)
 
 - **Best Recipe Card**  
-  - Shows the top-ranked option unless filters or weights neutralize it  
+  - Shows the top-ranked option and handles ties unless filters or weights neutralize it  
   - Automatically updates with every change
 
 - **Sliders (Disconnected Slicers)**  
