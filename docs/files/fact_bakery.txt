@@ -1,0 +1,10 @@
+let
+    Source = Excel.Workbook(File.Contents("C:\Users\nkimber\Documents\Power BI\Story\Book1.xlsx"), null, true),
+    Table2_Table = Source{[Item="Table2",Kind="Table"]}[Data],
+    #"Changed Type" = Table.TransformColumnTypes(Table2_Table,{{"Appl", type text}, {"Recipe", type text}, {"Hours", type number}, {"Minutes", type number}, {"Servings", Int64.Type}, {"Cost", Int64.Type}, {"Income", Int64.Type}, {"XP", Int64.Type}, {"Profit", Int64.Type}}),
+    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Appl", "Appliance"}, {"Recipe", "Recipe"}}),
+    #"Added Custom Column" = Table.AddColumn(#"Renamed Columns", "Custom", each let splitRecipe = Splitter.SplitTextByCharacterTransition({"a".."z"}, {"A".."Z"})([Recipe]) in splitRecipe{0}?, type text),
+    #"Renamed Columns1" = Table.RenameColumns(#"Added Custom Column",{{"Custom", "Recipe Name"}}),
+    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns1",{"Profit"})
+in
+    #"Removed Columns"
