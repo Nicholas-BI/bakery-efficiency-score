@@ -1,45 +1,44 @@
 # 📚 Documentation Overview
 
-This folder contains all supporting documentation and reference files for the **Bakery Story Efficiency Score** Power BI dashboard. Whether you want to inspect the PBIX, review source data, dive into data modeling, or dissect DAX, everything is here.
+This folder contains all supporting docs and reference files for the **Bakery Story Efficiency Score** Power BI report. Whether you’re exploring the model, reviewing DAX, or grabbing the PBIX—everything you need is right here.
 
 ---
 
-## Contents
+## 🔍 Contents
 
-### Files (in `/docs/files`)
-- [`bakery_story.pbix`](./files/bakery_story.pbix) — Full Power BI report with all queries, model, DAX, and visuals  
-- [`bakery_story_source.xlsx`](./files/bakery_story_source.xlsx) — Raw source data used to build the model  
-- [`dax_measures.xlsx`](./files/dax_measures.xlsx) — Export of all DAX measures *(👉 [Download here](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx))*
+### 📂 `/docs/data`
+- [`bakery_story.pbix`](../data/bakery_story.pbix) — Full Power BI report with queries, model, DAX, and visuals  
+- [`bakery_story_source.xlsx`](../data/bakery_story_source.xlsx) — Raw recipe data used for modeling  
+- [`dax_measures.xlsx`](../data/dax_measures.xlsx) — Export of all DAX measures  
+  - 👉 [Direct Download](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/dax_measures.xlsx)
 
-### Documentation (in `/docs`)
-- [`data_model_overview.md`](./data_model_overview.md) — Fact table, dimension links, and schema design  
-- [`power_query.md`](./power_query.md) — ETL design using modular M code and layered queries  
-- [`measures_overview.md`](./measures_overview.md) — DAX logic for normalization, weights, and scoring  
-- [`visuals_overview.md`](./visuals_overview.md) — Page layouts, sliders, presets, and tooltips  
+### 📄 Documentation
+- [`data_model_overview.md`](./data_model_overview.md) — Schema layout, fact/dim tables, and logic  
+- [`power_query_overview.md`](./power_query_overview.md) — ETL design and modular M queries  
+- [`measures_overview.md`](./measures_overview.md) — DAX breakdown: normalization, weights, scoring  
+- [`visuals_overview.md`](./visuals_overview.md) — Report layout, sliders, tooltips, and strategies
 
-### Images (in `/docs/images`)
-- `bakery_story.png` — Report screenshot  
-- `query_dependencies.png` — Power Query dependency diagram  
-
----
-
-## Getting Started
-
-1. **Open** `bakery_story.pbix` in Power BI Desktop.  
-  - 👉 **[Click here to download the Power BI report (.pbix)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)**  
-2. **Review** the data model in the Model view.  
-3. **Inspect** Power Query M scripts via [Power Query Overview](./power_query.md).  
-4. **Examine** DAX in [Measures Overview](./measures_overview.md)
-5. **Explore** report pages with guidance from [Visuals Walkthrough](./visuals_description.md).
+### 🖼️ Images
+- `/images/bakery_story.png` — Report screenshot  
+- `/images/query_dependencies.png` — Power Query structure diagram
 
 ---
 
-## Purpose
+## 🚀 Getting Started
 
-This documentation is designed to:
+1. **Download and open** [`bakery_story.pbix`](../data/bakery_story.pbix) in Power BI Desktop  
+2. **Explore** the data model using the Model view  
+3. **Review** queries in [Power Query Overview](./power_query_overview.md)  
+4. **Inspect** scoring logic in [Measures Overview](./measures_overview.md)  
+5. **Navigate** visuals with [Visuals Overview](./visuals_overview.md)
 
-- Make it easy to understand how the dashboard is structured.  
-- Provide reusable examples of ETL, data modeling, and DAX patterns.  
-- Help developers and analysts recreate or extend this solution.
+---
 
-Feel free to clone this folder and adapt any piece to your own Power BI projects.  
+## 🎯 Purpose
+
+This documentation is here to:
+- Explain how the report works—clearly and completely  
+- Offer reusable ETL, modeling, and DAX patterns  
+- Help analysts recreate or extend this build
+
+Feel free to reuse or adapt anything in here for your own Power BI projects.
