@@ -19,7 +19,7 @@ This folder contains all supporting docs and reference files for the **Bakery St
 
 ### Images
 - `/images/bakery_story.png` — Report screenshot
-- `/images/data_model.png` — Power Query structure diagram  
+- `/images/data_model.png` — Star schema showing facts, dimensions, and helper tables
 - `/images/query_dependencies.png` — Power Query structure diagram
   
 ---
