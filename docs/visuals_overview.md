@@ -106,4 +106,4 @@ All tooltips are filter-aware and inherit context from the source visual.
 - Slicers appear in a consistent top-row layout across pages  
 - Visual types and color mapping reinforce outcomes (e.g., red = loss)  
 - KPIs use consistent formatting and spacing  
-- Tooltips, decomposition, and drill-through keep insights layered—not cluttered
+- Tooltips, decomposition, and drill-down keep insights layered—not cluttered
