@@ -74,7 +74,7 @@ Hover any bar to see exactly how a score was built.
 
 ## Screenshot
 
-![Bakery Story Screenshot](./images/pages/bakery_story.png)
+![Bakery Story Screenshot](./images/bakery_story.png)
 
 ---
 
