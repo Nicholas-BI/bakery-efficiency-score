@@ -1,0 +1,8 @@
+let
+    Source = Fact_Bakery,
+    #"Removed Other Columns" = Table.SelectColumns(Source,{"Recipe"}),
+    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+    #"Added Custom Column" = Table.AddColumn(#"Removed Duplicates", "Custom", each let splitRecipe = Splitter.SplitTextByCharacterTransition({"a".."z"}, {"A".."Z"})([Recipe]) in splitRecipe{0}?, type text),
+    #"Renamed Columns" = Table.RenameColumns(#"Added Custom Column",{{"Custom", "Recipe"}, {"Recipe", "Recipe Name"}})
+in
+    #"Renamed Columns"
