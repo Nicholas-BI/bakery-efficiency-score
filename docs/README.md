@@ -7,7 +7,7 @@ This folder contains all supporting docs and reference files for the **Bakery St
 ## Contents
 
 ### `/docs/data`
-- [`bakery_story.pbix`](../data/bakery_story.pbix) — Full Power BI report with queries, model, DAX, and visuals  
+- [`bakery_story.pbix`](./data/bakery_story.pbix) — Full Power BI report with queries, model, DAX, and visuals  
 - [`bakery_story_source.xlsx`](../data/bakery_story_source.xlsx) — Raw recipe data used for modeling  
 - [`dax_measures.xlsx`](../data/dax_measures.xlsx) — Export of all DAX measures  
 
