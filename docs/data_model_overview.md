@@ -4,6 +4,8 @@ This report uses a lean star schema—just one fact table, a few dimensions, and
 
 Curious how the scoring works or how sliders plug into DAX? You’re in the right spot.
 
+Click here to download the source data(https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)  
+
 ---
 
 ## Fact Table
