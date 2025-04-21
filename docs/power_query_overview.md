@@ -2,6 +2,8 @@
 
 This report's ETL (Extract, Transform, Load) process was built entirely in Power BI using Power Query (M). All transformations follow a modular, layered structure to ensure clarity, reusability, and maintainability.
 
+[Click here to download the source data](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)  
+
 ---
 
 ## Query Structure
