@@ -1,0 +1,9 @@
+let
+    Source = Fact_Bakery,
+    #"Removed Other Columns" = Table.SelectColumns(Source,{"Appliance"}),
+    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+    #"Renamed Columns" = Table.RenameColumns(#"Removed Duplicates",{{"Appliance", "ApplianceName"}}),
+    #"Inserted Text Before Delimiter" = Table.AddColumn(#"Renamed Columns", "Text Before Delimiter", each Text.BeforeDelimiter([ApplianceName], "Appliance"), type text),
+    #"Renamed Columns1" = Table.RenameColumns(#"Inserted Text Before Delimiter",{{"Text Before Delimiter", "Appliance"}})
+in
+    #"Renamed Columns1"
