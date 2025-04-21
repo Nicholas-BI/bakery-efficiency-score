@@ -58,9 +58,3 @@ Full transformation logic is available in the following files:
 Each file contains the raw M code for its corresponding query.
 
 ---
-
-## Related Sections
-
-- [📄 Data Model Overview](./docs/data_model_description.md)  
-- [📄 DAX Measures Overview](./docs/measures_overview.md)  
-- [📄 Visuals Walkthrough](./docs/visuals_description.md)
