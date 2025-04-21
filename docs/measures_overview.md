@@ -2,6 +2,8 @@
 
 This document explains how the **Bakery Story Efficiency Score** works from concept to implementation. The dashboard ranks bakery recipes based on what *you* care about—Profit, Cook Time, Servings, and XP—by letting you assign custom weights. The scoring logic is flexible, explainable, and built entirely in DAX.
 
+**[Click here to download the DAX measures](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx)  
+
 We’ll focus on **how it works**, not just what the measures are.
 
 ---
@@ -209,7 +211,3 @@ All fully dynamic, filter-aware, and powered by DAX.
 - Appliance-aware optimal combos
 
 ---
-
-Want to try it yourself?  
-👉 [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)  
-👉 **[Click here to download the DAX measures](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx)  
