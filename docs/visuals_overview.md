@@ -1,109 +1,91 @@
-# 📊 Visuals Overview
+# 🎨 Visuals Overview
 
-This report includes five main pages—each focused on a specific theme—and a set of tooltip pages for interactive context. All visuals follow a consistent layout with familiar slicers, dynamic KPIs, and clean drill-through logic.
-
----
-
-## Executive Summary
-
-High-level snapshot of profitability, quality, and labor efficiency.
-
-**Highlights:**
-- Gross Profit Variance via Decomposition Tree (Dept → Machine → Part)  
-- Trend line: Gross Profit per Labor Hour  
-- Top Scrap Reasons (Pie Chart)  
-- KPIs:  
-  - Gross Profit (actual, % variance)  
-  - Scrap %  
-  - Pieces per Labor Hour
-
-> Tooltips enhance scrap and variance visuals with part-level context.
+This single-page Power BI report helps *Bakery Story* players bake smarter, not harder. Every visual responds in real time to your slider settings—whether you're chasing fast XP, quick profit, or low-effort bakes.
 
 ---
 
-## Plan vs. Actual
+## 🧭 Main View Overview
 
-Compare planned vs. actual costs across labor, burden, and materials.
+This is the heart of the report—where recipes rise or fall based on what *you* value.
 
-**Highlights:**
-- Trend lines for Sales and GP % Variance  
-- Table of job-level cost deltas  
-- KPIs:  
-  - GP Variance (absolute and %)  
-  - Cost category breakdown (actual vs. plan)
-
-> Hover to explore specific job contributors or drill through by part.
-
----
-
-## Labor Productivity
-
-Track how efficiently jobs convert labor into output and margin.
-
-**Highlights:**
-- Scatterplot: Cycle Time vs. GP per Hour (with quadrant lines)  
-- PPLH trend over time and by machine  
-- Labor table: Cycle time, labor cost, margin per piece  
-- KPIs:  
-  - Pieces per Labor Hour  
-  - Labor Seconds per Piece  
-  - GP per Piece / GP per Hour
-
-> Zoom/slider tools help isolate machines by performance quadrant.
+| Region         | Contents                                                                 |
+|----------------|--------------------------------------------------------------------------|
+| **Top Left**   | **Axis Field Selector** – toggles chart axis between Appliance or Recipe |
+| **Top Center** | **Best Recipe Card** – displays the top result (or tie/neutral message)  |
+| **Top Right**  | **Appliance Selector** and **Cook Time Range** slicer                    |
+| **Left Panel** | **Preset Buttons** – Reset, Quick Cash, XP Farm, Party Host, Balanced *(CTRL+Click if not published)* |
+| **Center**     | **Efficiency Bar Chart** – real-time ranking of recipes                  |
+| **Right Panel**| **Weight Sliders** – Profit, Cook Time, Servings, XP (–20 to +20)        |
 
 ---
 
-## Job Flow
+## 📊 Key Visuals
 
-Visualize production timelines, delays, and throughput patterns.
+### Efficiency Bar Chart
+- Ranks recipes by real-time score  
+- Fully dynamic and filter-aware  
+- Hover reveals score breakdown (see tooltip section)
 
-**Highlights:**
-- Histogram: Jobs bucketed by duration (1–3 days, 4–7, etc.)  
-- Line chart: Late Job Rate over time  
-- Bar: % of Late Jobs by Machine  
-- Table: Due dates, close dates, durations, status  
-- KPIs:  
-  - Avg Duration  
-  - % Late  
-  - Days Past Due (avg)
+### Best Recipe Card
+- Displays the highest-ranked recipe  
+- Handles ties or neutral scores with fallback messaging  
+- Updates live with every change in weights or filters
 
-> Duration bucketing uses calculated tables, not model joins.
+### Weight Sliders (Disconnected Slicers)
+- Adjust scoring weight for each trait (–20 to +20)  
+- Values are applied as **exponents** in the scoring formula  
+- `0` = neutral, negatives penalize, positives boost
 
----
+### Cook Time Filter
+- Restrict visible recipes by total cook time (e.g., 30–120 minutes)
 
-## Quality & Scrap
+### Appliance Filter
+- Filter by appliances you own—hide recipes you can’t make yet
 
-Dig into scrap totals and reasons across parts and departments.
-
-**Highlights:**
-- Scrap Qty by Reason and Department (bars)  
-- Scrap % trend by quarter  
-- Job-level scrap detail table  
-- KPIs:  
-  - Total Scrap  
-  - Scrap %
-
-> Scrap tooltips break down job-level causes without cluttering visuals.
-
----
-
-## Tooltip Pages
-
-Hover-driven context views built for minimal disruption.
-
-**Included Tooltips:**
-- Scrap Reason – Part-level contributors  
-- Variance – Planned vs. actual per job  
-- Labor – Hours, output, margin by job  
-- Decomp Tree – Financial contributors by category
-
-All tooltips are filter-aware and inherit context from the source visual.
+### Bookmark Buttons
+- Toggle preset strategies:
+  - **Balanced**  
+  - **Quick Cash**  
+  - **XP Farm**  
+  - **Party Host**  
+  - **Reset**
 
 ---
 
-## Design Notes
+## 🪄 Tooltip (Hover Breakdown)
 
-- Slicers appear in a consistent top-row layout across pages  
-- Visual types and color mapping reinforce outcomes (e.g., red = loss)  
-- KPIs use consistent formatting and spacing  
-- Tooltips, decomposition, and drill-down keep insights layered—not cluttered
+Hovering over any bar reveals the underlying logic behind each score.
+
+| Field            | Description                                     |
+|------------------|-------------------------------------------------|
+| **Metric**       | The trait being weighed (Profit, XP, etc.)      |
+| **Normalized**   | The [1–2] range version of that value           |
+| **Weight Applied** | Slider value used as an exponent               |
+| **Placement**    | Whether used in the numerator, denominator, or ignored |
+| **Contribution** | The final value contributing to the score       |
+
+---
+
+## 🖌️ Design Touches
+
+- Heart-shaped bookmark buttons for playful UI
+- Weight logic handled entirely with **exponents**, not raw multipliers
+- Tooltips make the scoring transparent and intuitive
+- Normalized metrics ensure fair comparisons across all values
+- One layout, infinite playstyles
+
+---
+
+## 🖼️ Screenshot
+
+![Bakery Story Screenshot](./images/pages/bakery_story.png)
+
+---
+
+## 📚 More Info
+
+Curious how the scoring works?
+
+📄 [See Measures Overview](./measures_overview.md) for the full DAX breakdown.
+
+This isn’t just a dashboard—it’s a **recipe optimizer and strategy engine**, all in one scrollable screen.
