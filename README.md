@@ -29,8 +29,6 @@ Ranks recipes based on your priorities with instant updates.
 - Context-aware DAX logic and transparent scoring  
 - Tooltips, bookmarks, and exportable measures
 
-![Bakery Story Screenshot](./docs/images/bakery_story.png)
-
 ---
 
 ## 📥 Try It
@@ -39,6 +37,8 @@ Ranks recipes based on your priorities with instant updates.
 2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)  
 3. Tweak sliders and explore strategies  
 4. Review tooltips and scoring logic
+
+![Bakery Story Screenshot](./docs/images/bakery_story.png)
 
 ---
 
