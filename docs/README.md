@@ -18,9 +18,10 @@ This folder contains all supporting docs and reference files for the **Bakery St
 - [`visuals_overview.md`](./visuals_overview.md) — Report layout, sliders, tooltips, and strategies
 
 ### Images
-- `/images/bakery_story.png` — Report screenshot  
+- `/images/bakery_story.png` — Report screenshot
+- `/images/data_model.png` — Power Query structure diagram  
 - `/images/query_dependencies.png` — Power Query structure diagram
-
+  
 ---
 
 ## Getting Started
