@@ -34,7 +34,7 @@ Ranks recipes based on your priorities with instant updates.
 ## 📥 Try It
 
 1. Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
-2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)  
+2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix)  
 3. Tweak sliders and explore strategies  
 4. Review tooltips and scoring logic
 
@@ -60,13 +60,13 @@ A responsive scoring model using:
 4. Rank by resulting score in current context
 
 📄 [See Measures Overview](./docs/measures_overview.md)  
-📥 [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/dax_measures.xlsx)
+📥 [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/dax_measures.xlsx)
 
 ---
 
 ## Preset Strategies
 
-Click through these preset bookmarks to quickly switch between strategy profiles.
+Click through these preset bookmarks to quickly switch between strategy prodata.
 
 | Strategy     | Profit | Cook Time | Servings | XP | Description                    |
 |--------------|--------|-----------|----------|----|--------------------------------|
@@ -113,9 +113,9 @@ Modular ETL in Power Query:
 
 ## 📁 Repo Contents
 
-- [`docs/files/bakery_story.pbix`](./docs/files/bakery_story.pbix) — Main Power BI report  
-- [`docs/files/dax_measures.xlsx`](./docs/files/dax_measures.xlsx) — All DAX formulas  
-- [`docs/files/bakery_story_source.xlsx`](./docs/files/bakery_story_source.xlsx) — Source data
+- [`docs/data/bakery_story.pbix`](./docs/data/bakery_story.pbix) — Main Power BI report  
+- [`docs/data/dax_measures.xlsx`](./docs/data/dax_measures.xlsx) — All DAX formulas  
+- [`docs/data/bakery_story_source.xlsx`](./docs/data/bakery_story_source.xlsx) — Source data
 - [`docs/images`](./docs/images) — All images in this repository  
 
 ### 📄 Documentation
