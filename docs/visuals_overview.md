@@ -4,7 +4,7 @@ This single-page Power BI report helps *Bakery Story* players bake smarter, not 
 
 ---
 
-## 🧭 Main View Overview
+## Main View Overview
 
 This is the heart of the report—where recipes rise or fall based on what *you* value.
 
@@ -19,7 +19,7 @@ This is the heart of the report—where recipes rise or fall based on what *you*
 
 ---
 
-## 📊 Key Visuals
+## Key Visuals
 
 ### Efficiency Bar Chart
 - Ranks recipes by real-time score  
@@ -52,7 +52,7 @@ This is the heart of the report—where recipes rise or fall based on what *you*
 
 ---
 
-## 🪄 Tooltip (Hover Breakdown)
+## Tooltip (Hover Breakdown)
 
 Hovering over any bar reveals the underlying logic behind each score.
 
@@ -66,7 +66,7 @@ Hovering over any bar reveals the underlying logic behind each score.
 
 ---
 
-## 🖌️ Design Touches
+## Design Touches
 
 - Heart-shaped bookmark buttons for playful UI
 - Weight logic handled entirely with **exponents**, not raw multipliers
@@ -76,13 +76,13 @@ Hovering over any bar reveals the underlying logic behind each score.
 
 ---
 
-## 🖼️ Screenshot
+## Screenshot
 
 ![Bakery Story Screenshot](./images/pages/bakery_story.png)
 
 ---
 
-## 📚 More Info
+## More Info
 
 Curious how the scoring works?
 
