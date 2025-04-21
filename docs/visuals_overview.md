@@ -78,7 +78,7 @@ Hovering over any bar reveals the underlying logic behind each score.
 
 ## Screenshot
 
-![Bakery Story Screenshot](./images/pages/bakery_story.png)
+![Bakery Story Screenshot](./images/bakery_story.png)
 
 ---
 
