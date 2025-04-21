@@ -2,7 +2,7 @@
 
 This report's ETL (Extract, Transform, Load) process was built entirely in Power BI using Power Query (M). All transformations follow a modular, layered structure to ensure clarity, reusability, and maintainability.
 
-[Click here to download the source data](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/files/bakery_story.pbix)  
+[Click here to download the source data](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix)  
 
 ---
 
@@ -45,11 +45,11 @@ The Power Query transformations follow a consistent pattern:
 
 ## Available M Code
 
-Full transformation logic is available in the following files:
+Full transformation logic is available in the following data:
 
-- [`fact_bakery.txt`](./files/fact_bakery.txt)  
-- [`dim_recipe.txt`](./files/dim_recipe.txt)  
-- [`dim_appliance.txt`](./files/dim_appliance.txt)  
+- [`fact_bakery.txt`](./data/fact_bakery.txt)  
+- [`dim_recipe.txt`](./data/dim_recipe.txt)  
+- [`dim_appliance.txt`](./data/dim_appliance.txt)  
 
 Each file contains the raw M code for its corresponding query.
 
