@@ -47,9 +47,9 @@ The Power Query transformations follow a consistent pattern:
 
 Full transformation logic is available in the following files:
 
-- [`Fact_Bakery.txt`](./docs/files/Fact_Bakery.txt)  
-- [`Dim_Recipe.txt`](./docs/files/Dim_Recipe.txt)  
-- [`Dim_Appliance.txt`](./docs/files/Dim_Appliance.txt)  
+- [`Fact_Bakery.txt`](./files/Fact_Bakery.txt)  
+- [`Dim_Recipe.txt`](./files/Dim_Recipe.txt)  
+- [`Dim_Appliance.txt`](./files/Dim_Appliance.txt)  
 
 Each file contains the raw M code for its corresponding query.
 
