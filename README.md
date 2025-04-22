@@ -58,7 +58,7 @@ Ranks recipes based on your priorities with instant updates.
 
 Click through these preset bookmarks to quickly switch between strategy prodata.
 
-| Strategy     | Profit | Cook Time | Servings | XP | Description                    |
+| Strategy     | Profit Weight | Cook Time Weight | Servings Weight | XP Weight | Description                    |
 |--------------|--------|-----------|----------|----|--------------------------------|
 | Quick Cash   | 20     | -20       | –5       | 1  | Maximize profit, minimize time |
 | XP Farm      | 5      | –20       | –5       | 20 | Fast XP with short bakes       |
