@@ -45,7 +45,7 @@ Ranks recipes based on your priorities with instant updates.
 ## How It Works
 
 1. Normalize each metric to [1–2]  
-2. Apply user-defined exponents for nonlinear influence  
+2. Apply user-defined exponents (weights) for nonlinear influence  
 3. Multiply preferred metrics, divide by penalized  
 4. Rank by resulting score in current context
 
