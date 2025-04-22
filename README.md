@@ -31,17 +31,6 @@ Ranks recipes based on your priorities with instant updates.
 
 ---
 
-## 📥 Try It
-
-1. Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
-2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix)  
-3. Tweak sliders and explore strategies  
-4. Review tooltips and scoring logic
-
-![Bakery Story Screenshot](./docs/images/bakery_story.png)
-
----
-
 ## How It Works
 
 1. Normalize each metric to [1–2]  
@@ -51,6 +40,17 @@ Ranks recipes based on your priorities with instant updates.
 
 📄 [See Measures Overview](./docs/measures_overview.md)  
 📥 [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/dax_measures.xlsx)
+
+---
+
+## 📥 Try It
+
+1. Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
+2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix)  
+3. Tweak sliders and explore strategies  
+4. Review tooltips and scoring logic
+
+![Bakery Story Screenshot](./docs/images/bakery_story.png)
 
 ---
 
