@@ -44,19 +44,9 @@ Ranks recipes based on your priorities with instant updates.
 
 ## How It Works
 
-A responsive scoring model using:
-
-- **Ratio-normalized metrics** (shifted to [1–2])  
-- **Exponent weighting** for nonlinear influence  
-- **Dynamic DAX** that adapts to filters and slicers
-
----
-
-## Scoring Logic
-
 1. Normalize each metric to [1–2]  
-2. Apply user-defined exponents  
-3. Multiply preferred metrics, divide by penalized  
+2. Apply user-defined exponents for nonlinear influence  
+3. Dynamically multiply preferred metrics and divide by penalized, based on context  
 4. Rank by resulting score in current context
 
 📄 [See Measures Overview](./docs/measures_overview.md)  
