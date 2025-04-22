@@ -1,6 +1,6 @@
 # 🍰 Bakery Story: Recipe Efficiency Report (Power BI)
 
-A Power BI report that ranks *Bakery Story* recipes based on what *you* value—Profit, Cook Time, Servings, and XP. Use dynamic sliders and an exponent-based scoring model built on ratio-normalized metrics to customize the rankings in real time.
+A Power BI report that ranks *Bakery Story* recipes based on what *you* value. Use dynamic sliders and an exponent-based scoring model built on ratio-normalized metrics to customize the rankings in real time.
 
 ---
 
