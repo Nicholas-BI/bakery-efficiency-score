@@ -14,7 +14,7 @@ Which recipe is *best*? That depends on your goals.
 
 ## Why I Made This
 
-A debate with my partner, Stephanie—she liked low-maintenance bakes; I wanted fast profits. This report lets you decide what matters and adapts accordingly.
+A debate with my partner—she liked low-maintenance bakes; I wanted fast profits. This report lets you decide what matters and adapts accordingly.
 
 ---
 
