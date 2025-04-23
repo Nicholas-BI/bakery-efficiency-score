@@ -71,5 +71,4 @@ These helper tables aren’t joined to the fact, but they drive interactive and 
 - Powers dynamic axis swapping in ranking visual  
 
 ### `Measure Table`
-- Contains a row per measure/strategy  
-- Supports bookmarks and allows switching between preset weighting profiles  
+- Organizational tool containing display folders which house and divide measures into logical and functional groups
