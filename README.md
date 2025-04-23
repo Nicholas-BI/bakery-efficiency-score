@@ -6,7 +6,7 @@ A Power BI report that helps you find the best recipes in *Bakery Story* based o
 
 ## What’s the Game?
 
-In *Bakery Story*, you’re running a virtual bakery cooking, serving, leveling up, and trying to make the most of limited appliances.
+In *Bakery Story*, you’re running a virtual bakery cooking focused on serving, leveling up, and trying to make the most of limited appliances.
 
 Each recipe has tradeoffs: cook time, servings, XP, profit. So... what’s the *best* recipe?
 
