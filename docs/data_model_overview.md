@@ -54,3 +54,21 @@ Used with `SELECTEDVALUE()` to inject logic directly into DAX without affecting 
 ### Example: `ProfitWeight`
 ```DAX
 ProfitWeight = GENERATESERIES(-20, 20, 1)
+
+---
+
+## Utility Tables
+
+These helper tables aren’t joined to the fact, but they drive interactive and dynamic logic:
+
+### `Metrics`
+- Lists each metric (Profit, Cook Time, Servings, XP)  
+- Used in visuals and tooltips to loop through metric calculations  
+
+### `Axis Selector`
+- Provides display names for chart axes (e.g., “Profit vs. Cook Time”)  
+- Powers dynamic axis swapping in scatter plots  
+
+### `Measure Table`
+- Contains a row per measure/strategy  
+- Supports bookmarks and allows switching between preset weighting profiles  
