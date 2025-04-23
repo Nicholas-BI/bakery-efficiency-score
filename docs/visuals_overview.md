@@ -57,7 +57,7 @@ Hover any bar to see exactly how a score was built.
 | **Metric**    | The trait being scored                   |
 | **Normalized**| Scaled to [1–2] range                    |
 | **Weight**    | Your selected exponent                   |
-| **Placement** | Role in formula: numerator, denominator, or skipped |
+| **Placement** | Role in formula: numerator, denominator, or ignored |
 | **Value**     | Final contribution to the overall score  |
 
 ---
