@@ -118,7 +118,7 @@ Modular and reusable:
 
 ---
 
-## 🧮 DAX Strategy
+## DAX Strategy
 
 All measures use a modular approach:
 
