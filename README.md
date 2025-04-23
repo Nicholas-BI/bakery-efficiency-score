@@ -1,12 +1,12 @@
 # 🍰 Bakery Story: Recipe Efficiency Score (Power BI)
 
-A Power BI report that helps you find the best recipes in *Bakery Story*—based on what *you* care about. Customize real-time rankings with interactive sliders and a nonlinear scoring model built on ratio-normalized metrics.
+A Power BI report that helps you find the best recipes in *Bakery Story* based on what *you* care about. Customize real-time rankings with interactive sliders and a nonlinear scoring model built on ratio-normalized metrics.
 
 ---
 
 ## What’s the Game?
 
-In *Bakery Story*, you’re running a virtual bakery—cooking, serving, leveling up, and trying to make the most of limited appliances.
+In *Bakery Story*, you’re running a virtual bakery cooking, serving, leveling up, and trying to make the most of limited appliances.
 
 Each recipe has tradeoffs: cook time, servings, XP, profit. So... what’s the *best* recipe?
 
