@@ -52,7 +52,6 @@ One page, fully interactive:
 
 | Ranked Recipes |
 |----------------|
-| ![Ranked Recipes](./docs/images/bakery_story.png)
 
 - Slider-based weighting control  
 - Preset strategy bookmarks  
