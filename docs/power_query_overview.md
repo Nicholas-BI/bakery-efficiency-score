@@ -1,4 +1,4 @@
-# 🔧 Power Query Overview
+# Power Query Overview
 
 This report's ETL (Extract, Transform, Load) process was built entirely in Power BI using Power Query (M). All transformations follow a modular, layered structure to ensure clarity, reusability, and maintainability.
 
