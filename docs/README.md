@@ -36,7 +36,7 @@ These diagrams illustrate key elements of the model and ETL flow:
 
 ## Getting Started
 
-1. [Download] and open the report (.pbix)(https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix) in Power BI Desktop
+1. [Download](.pbix)(https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix) and open the report in Power BI Desktop
 2. Explore the **data model** in the Model view  
 3. Review **Power Query** steps and logic  
 4. Examine **DAX measures** and scoring logic  
