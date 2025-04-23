@@ -49,9 +49,9 @@ Now you can adjust the weights and *see* how different goals impact the rankings
 
 One page, fully interactive:
 
-| Ranked Recipes | Control Panel |
-|----------------|----------------|
-| ![Ranked Recipes](./docs/images/bakery_story.png) | ![Query Dependencies](./docs/images/query_dependencies.png) |
+| Ranked Recipes |
+|----------------|
+| ![Ranked Recipes](./docs/images/bakery_story.png)
 
 - Slider-based weighting control  
 - Preset strategy bookmarks  
