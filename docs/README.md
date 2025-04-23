@@ -50,6 +50,6 @@ This documentation serves to:
 
 - Provide full transparency into how the report works  
 - Offer reusable patterns for Power BI development (ETL, DAX, layout)  
-- Support hiring managers, analysts, and developers in quickly assessing the logic and structure
+- Support analysts and developers in quickly assessing the logic and structure
 
 You're welcome to reuse or adapt these ideas in your own Power BI projects.
