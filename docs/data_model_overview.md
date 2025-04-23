@@ -67,7 +67,7 @@ These helper tables aren’t joined to the fact, but they drive interactive and 
 - Used in visuals and tooltips to loop through metric calculations  
 
 ### `Axis Selector`
-- Provides display names for chart axes (e.g., “Profit vs. Cook Time”)  
+- Provides display names for chart axes (e.g., “Recipe vs. Appliance”)  
 - Powers dynamic axis swapping in scatter plots  
 
 ### `Measure Table`
