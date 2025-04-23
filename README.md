@@ -1,66 +1,95 @@
-# 🍰 Bakery Story: Recipe Efficiency Report (Power BI)
+# 🍰 Bakery Story: Recipe Efficiency Score (Power BI)
 
-A Power BI report that ranks *Bakery Story* recipes based on what *you* value. Use dynamic sliders and an exponent-based scoring model built on ratio-normalized metrics to customize the rankings in real time.
+A Power BI report that helps you find the best recipes in *Bakery Story*—based on what *you* care about. Customize real-time rankings with interactive sliders and a nonlinear scoring model built on ratio-normalized metrics.
 
 ---
 
 ## What’s the Game?
 
-*Bakery Story* is a mobile sim where you run a bakery—cooking, serving, earning coins, and leveling up. Recipes vary in cook time, servings, profit, and XP. Appliances are limited, and customers arrive steadily.
+In *Bakery Story*, you’re running a virtual bakery—cooking, serving, leveling up, and trying to make the most of limited appliances.
 
-Which recipe is *best*? That depends on your goals.
+Each recipe has tradeoffs: cook time, servings, XP, profit. So... what’s the *best* recipe?
 
----
-
-## Why I Made This
-
-A debate with my partner—she liked low-maintenance bakes; I wanted fast profits. This report lets you decide what matters and adapts accordingly.
+This report lets you decide.
 
 ---
 
-## What It Does
+## Why I Built This
 
-Ranks recipes based on your priorities with instant updates.
+After a spirited debate with my partner (low effort vs. high yield), I built this to settle the score—and make the whole strategy more transparent.
 
-**Features:**
-- Sliders for Profit, Cook Time, Servings, XP  
-- Preset strategies (*Quick Cash*, *XP Farm*, etc.)  
-- Appliance filters, cook-time caps  
-- Context-aware DAX logic and transparent scoring  
-- Tooltips, bookmarks, and exportable measures
+Now you can adjust the weights and *see* how different goals impact the rankings.
+
+---
+
+## What It Tracks
+
+**Dynamic recipe rankings based on your input:**
+- Sliders for Profit, Cook Time, Servings, and XP  
+- Preset strategies (Quick Cash, XP Farm, etc.)  
+- Appliance and cook-time filters  
+- Nonlinear exponent-based scoring  
+- Full logic exposed in tooltips
+
+📄 [See Measures Overview](./docs/measures_overview.md)  
+📥 [Download DAX Measures (.xlsx)](./docs/data/dax_measures.xlsx)
+
+---
+
+## Report Layout
+
+One page, fully interactive:
+
+| Ranked Recipes | Control Panel |
+|----------------|----------------|
+| ![Ranked Recipes](./docs/images/bakery_story.png) | ![Query Dependencies](./docs/images/query_dependencies.png) |
+
+- Slider-based weighting control  
+- Preset strategy bookmarks  
+- KPI summaries with total cook time and earnings  
+- Tooltips for score transparency  
+- Bookmark reset in top-right
+
+📄 [See Visuals Overview](./docs/visuals_overview.md)
 
 ---
 
 ## How It Works
 
-1. Normalize each metric to [1–2]  
-2. Apply user-defined exponents (weights) for nonlinear influence  
-3. Multiply preferred metrics, divide by penalized  
-4. Rank by resulting score in current context
+Each recipe’s score is calculated in four steps:
 
-📄 [See Measures Overview](./docs/measures_overview.md)  
-📥 [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/dax_measures.xlsx)
+1. Normalize each metric to the [1–2] range  
+2. Apply user-selected exponents (from sliders)  
+3. Multiply weighted metrics, divide by penalized ones  
+4. Rank all results in real time
+
+```DAX
+Efficiency Score = 
+DIVIDE(
+    [ProfitNorm]^SELECTEDVALUE(ProfitWeight[Weight]) *
+    [XPNorm]^SELECTEDVALUE(XPWeight[Weight]) *
+    [ServingsNorm]^SELECTEDVALUE(ServingsWeight[Weight]),
+    [CookTimeNorm]^SELECTEDVALUE(CookTimeWeight[Weight])
+)
 
 ---
 
 ## 📥 Try It
 
 1. Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
-2. Open [`bakery_story.pbix`](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix)  
+2. Open [`docs/data/bakery_story.pbix`](./docs/data/bakery_story.pbix)  
 3. Tweak sliders and explore strategies  
 4. Review tooltips and scoring logic
-
-![Bakery Story Screenshot](./docs/images/bakery_story.png)
 
 ---
 
 ## Preset Strategies
 
-Click through these preset bookmarks to quickly switch between strategy prodata.
+Each strategy applies a different weighting profile:
 
-| Strategy     | Profit Weight | Cook Time Weight | Servings Weight | XP Weight | Description                    |
+| Strategy     | Profit | Cook Time | Servings | XP | Description                    |
 |--------------|--------|-----------|----------|----|--------------------------------|
-| Quick Cash   | 20     | -20       | –5       | 1  | Maximize profit, minimize time |
+| Quick Cash   | 20     | –20       | –5       | 1  | Maximize profit, minimize time |
 | XP Farm      | 5      | –20       | –5       | 20 | Fast XP with short bakes       |
 | Party Host   | 1      |   0       | 20       | 1  | Max servings for events        |
 | Balanced     | 2      | –1        | -1       | 2  | Well-rounded optimization      |
@@ -69,71 +98,79 @@ Click through these preset bookmarks to quickly switch between strategy prodata.
 
 ## Data Model
 
-Star schema with one fact table and supporting dimensions.
+Simple star schema focused on recipe scoring:
 
-- **Fact**: `Fact_Bakery` — Core metrics  
-- **Dims**: `Dim_Recipe`, `Dim_Appliance`  
-- **Weights** *(disconnected)*: `ProfitWeight`, `CookTimeWeight`, `ServingsWeight`, `XPWeight`  
-- **Helpers**: `Metrics`, `Axis Field Selector`, `Measure Table`
+### Fact Table
+- `Fact_Bakery` – Recipes, metrics, and results  
 
-📄 [Data Model Overview](./docs/data_model_overview.md)
+### Dimensions
+- `Dim_Recipe`, `Dim_Appliance` – Metadata  
+- `ProfitWeight`, `CookTimeWeight`, etc. – Disconnected slicers  
+- `Metrics`, `Axis Selector`, `Measure Table` – Utility support  
 
----
-
-## Power Query
-
-Modular ETL in Power Query:
-
-- Source → Base → Output  
-- Clear step names, reusable logic
-
-📄 [Power Query Overview](./docs/power_query_overview.md)
+📄 [See Data Model Overview](./docs/data_model_overview.md)
 
 ---
 
-## Report Design
+## ETL Pipeline (Power Query)
 
-- One-page layout with slicers & bookmarks  
-- Tooltips for full score logic  
-- Game-inspired theming
+Modular and reusable:
 
-📄 [Visuals Overview](./docs/visuals_overview.md)
+- Base files: `dim_recipe.txt`, `dim_appliance.txt`, `fact_bakery.txt`  
+- Transformations follow Source → Staging → Output pattern  
+- Query dependencies visualized below
+
+📄 [See Power Query Overview](./docs/power_query_overview.md)  
+📷 ![Query Dependencies](./docs/images/query_dependencies.png)
 
 ---
 
-## 📁 Repo Contents
+## 🧮 DAX Strategy
 
-- [`docs/data/bakery_story.pbix`](./docs/data/bakery_story.pbix) — Main Power BI report  
-- [`docs/data/dax_measures.xlsx`](./docs/data/dax_measures.xlsx) — All DAX formulas  
-- [`docs/data/bakery_story_source.xlsx`](./docs/data/bakery_story_source.xlsx) — Source data
-- [`docs/images`](./docs/images) — All images in this repository  
+All measures use a modular approach:
+
+- **Base** – Raw values per metric  
+- **Normalized** – Scaled to [1–2] for comparison  
+- **Exponent Applied** – Driven by user sliders  
+- **Combined Score** – Final rankable value  
+
+```DAX
+Efficiency Score = 
+DIVIDE(
+    [ProfitNorm]^SELECTEDVALUE(ProfitWeight[Weight]) *
+    [XPNorm]^SELECTEDVALUE(XPWeight[Weight]) *
+    [ServingsNorm]^SELECTEDVALUE(ServingsWeight[Weight]),
+    [CookTimeNorm]^SELECTEDVALUE(CookTimeWeight[Weight])
+)
+
+---
+
+## Technologies
+
+- Power BI Desktop  
+- DAX  
+- Power Query (M)  
+- Excel  
+- GitHub for documentation  
+
+---
+
+## Repo Contents
+
+- [`docs/data/bakery_story.pbix`](./docs/data/bakery_story.pbix) – Report file  
+- [`docs/data/dax_measures.xlsx`](./docs/data/dax_measures.xlsx) – All DAX logic  
+- [`docs/data/bakery_story_source.xlsx`](./docs/data/bakery_story_source.xlsx) – Source data  
+- [`docs/images`](./docs/images) – Visuals and diagrams  
 
 ### 📄 Documentation
-- [`docs/measures_overview.md`](./docs/measures_overview.md) — DAX logic breakdown  
-- [`docs/data_model_overview.md`](./docs/data_model_overview.md) — Table structure and relationships  
-- [`docs/power_query_overview.md`](./docs/power_query_overview.md) — ETL / M code design  
-- [`docs/visuals_overview.md`](./docs/visuals_overview.md) — Report pages and interaction patterns  
-
-- [`LICENSE`](./LICENSE) — CC BY-NC 4.0
-
+- [`docs/data_model_overview.md`](./docs/data_model_overview.md) – Table relationships  
+- [`docs/measures_overview.md`](./docs/measures_overview.md) – DAX logic  
+- [`docs/power_query_overview.md`](./docs/power_query_overview.md) – ETL design  
+- [`docs/visuals_overview.md`](./docs/visuals_overview.md) – Layout and interactions  
 
 ---
 
-## Screenshots
-
-| Ranked Recipes | Control Panel |
-|----------------|----------------|
-| *(Image placeholder)* | *(Image placeholder)* |
-
----
-
-## Contributing
-
-Ideas or feedback? Open an issue or submit a PR.
-
----
-
-## License
+## License & Use
 
 [Creative Commons BY-NC 4.0](./LICENSE)  
-Free to use, remix, and share for non-commercial use with credit.
+For educational/demo purposes. Not for resale or redistribution.
