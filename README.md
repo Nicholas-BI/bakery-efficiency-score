@@ -46,20 +46,6 @@ Now you can adjust the weights and *see* how different goals impact the rankings
 
 ---
 
-## Report Layout
-
-One page, fully interactive:
-
-- Slider-based weighting control  
-- Preset strategy bookmarks  
-- KPI summaries with total cook time and earnings  
-- Tooltips for score transparency  
-- Bookmark reset in top-right
-
-📄 [See Visuals Overview](./docs/visuals_overview.md)
-
----
-
 ## How It Works
 
 Each recipe’s score is calculated in four steps:
@@ -71,6 +57,21 @@ Each recipe’s score is calculated in four steps:
 
 📄 [See Measures Overview](./docs/measures_overview.md)  
 📥 [Download DAX Measures (.xlsx)](./docs/data/dax_measures.xlsx)
+
+---
+
+## Layout Features
+
+All visuals are packed into a single, fully interactive report page:
+
+- **Slider Controls** – Adjust weights for Profit, XP, Servings, and Cook Time  
+- **Strategy Presets** – One-click bookmarks for common scoring strategies  
+- **Ranking Chart** – Recipes re-sort live as weights change  
+- **KPI Summary Cards** – Show total cook time and projected earnings  
+- **Tooltips** – Transparent, step-by-step breakdowns of each score  
+- **Bookmark Reset** – Quickly revert to the default view  
+
+📄 Learn more in the [Visuals Overview](./docs/visuals_overview.md)
 
 ---
 
