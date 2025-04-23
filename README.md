@@ -1,4 +1,4 @@
-# 🍰 Bakery Story: Recipe Efficiency Score (Power BI)
+# Bakery Story: Recipe Efficiency Score (Power BI)
 
 A Power BI report that helps you find the best recipes in *Bakery Story* based on what *you* care about. Customize real-time rankings with interactive sliders and a nonlinear scoring model built on ratio-normalized metrics.
 
@@ -144,7 +144,33 @@ All measures use a modular approach:
 - [`docs/data/bakery_story.pbix`](./docs/data/bakery_story.pbix) – Report file  
 - [`docs/data/dax_measures.xlsx`](./docs/data/dax_measures.xlsx) – All DAX logic  
 - [`docs/data/bakery_story_source.xlsx`](./docs/data/bakery_story_source.xlsx) – Source data  
-- [`docs/images`](./docs/images) – Visuals and diagrams  
+- [`docs/images`](./docs/images) – Visuals and diagrams
+
+---
+
+## Documentation Overview
+
+Explore individual components of the report in more detail:
+
+- [Data Model Overview](./docs/data_model_overview.md)  
+  Table relationships, fact/dim structure, and schema logic
+
+- [Power Query Overview](./docs/power_query_overview.md)  
+  ETL pipeline design, modular query flow, and data prep strategy
+
+- [Measures Overview](./docs/measures_overview.md)  
+  DAX logic: normalization, weight application, scoring, and ranking
+
+- [Visuals Overview](./docs/visuals_overview.md)  
+  Report layout, slider interaction, tooltips, and presets
+
+- [Source Data Files](./docs/data)  
+  `.pbix`, `.xlsx`, `.txt` files for full reproducibility
+
+- [Images](./docs/images)  
+  Screenshots and diagrams used throughout the documentation
+
+---
 
 ### Documentation
 - [`docs/data_model_overview.md`](./docs/data_model_overview.md) – Table relationships  
