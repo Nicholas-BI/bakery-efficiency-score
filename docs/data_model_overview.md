@@ -54,6 +54,7 @@ Used with `SELECTEDVALUE()` to inject logic directly into DAX without affecting 
 ### Example: `ProfitWeight`
 ```DAX
 ProfitWeight = GENERATESERIES(-20, 20, 1)
+```
 
 ---
 
