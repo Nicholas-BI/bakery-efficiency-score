@@ -125,15 +125,6 @@ All measures use a modular approach:
 - **Exponent Applied** – Driven by user sliders  
 - **Combined Score** – Final rankable value  
 
-```DAX
-Efficiency Score = 
-DIVIDE(
-    [ProfitNorm]^SELECTEDVALUE(ProfitWeight[Weight]) *
-    [XPNorm]^SELECTEDVALUE(XPWeight[Weight]) *
-    [ServingsNorm]^SELECTEDVALUE(ServingsWeight[Weight]),
-    [CookTimeNorm]^SELECTEDVALUE(CookTimeWeight[Weight])
-)
-
 ---
 
 ## Technologies
