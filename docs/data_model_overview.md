@@ -1,4 +1,4 @@
-# 🧱 Data Model Overview
+# Data Model Overview
 
 This report uses a lean star schema—just one fact table, a few dimensions, and disconnected weight slicers—but it’s packed with interactive logic behind the scenes.
 
