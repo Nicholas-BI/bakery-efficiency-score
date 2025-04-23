@@ -71,7 +71,7 @@ DIVIDE(
     [ServingsNorm]^SELECTEDVALUE(ServingsWeight[Weight]),
     [CookTimeNorm]^SELECTEDVALUE(CookTimeWeight[Weight])
 )
-
+```
 ---
 
 ## 📥 Try It
