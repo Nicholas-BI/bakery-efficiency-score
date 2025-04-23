@@ -141,9 +141,9 @@ All measures use a modular approach:
 
 ## Repo Contents
 
-- [`docs/data/bakery_story.pbix`](./docs/data/bakery_story.pbix) – Report file  
-- [`docs/data/dax_measures.xlsx`](./docs/data/dax_measures.xlsx) – All DAX logic  
-- [`docs/data/bakery_story_source.xlsx`](./docs/data/bakery_story_source.xlsx) – Source data  
+- [Download Report (.pbix)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix) *(direct download)*  
+- [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/dax_measures.xlsx) *(direct download)*  
+- [Download Source Data (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story_source.xlsx) *(direct download)*  
 - [`docs/images`](./docs/images) – Visuals and diagrams
 
 ---
