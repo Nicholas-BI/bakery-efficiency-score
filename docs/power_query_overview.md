@@ -32,6 +32,14 @@ The Power Query layer is organized into three tiers:
 
 ---
 
+### Query Dependencies Diagram
+
+The structure follows a Source → Staging → Output pattern. Here's the full dependency view:
+
+![Query Dependency Diagram](./images/query_dependencies.png)
+
+---
+
 ## Design Principles
 
 The Power Query transformations follow a consistent pattern:
