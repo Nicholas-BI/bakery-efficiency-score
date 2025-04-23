@@ -71,4 +71,4 @@ These helper tables aren’t joined to the fact, but they drive interactive and 
 - Powers dynamic axis swapping in ranking visual  
 
 ### `Measure Table`
-- Organizational tool containing display folders which house and divide measures into logical and functional groups
+- Organizational tool utilizing display folders to group measures
