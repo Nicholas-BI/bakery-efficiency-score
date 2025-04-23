@@ -1,4 +1,4 @@
-# 📚 Documentation Overview
+# Documentation Overview
 
 This folder contains all supporting docs and reference files for the **Bakery Story Efficiency Score** Power BI report. Whether you’re exploring the model, reviewing DAX, or grabbing the PBIX—everything you need is right here.
 
