@@ -60,6 +60,21 @@ Each recipe’s score is calculated in four steps:
 
 ---
 
+## Preset Strategies
+
+Each strategy applies a different weighting profile:
+
+| Strategy     | Profit | Cook Time | Servings | XP | Description                    |
+|--------------|--------|-----------|----------|----|--------------------------------|
+| Quick Cash   | 20     | –20       | –5       | 1  | Maximize profit, minimize time |
+| XP Farm      | 5      | –20       | –5       | 20 | Fast XP with short bakes       |
+| Party Host   | 1      |   0       | 20       | 1  | Max servings for events        |
+| Balanced     | 2      | –1        | -1       | 2  | Well-rounded optimization      |
+
+---
+
+---
+
 ## Layout Features
 
 All visuals are packed into a single, fully interactive report page:
@@ -72,19 +87,6 @@ All visuals are packed into a single, fully interactive report page:
 - **Bookmark Reset** – Quickly revert to the default view  
 
 📄 Learn more in the [Visuals Overview](./docs/visuals_overview.md)
-
----
-
-## Preset Strategies
-
-Each strategy applies a different weighting profile:
-
-| Strategy     | Profit | Cook Time | Servings | XP | Description                    |
-|--------------|--------|-----------|----------|----|--------------------------------|
-| Quick Cash   | 20     | –20       | –5       | 1  | Maximize profit, minimize time |
-| XP Farm      | 5      | –20       | –5       | 20 | Fast XP with short bakes       |
-| Party Host   | 1      |   0       | 20       | 1  | Max servings for events        |
-| Balanced     | 2      | –1        | -1       | 2  | Well-rounded optimization      |
 
 ---
 
