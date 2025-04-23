@@ -95,7 +95,7 @@ Simple star schema focused on recipe scoring:
 - `Fact_Bakery` – Recipes, metrics, and results  
 
 ### Dimensions
-- `Dim_Recipe`, `Dim_Appliance`  
+- `Dim_Recipe`, `Dim_Appliance` - Metadata
 
 ### Helpers
 - `ProfitWeight`, `CookTimeWeight`, etc. – Disconnected slicers  
