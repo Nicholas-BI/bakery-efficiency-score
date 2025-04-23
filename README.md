@@ -50,9 +50,6 @@ Now you can adjust the weights and *see* how different goals impact the rankings
 
 One page, fully interactive:
 
-| Ranked Recipes |
-|----------------|
-
 - Slider-based weighting control  
 - Preset strategy bookmarks  
 - KPI summaries with total cook time and earnings  
