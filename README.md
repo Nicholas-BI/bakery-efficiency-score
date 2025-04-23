@@ -114,7 +114,6 @@ Modular and reusable:
 - Query dependencies visualized below
 
 📄 [See Power Query Overview](./docs/power_query_overview.md)  
-📷 ![Query Dependencies](./docs/images/query_dependencies.png)
 
 ---
 
