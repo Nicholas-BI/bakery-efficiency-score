@@ -72,3 +72,11 @@ These helper tables aren’t joined to the fact, but they drive interactive and 
 
 ### `Measure Table`
 - Organizational tool utilizing display folders to group measures
+
+---
+
+## Schema Diagram
+
+Below is the full data model layout including fact, dimensions, and disconnected helpers:
+
+![Data Model Diagram](./images/data_model.png)
