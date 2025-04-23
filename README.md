@@ -33,7 +33,7 @@ Now you can adjust the weights and *see* how different goals impact the rankings
 
 ---
 
-## 📥 Try It
+## Try It
 
 1. Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
 2. Open [`docs/data/bakery_story.pbix`](./docs/data/bakery_story.pbix)  
