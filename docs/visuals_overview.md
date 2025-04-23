@@ -1,4 +1,4 @@
-# 🎨 Visuals Overview
+# Visuals Overview
 
 This single-page Power BI report ranks recipes in real time based on your priorities—XP, profit, servings, or low-maintenance bakes. Every visual responds instantly to your slider settings, filters, and presets.
 
