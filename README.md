@@ -132,7 +132,8 @@ All measures use a modular approach:
 ## Technologies
 
 - Power BI Desktop  
-- DAX  
+- DAX
+- Dax Studio
 - Power Query (M)  
 - Excel  
 - GitHub for documentation  
