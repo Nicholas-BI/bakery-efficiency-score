@@ -31,9 +31,6 @@ Now you can adjust the weights and *see* how different goals impact the rankings
 - Nonlinear exponent-based scoring  
 - Full logic exposed in tooltips
 
-📄 [See Measures Overview](./docs/measures_overview.md)  
-📥 [Download DAX Measures (.xlsx)](./docs/data/dax_measures.xlsx)
-
 ---
 
 ## 📥 Try It
@@ -72,15 +69,9 @@ Each recipe’s score is calculated in four steps:
 3. Multiply weighted metrics, divide by penalized ones  
 4. Rank all results in real time
 
-```DAX
-Efficiency Score = 
-DIVIDE(
-    [ProfitNorm]^SELECTEDVALUE(ProfitWeight[Weight]) *
-    [XPNorm]^SELECTEDVALUE(XPWeight[Weight]) *
-    [ServingsNorm]^SELECTEDVALUE(ServingsWeight[Weight]),
-    [CookTimeNorm]^SELECTEDVALUE(CookTimeWeight[Weight])
-)
-```
+📄 [See Measures Overview](./docs/measures_overview.md)  
+📥 [Download DAX Measures (.xlsx)](./docs/data/dax_measures.xlsx)
+
 ---
 
 ## Preset Strategies
