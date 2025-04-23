@@ -212,7 +212,8 @@ All fully dynamic, filter-aware, and powered by DAX.
 
 ---
 
-### Documentation
+### Explore Other Sections
+
 - [`docs/data_model_overview.md`](./docs/data_model_overview.md) – Table relationships  
 - [`docs/measures_overview.md`](./docs/measures_overview.md) – DAX logic  
 - [`docs/power_query_overview.md`](./docs/power_query_overview.md) – ETL design  
