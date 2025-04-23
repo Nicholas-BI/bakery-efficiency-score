@@ -51,11 +51,6 @@ Created using `GENERATESERIES`, each weight table powers a disconnected slider f
 
 Used with `SELECTEDVALUE()` to inject logic directly into DAX without affecting relationships.
 
-### Example: `ProfitWeight`
-```DAX
-ProfitWeight = GENERATESERIES(-20, 20, 1)
-```
-
 ---
 
 ## Utility Tables
