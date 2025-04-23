@@ -29,7 +29,7 @@ Curious how the scoring works or how sliders plug into DAX? You’re in the righ
 - Supports slicers, titles, and filtering  
 
 ### `Dim_Appliance`
-- Maps recipes to their appliance (e.g. oven, stove)  
+- Maps recipes to their appliance (e.g. oven, grill, fryer)  
 - Used to filter by equipment availability  
 
 ---
