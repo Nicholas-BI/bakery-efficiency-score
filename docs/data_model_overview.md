@@ -68,7 +68,7 @@ These helper tables aren’t joined to the fact, but they drive interactive and 
 
 ### `Axis Selector`
 - Provides display names for chart axes (e.g., “Recipe vs. Appliance”)  
-- Powers dynamic axis swapping in scatter plots  
+- Powers dynamic axis swapping in ranking visual  
 
 ### `Measure Table`
 - Contains a row per measure/strategy  
