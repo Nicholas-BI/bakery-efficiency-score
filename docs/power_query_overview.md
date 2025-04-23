@@ -63,7 +63,8 @@ Each file contains the raw M code for its corresponding query.
 
 ---
 
-### Documentation
+### Explore Other Sections
+
 - [`docs/data_model_overview.md`](./docs/data_model_overview.md) – Table relationships  
 - [`docs/measures_overview.md`](./docs/measures_overview.md) – DAX logic  
 - [`docs/power_query_overview.md`](./docs/power_query_overview.md) – ETL design  
