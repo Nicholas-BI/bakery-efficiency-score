@@ -40,7 +40,7 @@ Now you can adjust the weights and *see* how different goals impact the rankings
 ## Try It
 
 1. Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
-2. [Download bakery_story.pbix](https://raw.githubusercontent.com/‹your-username›/‹your-repo›/main/docs/data/bakery_story.pbix)
+2. <a href="./docs/data/bakery_story.pbix" download>Download bakery_story.pbix</a>
 3. Tweak sliders and explore strategies  
 4. Review tooltips and scoring logic
 
