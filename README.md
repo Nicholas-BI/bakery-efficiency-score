@@ -40,7 +40,7 @@ Now you can adjust the weights and *see* how different goals impact the rankings
 ## Try It
 
 1. Download [Power BI Desktop](https://powerbi.microsoft.com/desktop)  
-2. <a href="./docs/data/bakery_story.pbix" download>Download bakery_story.pbix</a>
+2. [Download bakery_story_source.xlsx](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story_source.xlsx)
 3. Tweak sliders and explore strategies  
 4. Review tooltips and scoring logic
 
