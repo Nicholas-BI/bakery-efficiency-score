@@ -50,7 +50,7 @@ Now you can adjust the weights and *see* how different goals impact the rankings
 
 Each recipe’s score is calculated in four steps:
 
-1. Normalize each metric to the [1–2] range  
+1. Normalize each metric to the [0–1] range  
 2. Apply user-selected exponents (from sliders)  
 3. Multiply weighted metrics, divide by penalized ones  
 4. Rank all results in real time
