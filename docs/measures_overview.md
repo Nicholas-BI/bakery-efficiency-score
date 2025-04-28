@@ -186,18 +186,20 @@ VAR IsRecipe    = ISINSCOPE( Dim_Recipe[Recipe] )
 VAR IsAppliance = ISINSCOPE( Dim_Appliance[Appliance] )
 VAR SelAppl     = SELECTEDVALUE( Dim_Appliance[Appliance], "all appliances" )
 
+
 VAR CandidateRecipes =
     FILTER(
         ALLSELECTED( Dim_Recipe[Recipe] ),
-        NOT( ISBLANK( [Raw Efficiency Score] ) )
+        NOT( ISBLANK( [Scaled Efficiency Score] ) )
     )
 
 VAR NumRec    = COUNTROWS( CandidateRecipes )
-VAR ScoreMax  = MAXX( CandidateRecipes, [Raw Efficiency Score] )
-VAR ScoreMin  = MINX( CandidateRecipes, [Raw Efficiency Score] )
+VAR ScoreMax  = MAXX( CandidateRecipes, [Scaled Efficiency Score] )
+VAR ScoreMin  = MINX( CandidateRecipes, [Scaled Efficiency Score] )
 VAR TopRecs   =
-    FILTER( CandidateRecipes, [Raw Efficiency Score] = ScoreMax )
+    FILTER( CandidateRecipes, [Scaled Efficiency Score] = ScoreMax )
 VAR NumTops   = COUNTROWS( TopRecs )
+
 
 VAR OneName =
     FIRSTNONBLANK( CandidateRecipes, Dim_Recipe[Recipe] )
@@ -223,6 +225,7 @@ SWITCH(
         "Best recipe: " &
         FIRSTNONBLANK( TopRecs, Dim_Recipe[Recipe] )
 )
+
 ```
 
 This handles ties, blanks, and unhelpful filter situations with a friendly message.
