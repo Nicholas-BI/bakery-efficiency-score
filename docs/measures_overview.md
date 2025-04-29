@@ -154,17 +154,23 @@ Once the raw scores are calculated, we **scale** them to bring them into a consi
 We normalize the raw scores again, using the maximum score as the new baseline:
 
 ```DAX
-Scaled Efficiency Score =
-DIVIDE(
-    [Raw Efficiency Score],
-    CALCULATE(
-        MAXX(
-            VALUES( Dim_Recipe[Recipe] ),
-            [Raw Efficiency Score]
+Scaled Efficiency Score = 
+VAR Raw = [Raw Efficiency Score]
+
+
+VAR MaxInView =
+    IF(
+        ISINSCOPE( Dim_Recipe[Recipe] ),
+        CALCULATE(
+            MAXX( ALLSELECTED( Dim_Recipe[Recipe] ), [Raw Efficiency Score] )
+        ),
+        CALCULATE(
+            MAXX( ALLSELECTED( Dim_Appliance[Appliance] ), [Raw Efficiency Score] )
         )
-    ),
-    0
-)
+    )
+
+RETURN
+DIVIDE( Raw, MaxInView, 0 ) * 100
 ```
 
 This ensures the best recipe always has a scaled score of **1**, and others fall proportionally below it.
