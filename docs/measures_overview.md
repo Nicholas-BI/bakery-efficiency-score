@@ -182,56 +182,48 @@ This ensures the best recipe always has a scaled score of **100**, and others fa
 Now that every recipe has a scaled score, we sort them and return the top result in context.
 
 ```DAX
-Best Recipe = 
-VAR PW     = SELECTEDVALUE( ProfitWeight[Profit Weight],      0 )
-VAR CW     = SELECTEDVALUE( CookTimeWeight[Cook Time Weight], 0 )
-VAR SW     = SELECTEDVALUE( ServingsWeight[Servings Weight],  0 )
-VAR XW     = SELECTEDVALUE( XPWeight[XP Weight],              0 )
+Best Recipe =
+VAR TotalWeight =
+    SELECTEDVALUE( ProfitWeight[Profit Weight], 0 )
+  + SELECTEDVALUE( CookTimeWeight[Cook Time Weight], 0 )
+  + SELECTEDVALUE( ServingsWeight[Servings Weight], 0 )
+  + SELECTEDVALUE( XPWeight[XP Weight], 0 )
 
-VAR IsRecipe    = ISINSCOPE( Dim_Recipe[Recipe] )
-VAR IsAppliance = ISINSCOPE( Dim_Appliance[Appliance] )
-VAR SelAppl     = SELECTEDVALUE( Dim_Appliance[Appliance], "all appliances" )
+VAR SelectedAppliance =
+    SELECTEDVALUE( Dim_Appliance[Appliance], "all appliances" )
 
-
-VAR CandidateRecipes =
+VAR Recipes =
     FILTER(
         ALLSELECTED( Dim_Recipe[Recipe] ),
         NOT( ISBLANK( [Scaled Efficiency Score] ) )
     )
 
-VAR NumRec    = COUNTROWS( CandidateRecipes )
-VAR ScoreMax  = MAXX( CandidateRecipes, [Scaled Efficiency Score] )
-VAR ScoreMin  = MINX( CandidateRecipes, [Scaled Efficiency Score] )
-VAR TopRecs   =
-    FILTER( CandidateRecipes, [Scaled Efficiency Score] = ScoreMax )
-VAR NumTops   = COUNTROWS( TopRecs )
-
-
-VAR OneName =
-    FIRSTNONBLANK( CandidateRecipes, Dim_Recipe[Recipe] )
+VAR CountRec       = COUNTROWS( Recipes )
+VAR MaxScore       = MAXX( Recipes, [Scaled Efficiency Score] )
+VAR MinScore       = MINX( Recipes, [Scaled Efficiency Score] )
+VAR TopRecipes     = FILTER( Recipes, [Scaled Efficiency Score] = MaxScore )
+VAR CountTop       = COUNTROWS( TopRecipes )
+VAR FirstRecipe    = FIRSTNONBLANK( Recipes,       Dim_Recipe[Recipe] )
+VAR TopRecipeName  = FIRSTNONBLANK( TopRecipes,    Dim_Recipe[Recipe] )
 
 RETURN
 SWITCH(
     TRUE(),
-    NumRec = 0,
+    CountRec = 0,
         "No recipes match current filters",
-    PW = 0 && CW = 0 && SW = 0 && XW = 0,
+    TotalWeight = 0,
         "All weights are zero; adjust to find a winner, then click column in chart to see KPIs",
-    NumRec = 1,
-        "Selected recipe: " & OneName,
-    ScoreMax = ScoreMin,
+    CountRec = 1,
+        "Selected recipe: " & FirstRecipe,
+    MaxScore = MinScore,
         "All recipes tied — try different weights or refine filters",
-    NumTops > 1,
+    CountTop > 1,
         "Top recipes tied: " &
-        CONCATENATEX( TopRecs, Dim_Recipe[Recipe], ", " ),
-    IsAppliance,
-        "Best recipe in " & SelAppl & ": " &
-        FIRSTNONBLANK( TopRecs, Dim_Recipe[Recipe] ),
-    TRUE(),
-        "Best recipe: " &
-        FIRSTNONBLANK( TopRecs, Dim_Recipe[Recipe] )
+        CONCATENATEX( TopRecipes, Dim_Recipe[Recipe], ", " ),
+    ISINSCOPE( Dim_Appliance[Appliance] ),
+        "Best recipe in " & SelectedAppliance & ": " & TopRecipeName,
+    "Best recipe: " & TopRecipeName
 )
-
 ```
 
 This handles ties, blanks, and unhelpful filter situations with a friendly message.
