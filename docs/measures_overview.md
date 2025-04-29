@@ -211,7 +211,6 @@ SWITCH(
     CountRec = 0,
         "No recipes match current filters",
 
-    /* All four weights individually zero */
     PW = 0 && CW = 0 && SW = 0 && XW = 0,
         "All weights are zero; adjust to find a winner, then click column in chart to see KPIs",
 
@@ -227,7 +226,6 @@ SWITCH(
     ISINSCOPE( Dim_Appliance[Appliance] ),
         "Best recipe in " & SelectedAppliance & ": " & TopRecipe,
 
-    /* Default */
     "Best recipe: " & TopRecipe
 )
 ```
