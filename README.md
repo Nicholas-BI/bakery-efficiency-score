@@ -125,7 +125,7 @@ Modular and reusable:
 All measures use a modular approach:
 
 - **Base** – Raw values per metric  
-- **Normalized** – Scaled to [1–2] for comparison  
+- **Normalized** – Scaled to [0–1] for comparison  
 - **Exponent Applied** – Driven by user sliders  
 - **Combined Score** – Final rankable value  
 
