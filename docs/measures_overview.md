@@ -173,7 +173,7 @@ RETURN
 DIVIDE( Raw, MaxInView, 0 ) * 100
 ```
 
-This ensures the best recipe always has a scaled score of **1**, and others fall proportionally below it.
+This ensures the best recipe always has a scaled score of **100**, and others fall proportionally below it.
 
 ---
 
