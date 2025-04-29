@@ -241,9 +241,10 @@ This handles ties, blanks, and unhelpful filter situations with a friendly messa
    – Single recipe: normalize vs global max  
    – Multiple recipes: normalize vs appliance-level average
 3. **Apply weights** to emphasize or de-emphasize traits
-4. **Raise values to those weights** and combine
-5. **Scale the final scores** to make results proportional
-6. **Pick the best result** using that scaled score
+4. **Raise values to those weights**
+5. **Multiply weighted metrics, divide by penalized ones**
+6. **Scale the final scores**  
+7. **Pick the best result** using that scaled score
 
 All fully dynamic, filter-aware, and powered by DAX.
 
