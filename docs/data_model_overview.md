@@ -80,8 +80,8 @@ Below is the full data model layout including fact, dimensions, and disconnected
 
 ### Explore Other Sections
 
-- 📄 [`docs/measures_overview.md`](./measures_overview.md) – DAX logic  
-- 📄 [`docs/power_query_overview.md`](./power_query_overview.md) – ETL design  
-- 📄 [`docs/visuals_overview.md`](./visuals_overview.md) – Layout and interactions
+- 📄 [`See Measures Overview`](./docs/measures_overview.md) – DAX logic  
+- 📄 [`See Power Query Overview`](./docs/power_query_overview.md) – ETL design  
+- 📄 [`See Visuals Overview`](./docs/visuals_overview.md) – Layout and interactions  
 
 ---
