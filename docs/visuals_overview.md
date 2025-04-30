@@ -32,7 +32,7 @@ This single-page Power BI report ranks recipes in real time based on your priori
 - Updates instantly with every change
 
 ### Weight Sliders
-- Adjust weights (–20 to +20) for each trait  
+- Adjust weights (–5 to +5) for each trait  
 - Values act as **exponents** in the scoring formula  
 - 0 = neutral, negatives penalize
 
@@ -57,7 +57,7 @@ Hover any bar to see exactly how a score was built.
 | Field         | Description                              |
 |---------------|------------------------------------------|
 | **Metric**    | The trait being scored                   |
-| **Normalized**| Scaled to [1–2] range                    |
+| **Normalized**| Scaled to [0–1] range                    |
 | **Weight**    | Your selected exponent                   |
 | **Placement** | Role in formula: numerator, denominator, or ignored |
 | **Value**     | Final contribution to the overall score  |
