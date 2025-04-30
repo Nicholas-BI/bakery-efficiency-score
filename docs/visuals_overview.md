@@ -13,7 +13,7 @@ This single-page Power BI report ranks recipes in real time based on your priori
 | **Upper Center**  | Best Recipe Card and Appliance Selector – shows best recipe, selection, and filters    |
 | **Middle Left**   | Axis Field Selector – toggle between Appliance or Recipe                 |
 | **Lower Left**    | Preset Buttons – strategy bookmarks: Reset, Quick Cash, XP Farm, etc.    |
-| **Center**        | Score by Recipe Chart – visual ranking based on user-weighted efficiency |
+| **Center**        | Score by Recipe or Appliance Chart – visual ranking based on user-weighted efficiency |
 | **Right Panel**   | Weight Sliders – Profit, Cook Time, Servings, XP                         |
 
 
