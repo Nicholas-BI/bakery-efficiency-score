@@ -78,16 +78,6 @@ Hover any bar to see exactly how a score was built.
 
 ---
 
-## More Info
-
-Want the full logic?
-
-📄 [See Measures Overview](./measures_overview.md)
-
-This isn’t just a dashboard—it’s a strategy engine built for play.
-
----
-
 ### Explore Other Sections
 
 - 📄 [`See Data Model Overview`](./docs/data_model_overview.md) – Table relationships  
