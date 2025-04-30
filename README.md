@@ -58,7 +58,7 @@ Each recipe’s score is calculated in four steps:
 6. Rank all results in real time
 
 📄 [See Measures Overview](./docs/measures_overview.md)  
-📥 [Download DAX Measures (.xlsx)](./docs/data/dax_measures.xlsx)
+📥 [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/dax_measures.xlsx) 
 
 ---
 
