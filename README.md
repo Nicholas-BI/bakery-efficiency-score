@@ -138,16 +138,16 @@ Modular and reusable:
 - 📥 [Download Report (.pbix)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story.pbix) *(direct download)*  
 - 📥 [Download DAX Measures (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/dax_measures.xlsx) *(direct download)*  
 - 📥 [Download Source Data (.xlsx)](https://raw.githubusercontent.com/Nicholas-BI/bakery-efficiency-score/main/docs/data/bakery_story_source.xlsx) *(direct download)*  
-- 🖼️ [`docs/images`](./docs/images) – Visuals and diagrams
+- 🖼️ [docs/images](./docs/images) – Visuals and diagrams
 
 ---
 
 ### Explore Other Sections
 
-- 📄 [`See Data Model Overview`](./docs/data_model_overview.md) – Table relationships  
-- 📄 [`See Measures Overview`](./docs/measures_overview.md) – DAX logic  
-- 📄 [`See Power Query Overview`](./docs/power_query_overview.md) – ETL design  
-- 📄 [`See Visuals Overview`](./docs/visuals_overview.md) – Layout and interactions  
+- 📄 [See Data Model Overview](./docs/data_model_overview.md) – Table relationships  
+- 📄 [See Measures Overview](./docs/measures_overview.md) – DAX logic  
+- 📄 [See Power Query Overview](./docs/power_query_overview.md) – ETL design  
+- 📄 [See Visuals Overview](./docs/visuals_overview.md) – Layout and interactions  
 
 ---
 
