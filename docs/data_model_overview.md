@@ -80,7 +80,6 @@ Below is the full data model layout including fact, dimensions, and disconnected
 
 ### Explore Other Sections
 
-- [`docs/data_model_overview.md`](./data_model_overview.md) – Table relationships  
 - [`docs/measures_overview.md`](./measures_overview.md) – DAX logic  
 - [`docs/power_query_overview.md`](./power_query_overview.md) – ETL design  
 - [`docs/visuals_overview.md`](./visuals_overview.md) – Layout and interactions
