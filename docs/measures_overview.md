@@ -260,8 +260,8 @@ All fully dynamic, filter-aware, and powered by DAX.
 
 ### Explore Other Sections
 
-- 📄 [`docs/data_model_overview.md`](./data_model_overview.md) – Table relationships  
-- 📄 [`docs/power_query_overview.md`](./power_query_overview.md) – ETL design  
-- 📄 [`docs/visuals_overview.md`](./visuals_overview.md) – Layout and interactions
+- 📄 [`See Data Model Overview`](./docs/data_model_overview.md) – Table relationships  
+- 📄 [`See Power Query Overview`](./docs/power_query_overview.md) – ETL design  
+- 📄 [`See Visuals Overview`](./docs/visuals_overview.md) – Layout and interactions  
 
 ---
