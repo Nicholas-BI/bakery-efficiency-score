@@ -90,8 +90,8 @@ This isn’t just a dashboard—it’s a strategy engine built for play.
 
 ### Explore Other Sections
 
-- 📄 [`docs/data_model_overview.md`](./data_model_overview.md) – Table relationships  
-- 📄 [`docs/measures_overview.md`](./measures_overview.md) – DAX logic  
-- 📄 [`docs/power_query_overview.md`](./power_query_overview.md) – ETL design  
+- 📄 [`See Data Model Overview`](./docs/data_model_overview.md) – Table relationships  
+- 📄 [`See Measures Overview`](./docs/measures_overview.md) – DAX logic  
+- 📄 [`See Power Query Overview`](./docs/power_query_overview.md) – ETL design  
 
 ---
