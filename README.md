@@ -145,9 +145,9 @@ Modular and reusable:
 ### Explore Other Sections
 
 - 📄 [`See Data Model Overview`](./docs/data_model_overview.md) – Table relationships  
-- 📄 [`docs/measures_overview.md`](./docs/measures_overview.md) – DAX logic  
-- 📄 [`docs/power_query_overview.md`](./docs/power_query_overview.md) – ETL design  
-- 📄 [`docs/visuals_overview.md`](./docs/visuals_overview.md) – Layout and interactions  
+- 📄 [`See Measures Overview`](./docs/measures_overview.md) – DAX logic  
+- 📄 [`See Power Query Overview`](./docs/power_query_overview.md) – ETL design  
+- 📄 [`See Visuals Overview`](./docs/visuals_overview.md) – Layout and interactions  
 
 ---
 
