@@ -88,7 +88,7 @@ All visuals are packed into a single, fully interactive report page:
 - **Tooltips** – Transparent, step-by-step breakdowns of each score  
 - **Bookmark Reset** – Quickly revert to the default view  
 
-📄 Learn more in the [Visuals Overview](./docs/visuals_overview.md)
+📄 [See Visuals Overview](./docs/visuals_overview.md)
 
 ---
 
